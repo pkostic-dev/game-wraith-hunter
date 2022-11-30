@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://deccg7cba0rql"]
+
+[ext_resource type="PackedScene" uid="uid://c35ac7ds1qtc0" path="res://player.tscn" id="1_l42ag"]
+[ext_resource type="PackedScene" uid="uid://d1sxu6mv1v3oi" path="res://ghost.tscn" id="2_ujbdj"]
+[ext_resource type="PackedScene" uid="uid://cqco0h8wnlpdh" path="res://room.tscn" id="3_s3efs"]
+
+[node name="PrototypeRoom" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_l42ag")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Ghost" parent="." instance=ExtResource("2_ujbdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Room" parent="." instance=ExtResource("3_s3efs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 4)
+omni_range = 10.0

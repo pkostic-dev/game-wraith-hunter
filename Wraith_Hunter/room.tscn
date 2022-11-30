@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqco0h8wnlpdh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_am4ok"]
+flip_faces = true
+size = Vector3(20, 3, 10)
+
+[node name="Room" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_am4ok")

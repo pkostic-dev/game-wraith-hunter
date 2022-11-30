@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1sxu6mv1v3oi"]
+
+[ext_resource type="AudioStream" uid="uid://cl3qy7um688n5" path="res://metalClick.ogg" id="1_j5h58"]
+[ext_resource type="Script" path="res://ghost.gd" id="1_vpvgt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlgdt"]
+albedo_color = Color(1, 0.196078, 0.0705882, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xnpoy"]
+material = SubResource("StandardMaterial3D_hlgdt")
+radial_segments = 4
+rings = 1
+
+[node name="Ghost" type="Node3D"]
+script = ExtResource("1_vpvgt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_xnpoy")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+stream = ExtResource("1_j5h58")
+doppler_tracking = 1
