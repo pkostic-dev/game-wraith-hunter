@@ -8,6 +8,6 @@ func _ready():
 	tween.set_loops(20)
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		$AudioStreamPlayer3D.play()
