@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb2ccmgp0jn0u"]
+
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_4105a"]
+[ext_resource type="AudioStream" uid="uid://cl3qy7um688n5" path="res://audio/sound_fx/metalClick.ogg" id="2_pmtqd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37j8p"]
+transparency = 1
+albedo_color = Color(1, 0.196078, 0.0705882, 0.521569)
+roughness = 0.49
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6ba1w"]
+material = SubResource("StandardMaterial3D_37j8p")
+
+[node name="Ghost" type="Node3D"]
+script = ExtResource("1_4105a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_6ba1w")
+
+[node name="TestSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+stream = ExtResource("2_pmtqd")
+doppler_tracking = 1
+
+[node name="TestSoundTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="TestSoundTimer" to="." method="_on_test_sound_timer_timeout"]

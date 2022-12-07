@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqco0h8wnlpdh"]
+
+[ext_resource type="Texture2D" uid="uid://cb15u7wmqlsrv" path="res://sprites/checkers.png" id="1_hbag4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbcvr"]
+albedo_color = Color(0.32549, 0.317647, 0.45098, 1)
+albedo_texture = ExtResource("1_hbag4")
+metallic_specular = 0.0
+roughness = 0.36
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_am4ok"]
+material = SubResource("StandardMaterial3D_kbcvr")
+flip_faces = true
+size = Vector3(20, 3, 10)
+
+[node name="Room" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_am4ok")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 2, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+light_energy = 5.981
+omni_range = 19.0
