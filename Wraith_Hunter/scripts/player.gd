@@ -7,23 +7,25 @@ func _ready():
 
 func _process(delta):
 	var acc = Input.get_accelerometer()
-	var grav = Input.get_gravity()
 	var mag = Input.get_magnetometer()
-	var gyro = Input.get_gyroscope()
+	
+	var gravity   = Input.get_gravity()
+	var gyroscope = Input.get_gyroscope()
 
 	$"%Acc".text = "Accelometer : " + str(acc) 
-	$"%Grav".text = "Gravity : " + str(grav)
+	$"%Grav".text = "Gravity : " + str(gravity)
 	$"%Mag".text = "Magnetometer : " + str(mag)
-	$"%Gyro".text = "Gyroscope : " + str(gyro)
+	$"%Gyro".text = "Gyroscope : " + str(gyroscope)
 	
 	var camera = $"%Camera3D"
-	var new_basis = rotate_by_gyro(gyro, camera.transform.basis, delta).orthonormalized()
-	print("Gyroscope :\t\t\t", str(gyro))
+	var new_basis = rotate_by_gyro(gyroscope, camera.transform.basis, delta).orthonormalized()
+	print("Gyroscope :\t\t\t", str(gyroscope))
+	print("Gravity :\t\t\t", str(gravity))
+	
 	print("Camera Basis :\t\t", str(camera.transform.basis))
 	print("New Basis :\t\t\t", str(new_basis))
 	
-	camera.transform.basis = drift_correction(new_basis, grav)
-	print("Gravity :\t\t\t", str(grav))
+	camera.transform.basis = drift_correction(new_basis, gravity)
 	print("Drift Correction :\t", str(camera.transform.basis))
 	print()
 
@@ -35,7 +37,7 @@ func rotate_by_gyro(p_gyro, p_basis, p_delta):
 	var rotate = Basis()
 	
 	rotate = rotate.rotated(p_basis.x, -p_gyro.x * p_delta)
-	rotate = rotate.rotated(p_basis.y, p_gyro.y * p_delta)
+	rotate = rotate.rotated(p_basis.y, -p_gyro.y * p_delta)
 	rotate = rotate.rotated(p_basis.z, -p_gyro.z * p_delta)
 	
 	return rotate * p_basis
