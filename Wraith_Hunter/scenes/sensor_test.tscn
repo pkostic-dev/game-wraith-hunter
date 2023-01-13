@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hk48rlm2ucgp"]
-
-[ext_resource type="PackedScene" uid="uid://cqco0h8wnlpdh" path="res://scenes/room.tscn" id="1_kc7w4"]
-
-[node name="SensorTest" type="Node3D"]
-
-[node name="Room" parent="." instance=ExtResource("1_kc7w4")]
