@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgn16wprsbtm4"]
+
+[ext_resource type="PackedScene" uid="uid://cqco0h8wnlpdh" path="res://scenes/room.tscn" id="1_u32qg"]
+[ext_resource type="PackedScene" uid="uid://cvocegn4o1ppt" path="res://scenes/player.tscn" id="2_cm8mn"]
+[ext_resource type="PackedScene" uid="uid://bb2ccmgp0jn0u" path="res://scenes/ghost.tscn" id="3_unwkd"]
+
+[node name="CameraTest" type="Node3D"]
+
+[node name="Room" parent="." instance=ExtResource("1_u32qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_cm8mn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
+
+[node name="VBoxContainer" parent="Player" index="2"]
+anchors_preset = 0
+
+[node name="Ghost" parent="." instance=ExtResource("3_unwkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[editable path="Player"]

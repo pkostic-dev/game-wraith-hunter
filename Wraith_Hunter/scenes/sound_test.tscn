@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4tefygxwbv7y"]
+
+[ext_resource type="PackedScene" uid="uid://cqco0h8wnlpdh" path="res://scenes/room.tscn" id="1_qjqie"]
+[ext_resource type="PackedScene" uid="uid://bb2ccmgp0jn0u" path="res://scenes/ghost.tscn" id="2_20asv"]
+[ext_resource type="PackedScene" uid="uid://cvocegn4o1ppt" path="res://scenes/player.tscn" id="3_htjd8"]
+
+[node name="SoundTest" type="Node3D"]
+
+[node name="Room" parent="." instance=ExtResource("1_qjqie")]
+
+[node name="Ghost" parent="." instance=ExtResource("2_20asv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Player" parent="." instance=ExtResource("3_htjd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

@@ -54,27 +54,20 @@ metadata/_edit_group_ = true
 
 [node name="Acc" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 45.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
 [node name="Grav" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
-offset_top = 49.0
-offset_right = 40.0
-offset_bottom = 94.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
 [node name="Mag" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
-offset_top = 98.0
-offset_right = 40.0
-offset_bottom = 143.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
 [node name="Gyro" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
-offset_top = 147.0
-offset_right = 40.0
-offset_bottom = 192.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 32

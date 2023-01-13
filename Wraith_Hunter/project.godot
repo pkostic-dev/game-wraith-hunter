@@ -11,15 +11,9 @@ config_version=5
 [application]
 
 config/name="Wraith Hunter"
-run/main_scene="res://scenes/android_test.tscn"
+run/main_scene="res://scenes/camera_test.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.png"
-
-[display]
-
-window/size/viewport_width=648
-window/size/viewport_height=1152
-window/handheld/orientation=1
 
 [input]
 
