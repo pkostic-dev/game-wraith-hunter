@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c64l2eob2l7sf"]
+
+[ext_resource type="Script" path="res://tests/gyroscope/sensor_test.gd" id="1_egceb"]
+[ext_resource type="PackedScene" uid="uid://bdcn5ry7kw4oc" path="res://tests/test_room.tscn" id="1_kc7w4"]
+[ext_resource type="PackedScene" uid="uid://cvocegn4o1ppt" path="res://tests/test_player.tscn" id="2_vkvgx"]
+[ext_resource type="PackedScene" uid="uid://cfytfy5eb3xul" path="res://tests/gyroscope/debug_interface.tscn" id="4_365w7"]
+
+[node name="SensorTest" type="Node3D"]
+script = ExtResource("1_egceb")
+
+[node name="TestPlayer" parent="." instance=ExtResource("2_vkvgx")]
+
+[node name="TestRoom" parent="." instance=ExtResource("1_kc7w4")]
+
+[node name="DebugInterface" parent="." instance=ExtResource("4_365w7")]
+anchors_preset = 15
+
+[node name="Acc" parent="DebugInterface/VBoxContainer" index="0"]
+unique_name_in_owner = false
+
+[editable path="TestPlayer"]
+[editable path="DebugInterface"]

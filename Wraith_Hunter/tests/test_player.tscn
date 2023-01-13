@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvocegn4o1ppt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihs0i"]
+albedo_color = Color(0.439216, 0.74902, 0.427451, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ampwf"]
+material = SubResource("StandardMaterial3D_ihs0i")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qf8yl"]
+size = Vector3(0.2, 0.1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_v3b4r"]
+size = Vector3(0.4, 0.2, 0.1)
+
+[node name="TestPlayer" type="Node3D"]
+
+[node name="PlayerModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ampwf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+current = true
+
+[node name="Phone" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.628, -1.116)
+
+[node name="ArrowBody" type="MeshInstance3D" parent="Camera3D/Phone"]
+mesh = SubResource("BoxMesh_qf8yl")
+
+[node name="ArrowHead" type="MeshInstance3D" parent="Camera3D/Phone"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.565685)
+mesh = SubResource("PrismMesh_v3b4r")
