@@ -1,23 +1,24 @@
-extends Node
+extends Node3D
+
 var swipe_start = null
 var minimum_drag = 100
 var largeur_ecran = 1150
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
 	pass
 
-# Called every frame. 'delta' is the 
-# elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
- # Affichage du menu settings
-func _on_settings_pressed():
-	var scene = "res://menu/menu_settings.tscn"
+func _on_retour_pressed():
+	var scene = "res://menu/menu_main.tscn"
 	var err = get_tree().change_scene_to_file(scene)
 	if err != OK:
-		printerr("La scene %s n'existe pas!" % scene)
+		printerr("La scene %s n'existe pas!" % scene) # Replace with function body.
 
 # Prise en compte du swipe
 func _unhandled_input(event):
