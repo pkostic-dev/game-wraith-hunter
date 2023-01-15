@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://c80brkck8b5rt"]
+
+[ext_resource type="Script" path="res://menu/settings_menu.gd" id="1_krp18"]
+
+[node name="menu_settings" type="Node3D"]
+script = ExtResource("1_krp18")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="Tutorial" type="Button" parent="Container"]
+clip_contents = true
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Back")
+focus_neighbor_right = NodePath("../Difficulty")
+text = "Commencer le tutoriel"
+
+[node name="Difficulty" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Tutorial")
+focus_neighbor_right = NodePath("../Sounds")
+text = "Modifier la difficulté"
+
+[node name="Sounds" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Difficulty")
+focus_neighbor_right = NodePath("../Language")
+text = "Modifier le son"
+
+[node name="Language" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Sounds")
+focus_neighbor_right = NodePath("../Back")
+text = "Changer la langue"
+
+[node name="Back" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Language")
+focus_neighbor_right = NodePath("../Tutorial")
+text = "Retour"
+
+[connection signal="focus_entered" from="Container/Tutorial" to="." method="_on_tutorial_focus_entered"]
+[connection signal="pressed" from="Container/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="focus_entered" from="Container/Difficulty" to="." method="_on_difficulty_focus_entered"]
+[connection signal="pressed" from="Container/Difficulty" to="." method="_on_difficulty_pressed"]
+[connection signal="focus_entered" from="Container/Sounds" to="." method="_on_sounds_focus_entered"]
+[connection signal="pressed" from="Container/Sounds" to="." method="_on_sounds_pressed"]
+[connection signal="focus_entered" from="Container/Language" to="." method="_on_language_focus_entered"]
+[connection signal="pressed" from="Container/Language" to="." method="_on_language_pressed"]
+[connection signal="focus_entered" from="Container/Back" to="." method="_on_retour_focus_entered"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]

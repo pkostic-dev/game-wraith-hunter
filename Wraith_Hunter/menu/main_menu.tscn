@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://ky4jginkk4ue"]
+
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_lh3hp"]
+[ext_resource type="AudioStream" uid="uid://ldt8x83w2tjr" path="res://menu/metalClick.ogg" id="2_a24ec"]
+
+[node name="menu_main" type="Node3D"]
+script = ExtResource("1_lh3hp")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 647.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StartGame" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Settings")
+focus_neighbor_right = NodePath("../Settings")
+text = "Lancer le jeu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/StartGame"]
+stream = ExtResource("2_a24ec")
+
+[node name="Settings" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../StartGame")
+focus_neighbor_right = NodePath("../StartGame")
+text = "Accéder aux paramètres"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Container/Settings"]
+stream = ExtResource("2_a24ec")
+
+[connection signal="focus_entered" from="Container/StartGame" to="." method="_on_start_game_focus_entered"]
+[connection signal="pressed" from="Container/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="focus_entered" from="Container/Settings" to="." method="_on_settings_focus_entered"]
+[connection signal="pressed" from="Container/Settings" to="." method="_on_settings_pressed"]
