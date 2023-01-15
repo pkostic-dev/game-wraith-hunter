@@ -34,7 +34,7 @@ func _right():
 	$Container.position.x -= 1150
 
 func _left():
-	$Container.position.x = 1150
+	$Container.position.x += 1150
 
 
 func _on_settings_pressed():
@@ -43,13 +43,10 @@ func _on_settings_pressed():
 func _on_start_game_pressed():
 	pass # Replace with function body.
 
-
 func _on_start_game_focus_entered():
-	#$AudioStreamPlayer.play()
-	pass
-
+	%StartGameSound.play(0)
 
 func _on_settings_focus_entered():
-	pass # Replace with function body.
+	%SettingsSound.play(0)
 
 

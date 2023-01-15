@@ -2,6 +2,7 @@ extends Node3D
 
 var swipe_start = null
 var minimum_drag = 100
+var screen_size = 1150
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,15 +31,18 @@ func _calculate_swipe(swipe_end):
 		else:
 			_left()
 
-# When swip right (from left to right)
+# When swipe right (from left to right)
 func _right():
-	$Container.position.x -= 1150
+	$Container.position.x -= screen_size
 	
 #When swipe left (from right to left)
 func _left():
-	$Container.position.x = 1150
-
-
+	if $Container.position.x == 0:
+		$Container.position.x -= (screen_size*4)
+	else: 
+		$Container.position.x += screen_size
+		
+		
 func _on_tutorial_pressed():
 	pass # Replace with function body.
 
@@ -60,18 +64,22 @@ func _on_back_pressed():
 
 # Menu audio
 func _on_back_focus_entered():
-	pass
-
-func _on_language_focus_entered():
-	pass # Replace with function body.
-
-
-func _on_sounds_focus_entered():
-	pass # Replace with function body.
-
+	%TutorialRedo.play(0)
 
 func _on_difficulty_focus_entered():
-	pass # Replace with function body.
+	%DifficultySettings.play(0)
+
+func _on_sounds_focus_entered():
+	%SoundsSettings.play(0)
+
+func _on_language_focus_entered():
+	%BackToMain.play(0)
+
+
+
+
+
+
 
 
 func _on_tutorial_focus_entered():

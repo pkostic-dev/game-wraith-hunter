@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c80brkck8b5rt"]
+[gd_scene load_steps=5 format=3 uid="uid://c80brkck8b5rt"]
 
 [ext_resource type="Script" path="res://menu/settings_menu.gd" id="1_krp18"]
+[ext_resource type="AudioStream" uid="uid://b6idfgvxpc57t" path="res://audio/narration/menu/MENU_RESTART_TUTORIAL.wav" id="2_7ygl7"]
+[ext_resource type="AudioStream" uid="uid://dvqeqdxlafuo8" path="res://audio/narration/menu/MENU_DIFFICULTY.wav" id="3_g7rd5"]
+[ext_resource type="AudioStream" uid="uid://bvbmva4ek816v" path="res://audio/narration/menu/MENU_SOUNDS.wav" id="4_w4o65"]
 
 [node name="menu_settings" type="Node3D"]
 script = ExtResource("1_krp18")
@@ -11,6 +14,7 @@ offset_bottom = 645.0
 size_flags_horizontal = 3
 
 [node name="Tutorial" type="Button" parent="Container"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
@@ -18,6 +22,10 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Back")
 focus_neighbor_right = NodePath("../Difficulty")
 text = "Commencer le tutoriel"
+
+[node name="TutorialRedo" type="AudioStreamPlayer" parent="Container/Tutorial"]
+unique_name_in_owner = true
+stream = ExtResource("2_7ygl7")
 
 [node name="Difficulty" type="Button" parent="Container"]
 custom_minimum_size = Vector2(1150, 0)
@@ -27,6 +35,10 @@ focus_neighbor_left = NodePath("../Tutorial")
 focus_neighbor_right = NodePath("../Sounds")
 text = "Modifier la difficulté"
 
+[node name="DifficultySettings" type="AudioStreamPlayer" parent="Container/Difficulty"]
+unique_name_in_owner = true
+stream = ExtResource("3_g7rd5")
+
 [node name="Sounds" type="Button" parent="Container"]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
@@ -34,6 +46,10 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Difficulty")
 focus_neighbor_right = NodePath("../Language")
 text = "Modifier le son"
+
+[node name="SoundsSettings" type="AudioStreamPlayer" parent="Container/Sounds"]
+unique_name_in_owner = true
+stream = ExtResource("4_w4o65")
 
 [node name="Language" type="Button" parent="Container"]
 custom_minimum_size = Vector2(1150, 0)
@@ -43,6 +59,9 @@ focus_neighbor_left = NodePath("../Sounds")
 focus_neighbor_right = NodePath("../Back")
 text = "Changer la langue"
 
+[node name="LanguageSettings" type="AudioStreamPlayer" parent="Container/Language"]
+unique_name_in_owner = true
+
 [node name="Back" type="Button" parent="Container"]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
@@ -50,6 +69,9 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Language")
 focus_neighbor_right = NodePath("../Tutorial")
 text = "Retour"
+
+[node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
+unique_name_in_owner = true
 
 [connection signal="focus_entered" from="Container/Tutorial" to="." method="_on_tutorial_focus_entered"]
 [connection signal="pressed" from="Container/Tutorial" to="." method="_on_tutorial_pressed"]
