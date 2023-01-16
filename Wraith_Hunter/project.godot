@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Wraith Hunter"
-run/main_scene="res://tests/gyroscope/sensor_test.tscn"
+run/main_scene="res://tests/haptic/haptic_test.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.png"
 

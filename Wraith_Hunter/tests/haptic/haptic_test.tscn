@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://e6wqhwqkvplb"]
+
+[ext_resource type="Script" path="res://tests/haptic/haptic_test.gd" id="1_u78ed"]
+
+[node name="haptic_test" type="Node"]
+script = ExtResource("1_u78ed")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VibrateShort" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Vibrate Short"
+
+[node name="Vibrate" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Vibrate"
+
+[node name="VibrateLong" type="Button" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Vibrate Long"
+
+[connection signal="pressed" from="GridContainer/VibrateShort" to="." method="_on_vibrate_short_pressed"]
+[connection signal="pressed" from="GridContainer/Vibrate" to="." method="_on_vibrate_pressed"]
+[connection signal="pressed" from="GridContainer/VibrateLong" to="." method="_on_vibrate_long_pressed"]
