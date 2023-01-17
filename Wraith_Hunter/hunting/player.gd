@@ -17,8 +17,6 @@ func _process(delta):
 func rotate_by_gyro(p_gyro, p_basis, p_delta):
 	var _rotate = Basis()
 
-	#_rotate = _rotate.rotated(p_basis.x, 0)#p_gyro.x * p_delta) # pitch ?
 	_rotate = _rotate.rotated(p_basis.y, p_gyro.y * p_delta) # yaw
-	#_rotate = _rotate.rotated(p_basis.z, 0)#p_gyro.z * p_delta) # roll
 	
 	return _rotate * p_basis
