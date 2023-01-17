@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh8n4ff1vocjo"]
+[gd_scene load_steps=6 format=3 uid="uid://bh8n4ff1vocjo"]
 
 [ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="1_incrc"]
 [ext_resource type="PackedScene" uid="uid://b67rk41n4xrto" path="res://hunting/ambiance_object.tscn" id="2_nrwnj"]
 [ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="3_5q1y7"]
 [ext_resource type="PackedScene" uid="uid://biclbdrxne6np" path="res://hunting/screen_cover.tscn" id="4_m63kl"]
+[ext_resource type="PackedScene" uid="uid://26l86nod4xg6" path="res://hunting/ghost.tscn" id="5_kld0u"]
 
 [node name="TestLevel" type="Node3D"]
 
@@ -36,3 +37,6 @@ repeat_time_max = 24.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="ScreenCover" parent="." instance=ExtResource("4_m63kl")]
+
+[node name="Ghost" parent="." instance=ExtResource("5_kld0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.00397, 0, -4.71097)
