@@ -21,6 +21,13 @@ func _process(delta):
 	
 	if Input.is_action_pressed("ui_right"):
 		head.transform.basis = rotate_by_gyro(Vector3(0, -1, 0), head.transform.basis, delta).orthonormalized()
+	
+	# Simulate screen touch for debugging on PC
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if raycast.is_colliding():
+			var collider = raycast.get_collider()
+			if collider:
+				collider.get_parent().queue_free()
 
 
 func _physics_process(_delta):
@@ -29,6 +36,12 @@ func _physics_process(_delta):
 		raycast_debug.mesh.material.albedo_color = Color(1, 1, 1)
 	else:
 		raycast_debug.mesh.material.albedo_color = Color(0.1, 0.2, 0.6)
+
+
+func _unhandled_input(event):
+	if event is InputEventScreenTouch:
+		if raycast.is_colliding():
+			raycast.get_collider().get_parent().queue_free()
 
 
 func rotate_by_gyro(p_gyro, p_basis, p_delta):

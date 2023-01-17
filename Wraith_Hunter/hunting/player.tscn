@@ -32,6 +32,7 @@ mesh = SubResource("CapsuleMesh_5p1sl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+doppler_tracking = 2
 current = true
 fov = 90.0
 
