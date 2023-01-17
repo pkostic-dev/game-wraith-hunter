@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp7mdaqnitsdy"]
+[gd_scene load_steps=3 format=3 uid="uid://bp7mdaqnitsdy"]
 
 [ext_resource type="PackedScene" uid="uid://dq6q4df2e2iqq" path="res://tests/test_ghost.tscn" id="1_77br8"]
-[ext_resource type="PackedScene" uid="uid://bdcn5ry7kw4oc" path="res://tests/test_room.tscn" id="2_rrh35"]
-[ext_resource type="PackedScene" uid="uid://cvocegn4o1ppt" path="res://tests/test_player.tscn" id="3_yue78"]
+[ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="1_rgrnw"]
 
 [node name="BinauralTest" type="Node3D"]
 
+[node name="Room" parent="." instance=ExtResource("1_rgrnw")]
+
 [node name="TestGhost" parent="." instance=ExtResource("1_77br8")]
 behavior = 1
-
-[node name="TestRoom" parent="." instance=ExtResource("2_rrh35")]
-
-[node name="TestPlayer" parent="." instance=ExtResource("3_yue78")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
