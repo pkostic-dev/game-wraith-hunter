@@ -13,7 +13,8 @@ enum AmbianceSound {
 
 @onready var audio_stream_player_3D := $AudioStreamPlayer3D
 @onready var repeat_timer := $RepeatTimer
-@onready var label_3D := $Label3D
+@onready var ambiance_sound_name := $AmbianceSoundName
+@onready var repeat_timer_count := $RepeatTimerCount
 
 func _ready():
 	# Set the audio to the ambiance object
@@ -32,7 +33,11 @@ func _ready():
 	repeat_timer.start()
 	
 	# Change Label3D text to the corresponding sound
-	label_3D.text = AmbianceSound.keys()[ambiance_sound]
+	ambiance_sound_name.text = AmbianceSound.keys()[ambiance_sound]
+
+
+func _process(_delta):
+	repeat_timer_count.text = "%.2f sec" % repeat_timer.time_left
 
 
 func _on_repeat_timer_timeout():
@@ -40,7 +45,7 @@ func _on_repeat_timer_timeout():
 		# Play the sound
 		audio_stream_player_3D.play()
 		# Change the Label3D text color to green
-		label_3D.modulate = Color(.2, 1, .2)
+		ambiance_sound_name.modulate = Color(.2, 1, .2)
 	
 	# Repeat the timer
 	repeat_timer.wait_time = randf_range(repeat_time_min, repeat_time_max)
@@ -49,4 +54,4 @@ func _on_repeat_timer_timeout():
 
 func _on_audio_stream_player_3d_finished():
 	# Reset the color to white
-	label_3D.modulate = Color(1, 1, 1)
+	ambiance_sound_name.modulate = Color(1, 1, 1)

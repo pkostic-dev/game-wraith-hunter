@@ -12,11 +12,17 @@ bus = &"Ambiance"
 
 [node name="RepeatTimer" type="Timer" parent="."]
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="AmbianceSoundName" type="Label3D" parent="."]
 pixel_size = 0.01
 billboard = 1
-text = "NAME_LABEL"
+text = "DOOR_HANDLE_1"
 script = ExtResource("2_bl1gk")
+
+[node name="RepeatTimerCount" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.427133, 0)
+pixel_size = 0.01
+billboard = 1
+text = "0 sec"
 
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
 [connection signal="timeout" from="RepeatTimer" to="." method="_on_repeat_timer_timeout"]
