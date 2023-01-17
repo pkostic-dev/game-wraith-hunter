@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs1gtady780iy"]
+[gd_scene load_steps=6 format=3 uid="uid://bs1gtady780iy"]
 
 [ext_resource type="Script" path="res://hunting/player.gd" id="1_l6bwx"]
 
@@ -7,6 +7,18 @@ albedo_color = Color(0.439216, 0.74902, 0.427451, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5p1sl"]
 material = SubResource("StandardMaterial3D_ihs0i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yvnyt"]
+shading_mode = 0
+albedo_color = Color(0.0980392, 0.2, 0.6, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n50oa"]
+material = SubResource("StandardMaterial3D_yvnyt")
+top_radius = 0.005
+bottom_radius = 0.05
+height = 20.0
+radial_segments = 4
+rings = 1
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_l6bwx")
@@ -25,3 +37,10 @@ fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Head"]
 target_position = Vector3(0, 0, -20)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCastDebug" type="MeshInstance3D" parent="Head/RayCast3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.2, -10)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_n50oa")
