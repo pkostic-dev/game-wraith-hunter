@@ -9,6 +9,9 @@ script = ExtResource("1_egceb")
 
 [node name="Room" parent="." instance=ExtResource("2_pbr5r")]
 
+
 [node name="TestPlayer" parent="." instance=ExtResource("2_vkvgx")]
+[node name="DebugInterface" parent="." instance=ExtResource("4_365w7")]
+
 
 [editable path="TestPlayer"]
