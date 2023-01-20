@@ -1,6 +1,6 @@
 # Wraith Hunter
 
-Wraith Hunter is an audio-only game targetting Android smartphones. It is made in [Godot 4](godotengine.org) using GDScript. This game uses binaural audio, haptic feedback, and the gyroscope sensor for gameplay. It also uses the touchscreen for controls. Debug controls allow to test the game on a desktop PC by simulating touch controls and the gyroscope.
+Wraith Hunter is an audio-only game targetting Android smartphones. It is made in [Godot 4](https://www.godotengine.org) using GDScript. This game uses binaural audio, haptic feedback, and the gyroscope sensor for gameplay. It also uses the touchscreen for controls. Debug controls allow to test the game on a desktop PC by simulating touch controls and the gyroscope.
 
 The game is currently still in development.
 
