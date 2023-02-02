@@ -3,17 +3,17 @@
 [ext_resource type="AudioStream" uid="uid://g07fqou2veho" path="res://audio/ghost/human-giggle01.wav" id="1_kvmre"]
 [ext_resource type="Script" path="res://hunting/ghost.gd" id="1_vs8mg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2dn4s"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyodk"]
 size = Vector3(2, 4, 1)
 
 [node name="Ghost" type="Node3D"]
 script = ExtResource("1_vs8mg")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="CollisionArea" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_2dn4s")
+shape = SubResource("BoxShape3D_eyodk")
 
 [node name="GhostEmoji" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82132, 0)
@@ -21,13 +21,17 @@ billboard = 2
 text = "👻"
 font_size = 370
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="GrowlSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 stream = ExtResource("1_kvmre")
 bus = &"Ghosts"
 doppler_tracking = 2
 
+[node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
+
+[node name="AttackSound" type="AudioStreamPlayer3D" parent="."]
+
 [node name="SoundTimer" type="Timer" parent="."]
 
-[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
+[connection signal="finished" from="GrowlSound" to="." method="_on_growl_sound_finished"]
 [connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]

@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="1_incrc"]
 [ext_resource type="PackedScene" uid="uid://b67rk41n4xrto" path="res://hunting/ambiance_object.tscn" id="2_nrwnj"]
-[ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="3_5q1y7"]
 [ext_resource type="PackedScene" uid="uid://biclbdrxne6np" path="res://hunting/screen_cover.tscn" id="4_m63kl"]
 [ext_resource type="PackedScene" uid="uid://dh25gq4708rgf" path="res://hunting/ghost_spawner.tscn" id="5_0ywjn"]
+[ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="5_r2gql"]
 
 [node name="TestLevel" type="Node3D"]
 
@@ -33,10 +33,10 @@ ambiance_sound = 3
 repeat_time_min = 18.0
 repeat_time_max = 24.1
 
-[node name="Player" parent="." instance=ExtResource("3_5q1y7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-
 [node name="ScreenCover" parent="." instance=ExtResource("4_m63kl")]
 
 [node name="GhostSpawner" parent="." instance=ExtResource("5_0ywjn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Player" parent="." instance=ExtResource("5_r2gql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
