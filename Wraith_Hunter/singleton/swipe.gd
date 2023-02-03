@@ -34,5 +34,5 @@ func _right():
 
 	
 func _left():
-	pass
+	$Container.position.x += 1150
 

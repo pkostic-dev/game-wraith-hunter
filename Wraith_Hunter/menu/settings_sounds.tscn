@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3 uid="uid://ria118jphuw5"]
+
+[ext_resource type="Script" path="res://menu/settings_sounds.gd" id="1_6as15"]
+
+[node name="settings_sounds" type="Node3D"]
+script = ExtResource("1_6as15")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="Environment" type="Button" parent="Container"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Back")
+focus_neighbor_right = NodePath("../Voice")
+text = "Volume sons
+ environnement"
+
+[node name="EnvironmentSound" type="AudioStreamPlayer" parent="Container/Environment"]
+unique_name_in_owner = true
+
+[node name="Voice" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Environment")
+focus_neighbor_right = NodePath("../Music")
+text = "Volume voix"
+
+[node name="VoiceSound" type="AudioStreamPlayer" parent="Container/Voice"]
+unique_name_in_owner = true
+
+[node name="Music" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Voice")
+focus_neighbor_right = NodePath("../Wraith")
+text = "Volume musique
+"
+
+[node name="MusicSound" type="AudioStreamPlayer" parent="Container/Music"]
+unique_name_in_owner = true
+
+[node name="Wraith" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Music")
+focus_neighbor_right = NodePath("../Back")
+text = "Volume fantôme"
+
+[node name="WraithSound" type="AudioStreamPlayer" parent="Container/Wraith"]
+unique_name_in_owner = true
+
+[node name="Back" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Wraith")
+focus_neighbor_right = NodePath("../Environment")
+text = "Retour"
+
+[node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
+unique_name_in_owner = true

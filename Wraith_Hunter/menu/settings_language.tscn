@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://beoruhdya4mes"]
+
+[ext_resource type="Script" path="res://menu/settings_language.gd" id="1_03gpv"]
+[ext_resource type="AudioStream" uid="uid://b6idfgvxpc57t" path="res://audio/narration/menu/MENU_RESTART_TUTORIAL.wav" id="1_f8bqn"]
+[ext_resource type="AudioStream" uid="uid://dvqeqdxlafuo8" path="res://audio/narration/menu/MENU_DIFFICULTY.wav" id="2_tdvw1"]
+
+[node name="settings_language" type="Node3D"]
+script = ExtResource("1_03gpv")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="French" type="Button" parent="Container"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Back")
+focus_neighbor_right = NodePath("../English")
+text = "Français"
+
+[node name="FrenchSound" type="AudioStreamPlayer" parent="Container/French"]
+unique_name_in_owner = true
+stream = ExtResource("1_f8bqn")
+
+[node name="English" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../French")
+text = "Anglais"
+
+[node name="EnglishSound" type="AudioStreamPlayer" parent="Container/English"]
+unique_name_in_owner = true
+stream = ExtResource("2_tdvw1")
+
+[node name="Back" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../French")
+text = "Retour"
+
+[node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
+unique_name_in_owner = true

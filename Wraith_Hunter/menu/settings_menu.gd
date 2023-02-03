@@ -76,12 +76,6 @@ func _on_language_focus_entered():
 	%BackToMain.play(0)
 
 
-
-
-
-
-
-
 func _on_tutorial_focus_entered():
 	pass # Replace with function body.
 

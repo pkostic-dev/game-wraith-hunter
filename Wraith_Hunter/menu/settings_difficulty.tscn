@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyd2n6wj3hxfr"]
+
+[ext_resource type="Script" path="res://menu/settings_difficulty.gd" id="1_lv70l"]
+
+[node name="settings_difficulty" type="Node3D"]
+script = ExtResource("1_lv70l")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="Easy" type="Button" parent="Container"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Back")
+focus_neighbor_right = NodePath("../Medium")
+text = "Niveau facile"
+
+[node name="TutorialRedo" type="AudioStreamPlayer" parent="Container/Easy"]
+unique_name_in_owner = true
+
+[node name="Medium" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Easy")
+focus_neighbor_right = NodePath("../Hard")
+text = "Niveau moyen"
+
+[node name="DifficultySettings" type="AudioStreamPlayer" parent="Container/Medium"]
+unique_name_in_owner = true
+
+[node name="Hard" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Medium")
+text = "Niveau difficile"
+
+[node name="SoundsSettings" type="AudioStreamPlayer" parent="Container/Hard"]
+unique_name_in_owner = true
+
+[node name="Back" type="Button" parent="Container"]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../Easy")
+text = "Retour"
+
+[node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
+unique_name_in_owner = true
