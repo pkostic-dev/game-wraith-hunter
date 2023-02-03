@@ -50,7 +50,7 @@ func _physics_process(delta):
 		Behavior.SIDE_TO_SIDE:
 			_move_side_to_side(delta)
 		Behavior.ZIG_ZAG:
-			pass
+			_move_zig_zag(delta)
 		Behavior.HOMING:
 			_move_home_in(delta)
 
@@ -76,6 +76,10 @@ func _move_side_to_side(delta):
 	pass
 
 
+func _move_zig_zag(delta):
+	pass
+
+
 func _on_sound_timer_timeout():
 	if not growl_sound.playing:
 		# Play the sound
@@ -91,3 +95,7 @@ func _on_sound_timer_timeout():
 func _on_growl_sound_finished():
 	# DEBUG : Reset the color to white
 	ghost_emoji.modulate = Color(1, 1, 1)
+
+
+func _on_collision_area_body_entered(body):
+	print(body)

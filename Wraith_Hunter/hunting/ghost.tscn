@@ -3,7 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://g07fqou2veho" path="res://audio/ghost/human-giggle01.wav" id="1_kvmre"]
 [ext_resource type="Script" path="res://hunting/ghost.gd" id="1_vs8mg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_eyodk"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rlbw"]
 size = Vector3(2, 4, 1)
 
 [node name="Ghost" type="Node3D"]
@@ -13,7 +13,7 @@ script = ExtResource("1_vs8mg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_eyodk")
+shape = SubResource("BoxShape3D_0rlbw")
 
 [node name="GhostEmoji" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82132, 0)
@@ -33,5 +33,6 @@ doppler_tracking = 2
 
 [node name="SoundTimer" type="Timer" parent="."]
 
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
 [connection signal="finished" from="GrowlSound" to="." method="_on_growl_sound_finished"]
 [connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]
