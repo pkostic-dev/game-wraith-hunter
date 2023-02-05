@@ -11,7 +11,6 @@ offset_bottom = 645.0
 size_flags_horizontal = 3
 
 [node name="Easy" type="Button" parent="Container"]
-unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
@@ -20,7 +19,7 @@ focus_neighbor_left = NodePath("../Back")
 focus_neighbor_right = NodePath("../Medium")
 text = "Niveau facile"
 
-[node name="TutorialRedo" type="AudioStreamPlayer" parent="Container/Easy"]
+[node name="EasySound" type="AudioStreamPlayer" parent="Container/Easy"]
 unique_name_in_owner = true
 
 [node name="Medium" type="Button" parent="Container"]
@@ -31,7 +30,7 @@ focus_neighbor_left = NodePath("../Easy")
 focus_neighbor_right = NodePath("../Hard")
 text = "Niveau moyen"
 
-[node name="DifficultySettings" type="AudioStreamPlayer" parent="Container/Medium"]
+[node name="MediumSound" type="AudioStreamPlayer" parent="Container/Medium"]
 unique_name_in_owner = true
 
 [node name="Hard" type="Button" parent="Container"]
@@ -41,7 +40,7 @@ size_flags_horizontal = 3
 focus_neighbor_left = NodePath("../Medium")
 text = "Niveau difficile"
 
-[node name="SoundsSettings" type="AudioStreamPlayer" parent="Container/Hard"]
+[node name="HardSound" type="AudioStreamPlayer" parent="Container/Hard"]
 unique_name_in_owner = true
 
 [node name="Back" type="Button" parent="Container"]
@@ -51,5 +50,14 @@ size_flags_horizontal = 3
 focus_neighbor_right = NodePath("../Easy")
 text = "Retour"
 
-[node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
+[node name="Back" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+
+[connection signal="focus_entered" from="Container/Easy" to="." method="_on_easy_focus_entered"]
+[connection signal="pressed" from="Container/Easy" to="." method="_on_easy_pressed"]
+[connection signal="focus_entered" from="Container/Medium" to="." method="_on_medium_focus_entered"]
+[connection signal="pressed" from="Container/Medium" to="." method="_on_medium_pressed"]
+[connection signal="focus_entered" from="Container/Hard" to="." method="_on_hard_focus_entered"]
+[connection signal="pressed" from="Container/Hard" to="." method="_on_hard_pressed"]
+[connection signal="focus_entered" from="Container/Back" to="." method="_on_back_focus_entered"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]

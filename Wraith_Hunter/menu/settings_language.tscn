@@ -46,3 +46,10 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+
+[connection signal="focus_entered" from="Container/French" to="." method="_on_french_focus_entered"]
+[connection signal="pressed" from="Container/French" to="." method="_on_french_pressed"]
+[connection signal="focus_entered" from="Container/English" to="." method="_on_english_focus_entered"]
+[connection signal="pressed" from="Container/English" to="." method="_on_english_pressed"]
+[connection signal="focus_entered" from="Container/Back" to="." method="_on_back_focus_entered"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]
