@@ -10,6 +10,9 @@ func _ready():
 func _process(delta):
 	pass
 
+func _unhandled_input(event):
+	Swipe.swipe_event(event, $Container)
+
 
 func _on_french_pressed():
 	pass # Replace with function body.

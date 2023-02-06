@@ -5,10 +5,13 @@ extends Node3D
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+
+func _unhandled_input(event):
+	Swipe.swipe_event(event, $Container)
 
 
 func _on_easy_pressed():
@@ -30,10 +33,8 @@ func _on_easy_focus_entered():
 func _on_medium_focus_entered():
 	%MediumSound.play(0)
 
-
 func _on_hard_focus_entered():
 	%HardSound.play(0)
-
 
 func _on_back_focus_entered():
 	%Back.play(0)

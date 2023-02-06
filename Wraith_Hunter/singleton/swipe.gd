@@ -1,18 +1,12 @@
 extends Node
 var swipe_start = null
 var minimum_drag = 100
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var current_scene
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _unhandled_input(event):
+func swipe_event(event, container):
+	current_scene = container
+	print("swipe event")
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			swipe_start = event.get_position()
@@ -30,9 +24,10 @@ func _calculate_swipe(swipe_end):
 			_left()
 
 func _right():
-	$Container.position.x -= 1150
+	print("swipe right")
+	current_scene.position.x -= 1150
 
 	
 func _left():
-	$Container.position.x += 1150
-
+	print("swipe left")
+	current_scene.position.x += 1150

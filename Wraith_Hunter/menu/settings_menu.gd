@@ -1,5 +1,8 @@
 extends Node3D
 
+func _unhandled_input(event):
+	Swipe.swipe_event(event, $Container)
+
 
 func _on_tutorial_pressed():
 	pass # Replace with function body.
