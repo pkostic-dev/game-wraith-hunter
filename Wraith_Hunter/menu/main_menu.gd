@@ -1,7 +1,9 @@
 extends Node3D
 
+
 func _unhandled_input(event):
-	Swipe.swipe_event(event, $Container)
+	if(event == InputEventScreenDrag):
+		Swipe.swipe_event(event, $Container)
 
 func _on_settings_pressed():
 	Global.goto_scene("res://menu/settings_menu.tscn")

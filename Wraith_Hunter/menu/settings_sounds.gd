@@ -1,7 +1,5 @@
 extends Node3D
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -44,7 +42,6 @@ func _on_voice_focus_entered():
 
 func _on_music_focus_entered():
 	pass # Replace with function body.
-
 
 
 func _on_wraith_focus_entered():
