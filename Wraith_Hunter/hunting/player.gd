@@ -1,5 +1,7 @@
 extends Node3D
 
+var capture_rate := 50.0
+
 var gravity:Vector3
 var gyroscope:Vector3
 
@@ -15,23 +17,20 @@ func _process(delta):
 
 	head.transform.basis = new_basis
 	
-	# Simulate gyroscope for debugging on PC
+	# DEBUG : Simulate gyroscope for debugging on PC
 	if Input.is_action_pressed("ui_left"):
 		head.transform.basis = rotate_by_gyro(Vector3(0, 1, 0), head.transform.basis, delta).orthonormalized()
 	
 	if Input.is_action_pressed("ui_right"):
 		head.transform.basis = rotate_by_gyro(Vector3(0, -1, 0), head.transform.basis, delta).orthonormalized()
 	
-	# Simulate screen touch for debugging on PC
+	# DEBUG : Simulate screen touch for debugging on PC
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if raycast.is_colliding():
-			var collider = raycast.get_collider()
-			if collider:
-				collider.get_parent().queue_free()
+		_capture()
 
 
 func _physics_process(_delta):
-	# Change RayCastDebug color based on whether RayCast3D is colliding
+	# DEBUG : Change RayCastDebug color based on whether RayCast3D is colliding
 	if raycast.is_colliding():
 		raycast_debug.mesh.material.albedo_color = Color(1, 1, 1)
 	else:
@@ -40,8 +39,16 @@ func _physics_process(_delta):
 
 func _unhandled_input(event):
 	if event is InputEventScreenTouch:
-		if raycast.is_colliding():
-			raycast.get_collider().get_parent().queue_free()
+		_capture()
+
+
+func _capture():
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider:
+			var ghost = collider.get_parent()
+			ghost.capture(capture_rate)
+			# TODO : Play capture sound (sound fade out if no longer touching)
 
 
 func rotate_by_gyro(p_gyro, p_basis, p_delta):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://26l86nod4xg6"]
+[gd_scene load_steps=5 format=3 uid="uid://26l86nod4xg6"]
 
 [ext_resource type="AudioStream" uid="uid://g07fqou2veho" path="res://audio/ghost/human-giggle01.wav" id="1_kvmre"]
 [ext_resource type="Script" path="res://hunting/ghost.gd" id="1_vs8mg"]
+[ext_resource type="AudioStream" uid="uid://db4of3m3fk4q0" path="res://audio/ambiance/action-doorhandle01.wav" id="3_k462y"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0rlbw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_yn00i"]
 size = Vector3(2, 4, 1)
 
 [node name="Ghost" type="Node3D"]
@@ -13,7 +14,7 @@ script = ExtResource("1_vs8mg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("BoxShape3D_0rlbw")
+shape = SubResource("BoxShape3D_yn00i")
 
 [node name="GhostEmoji" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82132, 0)
@@ -31,8 +32,15 @@ doppler_tracking = 2
 
 [node name="AttackSound" type="AudioStreamPlayer3D" parent="."]
 
-[node name="SoundTimer" type="Timer" parent="."]
+[node name="DieSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_k462y")
+
+[node name="GrowlTimer" type="Timer" parent="."]
+
+[node name="CaptureTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
 [connection signal="finished" from="GrowlSound" to="." method="_on_growl_sound_finished"]
-[connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]
+[connection signal="finished" from="DieSound" to="." method="_on_die_sound_finished"]
+[connection signal="timeout" from="GrowlTimer" to="." method="_on_growl_timer_timeout"]
+[connection signal="timeout" from="CaptureTimer" to="." method="_on_capture_timer_timeout"]
