@@ -2,8 +2,16 @@ extends Node3D
 
 
 func _unhandled_input(event):
-	if(event == InputEventScreenDrag):
+	print("unhandled input")
+	#print(event.as_text())
+#	if(event == InputEventScreenDrag):
+	Swipe.swipe_event(event, $Container)
+
+func _input(event):
+	if event is InputEventScreenDrag:
+		print("screen drag")
 		Swipe.swipe_event(event, $Container)
+
 
 func _on_settings_pressed():
 	Global.goto_scene("res://menu/settings_menu.tscn")

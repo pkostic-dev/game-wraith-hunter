@@ -7,12 +7,14 @@ var current_scene
 func swipe_event(event, container):
 	current_scene = container
 	print("swipe event")
-	if event is InputEventScreenTouch:
-		if event.pressed:
-			swipe_start = event.get_position()
-		else:
-			_calculate_swipe(event.get_position())
-	
+	#if event is InputEventScreenTouch:
+		#if event.pressed:
+		#	print("screen touch")
+	swipe_start = event.get_position()
+		#else:
+	#print("screen drag")
+	_calculate_swipe(event.get_position())
+	print(event.get_position())
 func _calculate_swipe(swipe_end):
 	if swipe_start == null: 
 		return
