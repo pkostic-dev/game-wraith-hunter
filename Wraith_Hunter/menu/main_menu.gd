@@ -1,19 +1,25 @@
 extends Node3D
 
 
-func _unhandled_input(event):
-	print("unhandled input")
-	#print(event.as_text())
+#func _unhandled_input(event):
+	#print("unhandled input")
+	
 #	if(event == InputEventScreenDrag):
-	Swipe.swipe_event(event, $Container)
+	#Swipe.swipe_event(event, $Container)
 
-func _input(event):
-	if event is InputEventScreenDrag:
-		print("screen drag")
-		Swipe.swipe_event(event, $Container)
+func _unhandled_input(event):
+	print(event.as_text())
+	Swipe.swipe_event(event, $Container)
+	#if event is InputEventScreenDrag:
+	#	print("screen drag")
+	#	Swipe.swipe_event(event, $Container)
+	#if event is InputEventScreenTouch : 
+	#	print("screen touch")
 
 
 func _on_settings_pressed():
+	print("bouton appuyé :")
+	print(InputEvent)
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_start_game_pressed():
