@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c80brkck8b5rt"]
 
 [ext_resource type="Script" path="res://menu/settings_menu.gd" id="1_krp18"]
-[ext_resource type="AudioStream" uid="uid://b6idfgvxpc57t" path="res://audio/narration/menu/MENU_RESTART_TUTORIAL.wav" id="2_7ygl7"]
-[ext_resource type="AudioStream" uid="uid://dvqeqdxlafuo8" path="res://audio/narration/menu/MENU_DIFFICULTY.wav" id="3_g7rd5"]
-[ext_resource type="AudioStream" uid="uid://bvbmva4ek816v" path="res://audio/narration/menu/MENU_SOUNDS.wav" id="4_w4o65"]
+[ext_resource type="AudioStream" uid="uid://cknpimjbu74yu" path="res://audio/menu/MENU_RESTART_TUTORIAL.wav" id="2_glb77"]
+[ext_resource type="AudioStream" uid="uid://hfb5wjv53wuj" path="res://audio/menu/MENU_DIFFICULTY.wav" id="3_yxi1i"]
+[ext_resource type="AudioStream" uid="uid://40t1ik3x82jd" path="res://audio/menu/MENU_SOUNDS.wav" id="4_852kn"]
 
 [node name="menu_settings" type="Node3D"]
 script = ExtResource("1_krp18")
@@ -13,7 +13,7 @@ offset_right = 1152.0
 offset_bottom = 645.0
 size_flags_horizontal = 3
 
-[node name="Tutorial" type="Button" parent="Container"]
+[node name="Tutorial" type="Button" parent="Container" groups=["buttons"]]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
@@ -25,9 +25,9 @@ text = "Commencer le tutoriel"
 
 [node name="TutorialRedo" type="AudioStreamPlayer" parent="Container/Tutorial"]
 unique_name_in_owner = true
-stream = ExtResource("2_7ygl7")
+stream = ExtResource("2_glb77")
 
-[node name="Difficulty" type="Button" parent="Container"]
+[node name="Difficulty" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -37,9 +37,9 @@ text = "Modifier la difficulté"
 
 [node name="DifficultySettings" type="AudioStreamPlayer" parent="Container/Difficulty"]
 unique_name_in_owner = true
-stream = ExtResource("3_g7rd5")
+stream = ExtResource("3_yxi1i")
 
-[node name="Sounds" type="Button" parent="Container"]
+[node name="Sounds" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -49,9 +49,9 @@ text = "Modifier le son"
 
 [node name="SoundsSettings" type="AudioStreamPlayer" parent="Container/Sounds"]
 unique_name_in_owner = true
-stream = ExtResource("4_w4o65")
+stream = ExtResource("4_852kn")
 
-[node name="Language" type="Button" parent="Container"]
+[node name="Language" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -62,7 +62,7 @@ text = "Changer la langue"
 [node name="LanguageSettings" type="AudioStreamPlayer" parent="Container/Language"]
 unique_name_in_owner = true
 
-[node name="Back" type="Button" parent="Container"]
+[node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3

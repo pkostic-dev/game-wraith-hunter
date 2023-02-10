@@ -10,7 +10,8 @@ func _process(delta):
 	pass
 
 func _unhandled_input(event):
-	Swipe.swipe_event(event, $Container)
+	var buttons = get_tree().get_nodes_in_group("buttons")
+	Swipe.swipe_event(event, $Container, buttons)
 
 
 func _on_environment_pressed():

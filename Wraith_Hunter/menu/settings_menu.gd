@@ -1,8 +1,9 @@
 extends Node3D
 
-func _unhandled_input(event):
-	Swipe.swipe_event(event, $Container)
 
+func _unhandled_input(event):
+	var buttons = get_tree().get_nodes_in_group("buttons")
+	Swipe.swipe_event(event, $Container, buttons)
 
 func _on_tutorial_pressed():
 	pass # Replace with function body.

@@ -1,6 +1,5 @@
 extends Node3D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,7 +10,8 @@ func _process(delta):
 	pass
 
 func _unhandled_input(event):
-	Swipe.swipe_event(event, $Container)
+	var buttons = get_tree().get_nodes_in_group("buttons")
+	Swipe.swipe_event(event, $Container, buttons)
 
 
 func _on_french_pressed():

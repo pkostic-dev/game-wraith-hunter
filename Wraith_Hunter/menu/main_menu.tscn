@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ky4jginkk4ue"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_lh3hp"]
-[ext_resource type="AudioStream" uid="uid://gvp5su002e7u" path="res://audio/narration/menu/MENU_STARTGAME.wav" id="2_bmlwe"]
-[ext_resource type="AudioStream" uid="uid://bpmrc0meibhc8" path="res://audio/narration/menu/MENU_SETTINGS_Prise2.wav" id="3_f0plq"]
+[ext_resource type="AudioStream" uid="uid://bsmkpmmwvtw1e" path="res://audio/menu/MENU_STARTGAME.wav" id="2_dcg75"]
+[ext_resource type="AudioStream" uid="uid://ce1kn1fx2qfj8" path="res://audio/menu/MENU_SETTINGS_Prise2.wav" id="3_a8smd"]
 
 [node name="menu_main" type="Node3D"]
 script = ExtResource("1_lh3hp")
@@ -14,7 +14,7 @@ offset_bottom = 647.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="StartGame" type="Button" parent="Container"]
+[node name="StartGame" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -24,9 +24,9 @@ text = "Lancer le jeu"
 
 [node name="StartGameSound" type="AudioStreamPlayer" parent="Container/StartGame"]
 unique_name_in_owner = true
-stream = ExtResource("2_bmlwe")
+stream = ExtResource("2_dcg75")
 
-[node name="Settings" type="Button" parent="Container"]
+[node name="Settings" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -36,7 +36,7 @@ text = "Accéder aux paramètres"
 
 [node name="SettingsSound" type="AudioStreamPlayer" parent="Container/Settings"]
 unique_name_in_owner = true
-stream = ExtResource("3_f0plq")
+stream = ExtResource("3_a8smd")
 
 [connection signal="focus_entered" from="Container/StartGame" to="." method="_on_start_game_focus_entered"]
 [connection signal="pressed" from="Container/StartGame" to="." method="_on_start_game_pressed"]

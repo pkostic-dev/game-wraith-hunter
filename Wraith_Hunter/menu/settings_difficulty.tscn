@@ -10,7 +10,7 @@ offset_right = 1152.0
 offset_bottom = 645.0
 size_flags_horizontal = 3
 
-[node name="Easy" type="Button" parent="Container"]
+[node name="Easy" type="Button" parent="Container" groups=["buttons"]]
 clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
@@ -22,7 +22,7 @@ text = "Niveau facile"
 [node name="EasySound" type="AudioStreamPlayer" parent="Container/Easy"]
 unique_name_in_owner = true
 
-[node name="Medium" type="Button" parent="Container"]
+[node name="Medium" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -33,7 +33,7 @@ text = "Niveau moyen"
 [node name="MediumSound" type="AudioStreamPlayer" parent="Container/Medium"]
 unique_name_in_owner = true
 
-[node name="Hard" type="Button" parent="Container"]
+[node name="Hard" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -43,7 +43,7 @@ text = "Niveau difficile"
 [node name="HardSound" type="AudioStreamPlayer" parent="Container/Hard"]
 unique_name_in_owner = true
 
-[node name="Back" type="Button" parent="Container"]
+[node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3

@@ -10,7 +10,7 @@ offset_right = 1152.0
 offset_bottom = 645.0
 size_flags_horizontal = 3
 
-[node name="Environment" type="Button" parent="Container"]
+[node name="Environment" type="Button" parent="Container" groups=["buttons"]]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
@@ -24,7 +24,7 @@ text = "Volume sons
 [node name="EnvironmentSound" type="AudioStreamPlayer" parent="Container/Environment"]
 unique_name_in_owner = true
 
-[node name="Voice" type="Button" parent="Container"]
+[node name="Voice" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -35,7 +35,7 @@ text = "Volume voix"
 [node name="VoiceSound" type="AudioStreamPlayer" parent="Container/Voice"]
 unique_name_in_owner = true
 
-[node name="Music" type="Button" parent="Container"]
+[node name="Music" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -47,7 +47,7 @@ text = "Volume musique
 [node name="MusicSound" type="AudioStreamPlayer" parent="Container/Music"]
 unique_name_in_owner = true
 
-[node name="Wraith" type="Button" parent="Container"]
+[node name="Wraith" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -58,7 +58,7 @@ text = "Volume fantôme"
 [node name="WraithSound" type="AudioStreamPlayer" parent="Container/Wraith"]
 unique_name_in_owner = true
 
-[node name="Back" type="Button" parent="Container"]
+[node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3

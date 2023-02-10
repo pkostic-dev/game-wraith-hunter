@@ -12,7 +12,7 @@ offset_right = 1152.0
 offset_bottom = 645.0
 size_flags_horizontal = 3
 
-[node name="French" type="Button" parent="Container"]
+[node name="French" type="Button" parent="Container" groups=["buttons"]]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
@@ -26,7 +26,7 @@ text = "Français"
 unique_name_in_owner = true
 stream = ExtResource("1_f8bqn")
 
-[node name="English" type="Button" parent="Container"]
+[node name="English" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -37,7 +37,7 @@ text = "Anglais"
 unique_name_in_owner = true
 stream = ExtResource("2_tdvw1")
 
-[node name="Back" type="Button" parent="Container"]
+[node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
