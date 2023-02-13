@@ -4,6 +4,8 @@ var minimum_drag = 100
 var current_scene
 var swiping
 var buttons_group
+signal swipe_right
+signal swipe_left
 
 
 func swipe_event(event, container, buttons):
@@ -31,8 +33,6 @@ func _calculate_swipe(swipe_end):
 			_right()
 		else:
 			_left()
-	else:
-		pass
 
 func get_swiping():
 	return swiping
@@ -42,10 +42,12 @@ func _right():
 	current_scene.position.x -= 1150
 	for button in buttons_group:
 			button.disabled = false
-
+	emit_signal("swipe_right")
+	
 	
 func _left():
 	print("swipe left")
 	current_scene.position.x += 1150
 	for button in buttons_group:
 			button.disabled = false
+	emit_signal("swipe_left")
