@@ -39,15 +39,18 @@ func get_swiping():
 
 func _right():
 	print("swipe right")
+	swiping = "right"
 	current_scene.position.x -= 1150
 	for button in buttons_group:
-			button.disabled = false
+		button.disabled = false
 	emit_signal("swipe_right")
 	
 	
+	
 func _left():
+	swiping = "left "
 	print("swipe left")
 	current_scene.position.x += 1150
 	for button in buttons_group:
-			button.disabled = false
+		button.disabled = false
 	emit_signal("swipe_left")
