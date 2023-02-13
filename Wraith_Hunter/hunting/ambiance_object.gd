@@ -7,7 +7,7 @@ enum AmbianceSound {
 	OPEN_BOOK_2,
 }
 
-@export_enum("DoorHandle1, DoorHandle2, OpenBook1, OpenBook2") var ambiance_sound:int = 0
+@export_enum("DoorHandle1", "DoorHandle2", "OpenBook1", "OpenBook2") var ambiance_sound:int = 0
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min:float = 10
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max:float = 20
 
