@@ -19,10 +19,10 @@ func _process(delta):
 	
 	# DEBUG : Simulate gyroscope for debugging on PC
 	if Input.is_action_pressed("ui_left"):
-		head.transform.basis = rotate_by_gyro(Vector3(0, 1, 0), head.transform.basis, delta).orthonormalized()
+		head.transform.basis = rotate_by_gyro(Vector3.UP, head.transform.basis, delta).orthonormalized()
 	
 	if Input.is_action_pressed("ui_right"):
-		head.transform.basis = rotate_by_gyro(Vector3(0, -1, 0), head.transform.basis, delta).orthonormalized()
+		head.transform.basis = rotate_by_gyro(Vector3.DOWN, head.transform.basis, delta).orthonormalized()
 	
 	# DEBUG : Simulate screen touch for debugging on PC
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
