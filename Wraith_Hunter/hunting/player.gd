@@ -32,9 +32,9 @@ func _process(delta):
 func _physics_process(_delta):
 	# DEBUG : Change RayCastDebug color based on whether RayCast3D is colliding
 	if raycast.is_colliding():
-		raycast_debug.mesh.material.albedo_color = Color(1, 1, 1)
+		raycast_debug.mesh.material.albedo_color = Color.WHITE
 	else:
-		raycast_debug.mesh.material.albedo_color = Color(0.1, 0.2, 0.6)
+		raycast_debug.mesh.material.albedo_color = Color.YELLOW_GREEN
 
 
 func _unhandled_input(event):
@@ -51,7 +51,7 @@ func _capture():
 			# TODO : Play capture sound (sound fade out if no longer touching)
 
 
-func rotate_by_gyro(p_gyro, p_basis, p_delta):
+func rotate_by_gyro(p_gyro, p_basis, p_delta) -> Basis:
 	var _rotate = Basis()
 
 	_rotate = _rotate.rotated(p_basis.y, p_gyro.y * p_delta) # yaw
