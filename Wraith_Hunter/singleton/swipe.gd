@@ -15,19 +15,15 @@ func swipe_event(event, container, buttons):
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			swipe_start = event.get_position()
-			#print("swipe start")
 		else:
-			#print("swipe end")
 			_calculate_swipe(event.get_position())
 
 
 func _calculate_swipe(swipe_end):
 	if swipe_start == null: 
-		#print("null")
 		return
 	var swipe = swipe_end - swipe_start
 	if abs(swipe.x) > minimum_drag:
-		#swiping = true
 		for button in buttons_group:
 			button.disabled = true
 		if swipe.x > 0:
