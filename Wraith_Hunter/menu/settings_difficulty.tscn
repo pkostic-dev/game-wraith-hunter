@@ -11,6 +11,7 @@ offset_bottom = 645.0
 size_flags_horizontal = 3
 
 [node name="Easy" type="Button" parent="Container" groups=["buttons"]]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2

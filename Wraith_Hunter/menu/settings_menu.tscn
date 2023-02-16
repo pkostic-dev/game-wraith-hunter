@@ -81,5 +81,5 @@ unique_name_in_owner = true
 [connection signal="pressed" from="Container/Sounds" to="." method="_on_sounds_pressed"]
 [connection signal="focus_entered" from="Container/Language" to="." method="_on_language_focus_entered"]
 [connection signal="pressed" from="Container/Language" to="." method="_on_language_pressed"]
-[connection signal="focus_entered" from="Container/Back" to="." method="_on_retour_focus_entered"]
+[connection signal="focus_entered" from="Container/Back" to="." method="_on_back_focus_entered"]
 [connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]

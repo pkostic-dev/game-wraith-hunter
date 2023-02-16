@@ -37,8 +37,6 @@ func _calculate_swipe(swipe_end):
 
 func _right():
 	print("swipe right")
-	print("current_scene start position : ")
-	print(current_scene.position.x)
 	if current_scene.position.x <= x_min:
 		current_scene.position.x = 0
 	else:
@@ -46,14 +44,10 @@ func _right():
 	for button in buttons_group:
 		button.disabled = false
 	swipe_right.emit()
-	print("current_scene end position : ")
-	print(current_scene.position.x)
 
 
 func _left():
 	print("swipe left")
-	print("current_scene start position : ")
-	print(current_scene.position.x)
 	if current_scene.position.x >= x_max:
 		current_scene.position.x -= 1150 * nb_buttons
 	else:
@@ -61,5 +55,3 @@ func _left():
 	for button in buttons_group:
 		button.disabled = false
 	swipe_left.emit()
-	print("current_scene end position : ")
-	print(current_scene.position.x)
