@@ -2,16 +2,19 @@ extends Node
 var swipe_start = null
 var minimum_drag = 100
 var current_scene
-var swiping
 var buttons_group
 signal swipe_right
 signal swipe_left
-
+var x_min
+var x_max = 0
+var nb_buttons
 
 
 func swipe_event(event, container, buttons):
 	current_scene = container
 	buttons_group = buttons
+	nb_buttons = buttons_group.size()-1
+	x_min = -1150 * nb_buttons
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			swipe_start = event.get_position()
@@ -31,22 +34,32 @@ func _calculate_swipe(swipe_end):
 		else:
 			_left()
 
-func get_swiping():
-	return swiping
 
 func _right():
 	print("swipe right")
-	swiping = "right"
-	current_scene.position.x -= 1150
+	print("current_scene start position : ")
+	print(current_scene.position.x)
+	if current_scene.position.x <= x_min:
+		current_scene.position.x = 0
+	else:
+		current_scene.position.x -= 1150
 	for button in buttons_group:
 		button.disabled = false
 	swipe_right.emit()
+	print("current_scene end position : ")
+	print(current_scene.position.x)
 
 
 func _left():
-	swiping = "left"
 	print("swipe left")
-	current_scene.position.x += 1150
+	print("current_scene start position : ")
+	print(current_scene.position.x)
+	if current_scene.position.x >= x_max:
+		current_scene.position.x -= 1150 * nb_buttons
+	else:
+		current_scene.position.x += 1150
 	for button in buttons_group:
 		button.disabled = false
 	swipe_left.emit()
+	print("current_scene end position : ")
+	print(current_scene.position.x)
