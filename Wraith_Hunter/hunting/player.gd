@@ -2,6 +2,8 @@ extends Node3D
 
 var capture_rate := 50.0
 
+var fade_out_tween:Tween
+
 var gravity:Vector3
 var gyroscope:Vector3
 
@@ -25,8 +27,8 @@ func _process(delta):
 		head.transform.basis = rotate_by_gyro(Vector3.DOWN, head.transform.basis, delta).orthonormalized()
 	
 	# DEBUG : Simulate screen touch for debugging on PC
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		_capture()
+#	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+#		_capture()
 
 
 func _physics_process(_delta):
@@ -38,8 +40,14 @@ func _physics_process(_delta):
 
 
 func _unhandled_input(event):
-	if event is InputEventScreenTouch:
-		_capture()
+	if event is InputEventScreenTouch or event is InputEventMouseButton:
+		if event.pressed:
+			_capture()
+		if not event.pressed:
+			if $CapturingSound.playing:
+				fade_out_tween = get_tree().create_tween().set_parallel(true)
+				fade_out_tween.tween_property($CapturingSound, "volume_db", -100.0, 3)
+				fade_out_tween.tween_property($CapturingSound, "pitch_scale", 0.0, 3)
 
 
 func _capture():
@@ -48,8 +56,21 @@ func _capture():
 		if collider:
 			var ghost = collider.get_parent()
 			ghost.capture(capture_rate)
-			# TODO : Play capture sound (sound fade out if no longer touching)
+			_stop_capturing_fade_out()
+			$CapturingSound.volume_db = 0.0
+			$CapturingSound.pitch_scale = 1.0
+			$CapturingSound.play()
+	else:
+		if $CapturingSound.playing:
+			_stop_capturing_fade_out()
+		$MissSound.play()
 
+
+func _stop_capturing_fade_out():
+	if fade_out_tween != null:
+		if fade_out_tween.is_running():
+			fade_out_tween.stop()
+			$CapturingSound.stop()
 
 func rotate_by_gyro(p_gyro, p_basis, p_delta) -> Basis:
 	var _rotate = Basis()
