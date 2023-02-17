@@ -12,26 +12,26 @@
 
 [node name="AmbianceObject" parent="." instance=ExtResource("2_nrwnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70763, 2.12292, -0.921923)
+ambiance_sound = 8
 repeat_time_min = 9.5
 repeat_time_max = 22.6
 
 [node name="AmbianceObject2" parent="." instance=ExtResource("2_nrwnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.63497, 3.13058, -1.5782)
-ambiance_sound = 1
+ambiance_sound = 9
 repeat_time_min = 10.6
 repeat_time_max = 25.1
 
 [node name="AmbianceObject3" parent="." instance=ExtResource("2_nrwnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01351, 3.08297, 5.18001)
-ambiance_sound = 2
+ambiance_sound = 5
 repeat_time_min = 16.4
 repeat_time_max = 27.5
 
 [node name="AmbianceObject4" parent="." instance=ExtResource("2_nrwnj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48195, 1.87325, 4.94697)
-ambiance_sound = 3
-repeat_time_min = 18.0
-repeat_time_max = 24.1
+ambiance_sound = 4
+continuous = true
 
 [node name="ScreenCover" parent="." instance=ExtResource("4_m63kl")]
 
