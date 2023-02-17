@@ -1,6 +1,8 @@
 extends Node3D
 
-var capture_rate := 50.0
+var is_capturing := false
+var new_touch := true
+var capture_rate := 3.0
 
 var fade_out_tween:Tween
 
@@ -30,6 +32,9 @@ func _process(delta):
 #	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 #		_capture()
 
+	if is_capturing:
+		_capture()
+
 
 func _physics_process(_delta):
 	# DEBUG : Change RayCastDebug color based on whether RayCast3D is colliding
@@ -42,8 +47,10 @@ func _physics_process(_delta):
 func _unhandled_input(event):
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		if event.pressed:
-			_capture()
+			is_capturing = true
+			new_touch = true
 		if not event.pressed:
+			is_capturing = false
 			if $CapturingSound.playing:
 				fade_out_tween = get_tree().create_tween().set_parallel(true)
 				fade_out_tween.tween_property($CapturingSound, "volume_db", -100.0, 3)
@@ -59,11 +66,14 @@ func _capture():
 			_stop_capturing_fade_out()
 			$CapturingSound.volume_db = 0.0
 			$CapturingSound.pitch_scale = 1.0
-			$CapturingSound.play()
+			if not $CapturingSound.playing:
+				$CapturingSound.play()
 	else:
 		if $CapturingSound.playing:
-			_stop_capturing_fade_out()
-		$MissSound.play()
+			$CapturingSound.stop()
+		if (not $MissSound.playing or $MissSound.get_playback_position() >= 0.5) and new_touch:
+			$MissSound.play()
+			new_touch = false
 
 
 func _stop_capturing_fade_out():
