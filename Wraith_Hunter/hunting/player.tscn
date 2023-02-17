@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs1gtady780iy"]
+[gd_scene load_steps=8 format=3 uid="uid://bs1gtady780iy"]
 
 [ext_resource type="Script" path="res://hunting/player.gd" id="1_l6bwx"]
+[ext_resource type="AudioStream" uid="uid://cbwshhvi8cwmc" path="res://audio/sound_fx/capture/Retro Electric Sparks 01.wav" id="2_bxxai"]
+[ext_resource type="AudioStream" uid="uid://bao44e2nvn651" path="res://audio/sound_fx/capture/Retro Electric Long 09.wav" id="3_ex058"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihs0i"]
 albedo_color = Color(0.439216, 0.74902, 0.427451, 1)
@@ -45,3 +47,9 @@ collide_with_bodies = false
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.2, -10)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_n50oa")
+
+[node name="MissSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_bxxai")
+
+[node name="CapturingSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ex058")

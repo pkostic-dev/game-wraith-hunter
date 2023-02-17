@@ -5,7 +5,7 @@ enum Behavior {
 	SIDE_TO_SIDE,
 }
 
-@export_enum("Idle, SideToSide") var behavior:int = 0
+@export_enum("Idle", "SideToSide") var behavior:int = 0
 @export var emit_sound:bool = true
 @export var sound_timer_delay:float = 0.3
 
@@ -15,7 +15,7 @@ func _ready():
 		Behavior.IDLE:
 			pass
 		Behavior.SIDE_TO_SIDE:
-			_start_side_to_side()	
+			_start_side_to_side()
 	
 	if emit_sound:
 		$TestSoundTimer.wait_time = sound_timer_delay
