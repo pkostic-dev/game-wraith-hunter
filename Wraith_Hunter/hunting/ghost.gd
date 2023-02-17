@@ -14,7 +14,6 @@ enum Behavior {
 @export var homing_speed := .5
 @export var side_to_side_speed := 10.0
 @export var move_during_capture := false
-@export var capture_delay := 1.0
 @export var capture_speed_multiplier := 0.2
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min := 7.0
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max := 9.0
@@ -22,28 +21,29 @@ enum Behavior {
 var being_captured := false
 var behavior := default_behavior
 
+var growl_fade_out_tween:Tween
+var hurt_fade_out_tween:Tween
 var player:Node3D
 var original_position:Vector3
 
-@onready var growl_sound := $GrowlSound
-@onready var hurt_sound := $HurtSound
-@onready var attack_sound := $AttackSound
-@onready var die_sound := $DieSound
+var growl_sound_1 := preload("res://audio/sound_fx/ghost/creature-growl01.wav")
+var growl_sound_2 := preload("res://audio/sound_fx/ghost/creature-growl02.wav")
+var growl_sound_3 := preload("res://audio/sound_fx/ghost/creature-growl03.wav")
+
+var growl_sounds := [growl_sound_1, growl_sound_2, growl_sound_3]
+
+
 @onready var growl_timer := $GrowlTimer
-@onready var capture_timer := $CaptureTimer
 @onready var ghost_emoji := $GhostEmoji
 
 
 func _ready():
 	# Play the sound
-	#growl_sound.play()
+	#$GrowlSound.play()
 	
 	# Start the timer for the first time
 	growl_timer.wait_time = randf_range(repeat_time_min, repeat_time_max)
 	growl_timer.start()
-	
-	# Setup capture timer
-	capture_timer.wait_time = capture_delay
 	
 	# Find the player
 	var player_name := "Player"
@@ -58,6 +58,10 @@ func _ready():
 func _process(_delta):
 	if (health <= 0) and (not (behavior == Behavior.DYING)):
 		die()
+	if not being_captured:
+		if $HurtSound.playing:
+			hurt_fade_out_tween = get_tree().create_tween()
+			hurt_fade_out_tween.tween_property($HurtSound, "volume_db", -100, 4)
 
 
 func _physics_process(delta):
@@ -80,11 +84,15 @@ func capture(capture_rate):
 		health -= capture_rate
 		if not move_during_capture:
 			behavior = Behavior.IDLE
-		capture_timer.start()
+		if hurt_fade_out_tween != null:
+			if hurt_fade_out_tween.is_running():
+				hurt_fade_out_tween.stop()
+		$HurtSound.volume_db = 0.0
+		$HurtSound.play()
 
 
 func die():
-	die_sound.play() # TODO : Change this sound
+	$DieSound.play()
 	behavior = Behavior.DYING
 
 
@@ -98,7 +106,7 @@ func _move_home_in(delta):
 
 
 # TODO : Update for _physics_process
-func _move_side_to_side(delta):
+func _move_side_to_side(_delta):
 #	var _tween := get_tree().create_tween()
 #	var _left = -10
 #	var _right = 10
@@ -112,7 +120,7 @@ func _move_side_to_side(delta):
 	pass
 
 
-func _move_zig_zag(delta):
+func _move_zig_zag(_delta):
 	pass
 
 
@@ -125,18 +133,19 @@ func _on_collision_area_body_entered(body):
 	print(body)
 
 
-func _on_capture_timer_timeout():
-	being_captured = false
-
-
 func _on_die_sound_finished():
 	queue_free()
 
 
 func _on_growl_timer_timeout():
-	if not growl_sound.playing:
+	if not $GrowlSound.playing:
 		# Play the sound
-		growl_sound.play()
+		$GrowlSound.volume_db = 0.0
+		$GrowlSound.stream = growl_sounds.pick_random()
+		$GrowlSound.play()
+		growl_fade_out_tween = get_tree().create_tween()
+		growl_fade_out_tween.tween_property($GrowlSound, "volume_db", -100, 7)
+		
 		# DEBUG : Change the GhostEmoji text color to green
 		ghost_emoji.modulate = Color(.2, 1, .2)
 	
