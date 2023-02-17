@@ -36,4 +36,4 @@ func _on_english_focus_entered():
 	%EnglishSound.play(0)
 
 func _on_back_focus_entered():
-	pass # Replace with function body.
+	%BackToMain.play(0)
