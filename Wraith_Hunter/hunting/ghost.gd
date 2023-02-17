@@ -11,14 +11,16 @@ enum Behavior {
 @export_enum("Idle", "SideToSide", "ZigZag", "Homing") var default_behavior := 3
 @export var health := 100.0
 @export var strength := 1.0
-@export var homing_speed := .5
+@export var homing_speed := .2
 @export var side_to_side_speed := 10.0
 @export var move_during_capture := false
 @export var capture_speed_multiplier := 0.2
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min := 7.0
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max := 9.0
 
+var capture_delay := 1.0
 var being_captured := false
+var dying := false
 var behavior := default_behavior
 
 var growl_fade_out_tween:Tween
@@ -56,12 +58,16 @@ func _ready():
 
 
 func _process(_delta):
-	if (health <= 0) and (not (behavior == Behavior.DYING)):
+	if (health <= 0.0) and not dying:
 		die()
+	
 	if not being_captured:
 		if $HurtSound.playing:
 			hurt_fade_out_tween = get_tree().create_tween()
 			hurt_fade_out_tween.tween_property($HurtSound, "volume_db", -100, 4)
+	
+	if $GrowlSound.playing and $GrowlSound.volume_db <= -100.0:
+		$GrowlSound.stop()
 
 
 func _physics_process(delta):
@@ -74,7 +80,7 @@ func _physics_process(delta):
 			_move_zig_zag(delta)
 		Behavior.HOMING:
 			_move_home_in(delta)
-		Behavior.DYING:
+		_:
 			pass
 
 
@@ -82,18 +88,27 @@ func capture(capture_rate):
 	if not being_captured:
 		being_captured = true
 		health -= capture_rate
+		print("health =", health)
+		
+		# Behavior
 		if not move_during_capture:
 			behavior = Behavior.IDLE
+		
+		# Hurt sound
 		if hurt_fade_out_tween != null:
 			if hurt_fade_out_tween.is_running():
 				hurt_fade_out_tween.stop()
 		$HurtSound.volume_db = 0.0
 		$HurtSound.play()
+		
+		$CaptureDelayTimer.start(capture_delay)
 
 
 func die():
+	print("dying")
 	$DieSound.play()
-	behavior = Behavior.DYING
+	dying = true
+	$CollisionArea/CollisionShape3D.disabled = true
 
 
 func _move_home_in(delta):
@@ -126,7 +141,8 @@ func _move_zig_zag(_delta):
 
 func _on_growl_sound_finished():
 	# DEBUG : Reset the color to white
-	ghost_emoji.modulate = Color(1, 1, 1)
+	#ghost_emoji.modulate = Color.WHITE
+	pass
 
 
 func _on_collision_area_body_entered(body):
@@ -144,11 +160,17 @@ func _on_growl_timer_timeout():
 		$GrowlSound.stream = growl_sounds.pick_random()
 		$GrowlSound.play()
 		growl_fade_out_tween = get_tree().create_tween()
-		growl_fade_out_tween.tween_property($GrowlSound, "volume_db", -100, 7)
+		growl_fade_out_tween.tween_property($GrowlSound, "volume_db", -100, $GrowlSound.stream.get_length()/2)
 		
 		# DEBUG : Change the GhostEmoji text color to green
-		ghost_emoji.modulate = Color(.2, 1, .2)
+		#ghost_emoji.modulate = Color.GREEN
 	
 	# Repeat the timer
 	growl_timer.wait_time = randf_range(repeat_time_min, repeat_time_max)
 	growl_timer.start()
+
+
+func _on_capture_delay_timer_timeout():
+	being_captured = false
+	if not dying: 
+		behavior = default_behavior

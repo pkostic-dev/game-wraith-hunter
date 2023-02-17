@@ -35,10 +35,14 @@ stream = ExtResource("3_jb8nm")
 [node name="AttackSound" type="AudioStreamPlayer3D" parent="."]
 
 [node name="DieSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jb8nm")
 
 [node name="GrowlTimer" type="Timer" parent="."]
+
+[node name="CaptureDelayTimer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
 [connection signal="finished" from="GrowlSound" to="." method="_on_growl_sound_finished"]
 [connection signal="finished" from="DieSound" to="." method="_on_die_sound_finished"]
 [connection signal="timeout" from="GrowlTimer" to="." method="_on_growl_timer_timeout"]
+[connection signal="timeout" from="CaptureDelayTimer" to="." method="_on_capture_delay_timer_timeout"]
