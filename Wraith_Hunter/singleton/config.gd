@@ -32,10 +32,9 @@ func save_config():
 func load_config():
 	var loaded_file := load_file(CONFIG_FILE_PATH)
 	var parsed_file = JSON.parse_string(loaded_file.get_as_text())
-	var data = parsed_file.get_data()
 	
-	if typeof(data) == TYPE_DICTIONARY:
-		config = data
+	if typeof(parsed_file) == TYPE_DICTIONARY:
+		config = parsed_file
 	else:
 		printerr("Error while loading the configuration file.")
 
