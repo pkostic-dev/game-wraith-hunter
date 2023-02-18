@@ -15,10 +15,17 @@ run/main_scene="res://tests/test_level.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.png"
 
+
 [editor]
 
 export/convert_text_resources_to_binary=true
 
+[autoload]
+
+Config="*res://singleton/config.gd"
+
+
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

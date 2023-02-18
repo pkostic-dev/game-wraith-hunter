@@ -4,18 +4,16 @@ extends Node3D
 const GHOST = preload("res://hunting/ghost.tscn") 
 var ghost
 
-# TODO : Fix the whole ghost spawning thing
-func _ready():
-	if not ghost:
-		ghost = GHOST.instantiate()
-		get_parent().call_deferred("add_child", ghost)
-		if ghost:
-			ghost.global_position = global_position + Vector3(randf_range(-10, 10), 0, 0)
-
 
 func _process(_delta):
-	if not ghost:
-		ghost = GHOST.instantiate()
-		get_parent().call_deferred("add_child", ghost)
-		if ghost:
-			ghost.global_position = global_position + Vector3(randf_range(-10, 10), 0, 0)
+	var spawn_position = Vector3(randf_range(-10, 10), 0, 0)
+	if not is_instance_valid(ghost) and is_inside_tree():
+		ghost = _spawn_ghost(spawn_position)
+
+
+func _spawn_ghost(_position):
+	var _ghost = GHOST.instantiate()
+	get_parent().call_deferred("add_child", _ghost)
+	if ghost:
+		_ghost.transform.origin = _position
+	return _ghost
