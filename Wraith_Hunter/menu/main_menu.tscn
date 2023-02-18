@@ -19,8 +19,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Settings")
-focus_neighbor_right = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Settings")
 text = "Lancer le jeu"
 
 [node name="StartGameSound" type="AudioStreamPlayer" parent="Container/StartGame"]
@@ -32,8 +32,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../StartGame")
-focus_neighbor_right = NodePath("../StartGame")
+focus_next = NodePath("../StartGame")
+focus_previous = NodePath("../StartGame")
 text = "Accéder aux paramètres"
 
 [node name="SettingsSound" type="AudioStreamPlayer" parent="Container/Settings"]

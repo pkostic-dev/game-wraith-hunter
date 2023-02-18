@@ -2,9 +2,8 @@ extends Node3D
 var focus_button
 
 func _ready():
-	var button_start = %French
-	%French.grab_focus()
-	focus_button = button_start
+	focus_button = %French
+	focus_button.grab_focus()
 	Swipe.swipe_left.connect(_on_swipe_left)
 	Swipe.swipe_right.connect(_on_swipe_right)
 
@@ -30,10 +29,10 @@ func _on_back_pressed():
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_french_focus_entered():
-	%FrenchSound.play(0)
+	%FrenchSound.play()
 
 func _on_english_focus_entered():
-	%EnglishSound.play(0)
+	%EnglishSound.play()
 
 func _on_back_focus_entered():
-	%BackToMain.play(0)
+	%BackToMain.play()

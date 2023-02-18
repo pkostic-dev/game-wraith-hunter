@@ -20,8 +20,8 @@ clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Back")
-focus_neighbor_right = NodePath("../Voice")
+focus_next = NodePath("../Voice")
+focus_previous = NodePath("../Back")
 text = "Volume sons
  environnement"
 
@@ -33,8 +33,8 @@ stream = ExtResource("2_u2on3")
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Environment")
-focus_neighbor_right = NodePath("../Music")
+focus_next = NodePath("../Music")
+focus_previous = NodePath("../Environment")
 text = "Volume voix"
 
 [node name="VoiceSound" type="AudioStreamPlayer" parent="Container/Voice"]
@@ -45,8 +45,8 @@ stream = ExtResource("3_8bq85")
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Voice")
-focus_neighbor_right = NodePath("../Wraith")
+focus_next = NodePath("../Wraith")
+focus_previous = NodePath("../Voice")
 text = "Volume musique
 "
 
@@ -58,8 +58,8 @@ stream = ExtResource("4_ptuie")
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Music")
-focus_neighbor_right = NodePath("../Back")
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../Music")
 text = "Volume fantôme"
 
 [node name="WraithSound" type="AudioStreamPlayer" parent="Container/Wraith"]
@@ -70,8 +70,8 @@ stream = ExtResource("5_ya1u7")
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Wraith")
-focus_neighbor_right = NodePath("../Environment")
+focus_next = NodePath("../Environment")
+focus_previous = NodePath("../Wraith")
 text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]

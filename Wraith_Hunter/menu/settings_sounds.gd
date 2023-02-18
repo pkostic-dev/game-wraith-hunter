@@ -2,9 +2,8 @@ extends Node3D
 var focus_button
 
 func _ready():
-	var button_start = %Environment
-	%Environment.grab_focus()
-	focus_button = button_start
+	focus_button = %Environment
+	focus_button.grab_focus()
 	Swipe.swipe_left.connect(_on_swipe_left)
 	Swipe.swipe_right.connect(_on_swipe_right)
 
@@ -36,16 +35,16 @@ func _on_back_pressed():
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_environment_focus_entered():
-	%EnvironmentSound.play(0)
+	%EnvironmentSound.play()
 
 func _on_voice_focus_entered():
-	%VoiceSound.play(0)
+	%VoiceSound.play()
 
 func _on_music_focus_entered():
-	%MusicSound.play(0)
+	%MusicSound.play()
 
 func _on_wraith_focus_entered():
-	%WraithSound.play(0)
+	%WraithSound.play()
 
 func _on_back_focus_entered():
-	%BackToMain.play(0)
+	%BackToMain.play()

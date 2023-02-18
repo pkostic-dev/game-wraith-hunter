@@ -16,8 +16,8 @@ clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Back")
-focus_neighbor_right = NodePath("../Medium")
+focus_next = NodePath("../Medium")
+focus_previous = NodePath("../Back")
 text = "Niveau facile"
 
 [node name="EasySound" type="AudioStreamPlayer" parent="Container/Easy"]
@@ -27,8 +27,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Easy")
-focus_neighbor_right = NodePath("../Hard")
+focus_next = NodePath("../Hard")
+focus_previous = NodePath("../Easy")
 text = "Niveau moyen"
 
 [node name="MediumSound" type="AudioStreamPlayer" parent="Container/Medium"]
@@ -38,7 +38,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Medium")
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../Medium")
 text = "Niveau difficile"
 
 [node name="HardSound" type="AudioStreamPlayer" parent="Container/Hard"]
@@ -48,7 +49,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_right = NodePath("../Easy")
+focus_next = NodePath("../Easy")
+focus_previous = NodePath("../Hard")
 text = "Retour"
 
 [node name="Back" type="AudioStreamPlayer" parent="Container/Back"]

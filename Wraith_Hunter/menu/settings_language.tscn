@@ -16,8 +16,8 @@ clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Back")
-focus_neighbor_right = NodePath("../English")
+focus_next = NodePath("../English")
+focus_previous = NodePath("../Back")
 text = "Français"
 
 [node name="FrenchSound" type="AudioStreamPlayer" parent="Container/French"]
@@ -27,7 +27,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../French")
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../French")
 text = "Anglais"
 
 [node name="EnglishSound" type="AudioStreamPlayer" parent="Container/English"]
@@ -37,7 +38,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_right = NodePath("../French")
+focus_next = NodePath("../French")
+focus_previous = NodePath("../English")
 text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]

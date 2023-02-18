@@ -19,8 +19,8 @@ clip_contents = true
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Back")
-focus_neighbor_right = NodePath("../Difficulty")
+focus_next = NodePath("../Difficulty")
+focus_previous = NodePath("../Back")
 text = "Commencer le tutoriel"
 
 [node name="TutorialRedo" type="AudioStreamPlayer" parent="Container/Tutorial"]
@@ -31,8 +31,8 @@ stream = ExtResource("2_glb77")
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Tutorial")
-focus_neighbor_right = NodePath("../Sounds")
+focus_next = NodePath("../Sounds")
+focus_previous = NodePath("../Tutorial")
 text = "Modifier la difficulté"
 
 [node name="DifficultySettings" type="AudioStreamPlayer" parent="Container/Difficulty"]
@@ -43,8 +43,8 @@ stream = ExtResource("3_yxi1i")
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Difficulty")
-focus_neighbor_right = NodePath("../Language")
+focus_next = NodePath("../Language")
+focus_previous = NodePath("../Difficulty")
 text = "Modifier le son"
 
 [node name="SoundsSettings" type="AudioStreamPlayer" parent="Container/Sounds"]
@@ -55,8 +55,8 @@ stream = ExtResource("4_852kn")
 custom_minimum_size = Vector2(1150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-focus_neighbor_left = NodePath("../Sounds")
-focus_neighbor_right = NodePath("../Back")
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../Sounds")
 text = "Changer la langue"
 
 [node name="LanguageSettings" type="AudioStreamPlayer" parent="Container/Language"]
