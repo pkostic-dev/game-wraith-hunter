@@ -14,12 +14,12 @@ func _unhandled_input(event):
 	Swipe.swipe_event(event, $Container, buttons)
 
 func _on_swipe_left():
-	focus_button = focus_button.find_next_valid_focus()
+	focus_button = focus_button.find_left_valid_focus()
 	focus_button.grab_focus()
 
 func _on_swipe_right():
 	print("swipe right signal")
-	focus_button = focus_button.find_prev_valid_focus()
+	focus_button = focus_button.find_right_valid_focus()
 	focus_button.grab_focus()
 
 func _on_tutorial_pressed():
@@ -38,10 +38,10 @@ func _on_back_pressed():
 	Global.goto_scene("res://menu/main_menu.tscn")
 
 func _on_tutorial_focus_entered():
-	%TutorialRedo.play(0) 
+	%TutorialRedo.play() 
 
 func _on_difficulty_focus_entered():
-	%DifficultySettings.play(0)
+	%DifficultySettings.play()
 
 func _on_sounds_focus_entered():
 	%SoundsSettings.play(0)
