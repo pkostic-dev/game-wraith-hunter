@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://blfmtkt7chs0e"
-path="res://.godot/imported/TUTORIAL_CAPTURE_END.wav-fff69e7b072fce2f82bd773cc5caad7b.sample"
+path="res://.godot/imported/TUTORIAL_CAPTURE_END.wav-dcc3771fe21789f67998c5377fadd344.sample"
 
 [deps]
 
-source_file="res://audio/tutorial/TUTORIAL_CAPTURE_END.wav"
-dest_files=["res://.godot/imported/TUTORIAL_CAPTURE_END.wav-fff69e7b072fce2f82bd773cc5caad7b.sample"]
+source_file="res://audio/tutorial/fr/TUTORIAL_CAPTURE_END.wav"
+dest_files=["res://.godot/imported/TUTORIAL_CAPTURE_END.wav-dcc3771fe21789f67998c5377fadd344.sample"]
 
 [params]
 

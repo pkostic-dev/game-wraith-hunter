@@ -13,6 +13,8 @@ var gyroscope:Vector3
 @onready var raycast := $Head/RayCast3D
 @onready var raycast_debug := $Head/RayCast3D/RayCastDebug
 
+signal wraith_locked_on
+
 func _process(delta):
 	gravity   = Input.get_gravity()
 	gyroscope = Input.get_gyroscope()
@@ -40,6 +42,7 @@ func _physics_process(_delta):
 	# DEBUG : Change RayCastDebug color based on whether RayCast3D is colliding
 	if raycast.is_colliding():
 		raycast_debug.mesh.material.albedo_color = Color.WHITE
+		emit_signal("wraith_locked_on")
 	else:
 		raycast_debug.mesh.material.albedo_color = Color.YELLOW_GREEN
 

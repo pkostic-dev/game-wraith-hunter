@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bovlieqb3oshd"
-path="res://.godot/imported/TUTORIAL_WRAITH_ATTACK_2.wav-ef392a1f4ca940d8e1ba6312f2e23c76.sample"
+path="res://.godot/imported/TUTORIAL_WRAITH_ATTACK_2.wav-55a4620a6d1d06e6ea644170eaf75f46.sample"
 
 [deps]
 
-source_file="res://audio/tutorial/TUTORIAL_WRAITH_ATTACK_2.wav"
-dest_files=["res://.godot/imported/TUTORIAL_WRAITH_ATTACK_2.wav-ef392a1f4ca940d8e1ba6312f2e23c76.sample"]
+source_file="res://audio/tutorial/fr/TUTORIAL_WRAITH_ATTACK_2.wav"
+dest_files=["res://.godot/imported/TUTORIAL_WRAITH_ATTACK_2.wav-55a4620a6d1d06e6ea644170eaf75f46.sample"]
 
 [params]
 

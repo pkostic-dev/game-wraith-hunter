@@ -8,6 +8,7 @@ var default_config:Dictionary = {
 	"difficulty" : "normal",
 	"master_volume" : 100,
 	"music_volume" : 50,
+	"language" : "fr",
 	# TODO : Add other settings here
 }
 

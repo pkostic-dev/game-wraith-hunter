@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bkkpkn70wctlh"
-path="res://.godot/imported/TUTORIAL_AIM.wav-2f7bba75f79dee5266bd02664524d4fd.sample"
+path="res://.godot/imported/TUTORIAL_AIM.wav-0ecda8636afe3e71cd691a259cd8bb34.sample"
 
 [deps]
 
-source_file="res://audio/tutorial/TUTORIAL_AIM.wav"
-dest_files=["res://.godot/imported/TUTORIAL_AIM.wav-2f7bba75f79dee5266bd02664524d4fd.sample"]
+source_file="res://audio/tutorial/fr/TUTORIAL_AIM.wav"
+dest_files=["res://.godot/imported/TUTORIAL_AIM.wav-0ecda8636afe3e71cd691a259cd8bb34.sample"]
 
 [params]
 

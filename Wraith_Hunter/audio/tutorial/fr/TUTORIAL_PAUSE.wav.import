@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://lrfn04cl1abk"
-path="res://.godot/imported/TUTORIAL_LOW_PAUSE.wav-1cf6c069afceb71308ade6bb8f0be841.sample"
+path="res://.godot/imported/TUTORIAL_PAUSE.wav-868562cf9ff67c49fa86d85d0d4f8ed3.sample"
 
 [deps]
 
-source_file="res://audio/tutorial/TUTORIAL_LOW_PAUSE.wav"
-dest_files=["res://.godot/imported/TUTORIAL_LOW_PAUSE.wav-1cf6c069afceb71308ade6bb8f0be841.sample"]
+source_file="res://audio/tutorial/fr/TUTORIAL_PAUSE.wav"
+dest_files=["res://.godot/imported/TUTORIAL_PAUSE.wav-868562cf9ff67c49fa86d85d0d4f8ed3.sample"]
 
 [params]
 

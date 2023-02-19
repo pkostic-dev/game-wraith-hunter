@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c25pw2dxgg3ys"
-path="res://.godot/imported/TUTORIAL_WRAITH_MOVE.wav-bbc1bb1c03ecee8bcb24bb6cbaffe4a7.sample"
+path="res://.godot/imported/TUTORIAL_WRAITH_MOVE.wav-0e39feba69b2bffd459ed89c47c491df.sample"
 
 [deps]
 
-source_file="res://audio/tutorial/TUTORIAL_WRAITH_MOVE.wav"
-dest_files=["res://.godot/imported/TUTORIAL_WRAITH_MOVE.wav-bbc1bb1c03ecee8bcb24bb6cbaffe4a7.sample"]
+source_file="res://audio/tutorial/fr/TUTORIAL_WRAITH_MOVE.wav"
+dest_files=["res://.godot/imported/TUTORIAL_WRAITH_MOVE.wav-0e39feba69b2bffd459ed89c47c491df.sample"]
 
 [params]
 
