@@ -6,10 +6,13 @@ The game is currently still in development.
 
 ## Exporting for Android
 
-- Enable the Vibrate permission (permissions/vibrate)
-- Everything else is kept at default including the target SDK
-  - Min SDK : 24
-  - Target SDK : 32
+- Install Android Export
+- Install Android Build Template
+- Create a new Android Export
+- Toggle Runnable
+- Enable the Vibrate permission
+- Enable Gradle build
+- Change the Min SDK to 24
 
 ## Documentation
 
