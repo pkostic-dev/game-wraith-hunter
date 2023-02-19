@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ky4jginkk4ue"]
+[gd_scene load_steps=3 format=3 uid="uid://ky4jginkk4ue"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_lh3hp"]
-[ext_resource type="AudioStream" uid="uid://bsmkpmmwvtw1e" path="res://audio/menu/MENU_STARTGAME.wav" id="2_dcg75"]
 [ext_resource type="AudioStream" uid="uid://ce1kn1fx2qfj8" path="res://audio/menu/MENU_SETTINGS_Prise2.wav" id="3_a8smd"]
 
 [node name="menu_main" type="Node3D"]
@@ -25,7 +24,6 @@ text = "Lancer le jeu"
 
 [node name="StartGameSound" type="AudioStreamPlayer" parent="Container/StartGame"]
 unique_name_in_owner = true
-stream = ExtResource("2_dcg75")
 
 [node name="Settings" type="Button" parent="Container" groups=["buttons"]]
 unique_name_in_owner = true

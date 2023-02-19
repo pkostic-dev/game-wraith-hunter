@@ -1,6 +1,13 @@
 extends Node3D
 var focus_button
 
+var TUTORIAL = load("res://audio/narration/menu/" + Config.config.language + "/MENU_RESTART_TUTORIAL.wav")
+var DIFFICULTY = load("res://audio/narration/menu/" + Config.config.language + "/MENU_DIFFICULTY.wav")
+var SOUNDS = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SOUNDS.wav")
+var LANGUAGE = load("res://audio/narration/menu/" + Config.config.language + "/MENU_LANGUAGE.wav")
+var BACK = load("res://audio/narration/menu/" + Config.config.language + "/MENU_BACK.wav")
+
+
 func _ready():
 	focus_button = %Tutorial
 	focus_button.grab_focus()
@@ -45,17 +52,17 @@ func _on_back_pressed():
 	Global.goto_scene("res://menu/main_menu.tscn")
 
 func _on_tutorial_focus_entered():
-	%TutorialRedo.play() 
+#	%TutorialRedo.play() 
 
 func _on_difficulty_focus_entered():
-	%DifficultySettings.play()
+#	%DifficultySettings.play()
 
 func _on_sounds_focus_entered():
-	%SoundsSettings.play()
+#	%SoundsSettings.play()
 
 func _on_language_focus_entered():
-	%LanguageSettings.play()
+#	%LanguageSettings.play()
 
 func _on_back_focus_entered():
-	%BackToMain.play()
+#	%BackToMain.play()
 

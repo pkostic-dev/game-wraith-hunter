@@ -1,6 +1,9 @@
 extends Node3D
 var focus_button
 
+var STARTGAME = load("res://audio/narration/menu/" + Config.config.language + "/MENU_STARTGAME.wav")
+var ACCESS_SETTINGS = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SETTINGS_Prise2.wav")
+
 func _ready():
 	focus_button = %StartGame
 	focus_button.grab_focus()
@@ -37,9 +40,10 @@ func _on_start_game_pressed():
 	pass # Replace with function body.
 
 func _on_start_game_focus_entered():
-	%StartGameSound.play()
+	#%StartGameSound.play()
+	$AudioStreamPlayer3D.stream = STARTGAME
 
 func _on_settings_focus_entered():
-	%SettingsSound.play()
-
+	#%SettingsSound.play()
+	$AudioStreamPlayer3D.stream = ACCESS_SETTINGS
 
