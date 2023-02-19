@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://26l86nod4xg6"]
+
+[ext_resource type="Script" path="res://hunting/ghost.gd" id="1_vs8mg"]
+[ext_resource type="AudioStream" uid="uid://y2e5cv31w2pi" path="res://audio/sound_fx/ghost/creature-growl01.wav" id="2_xnbb5"]
+[ext_resource type="AudioStream" uid="uid://b7y261gnwv6l0" path="res://audio/sound_fx/ghost/Ghost_scream_3.wav" id="3_jb8nm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yn00i"]
+size = Vector3(2, 4, 1)
+
+[node name="Ghost" type="Node3D"]
+script = ExtResource("1_vs8mg")
+
+[node name="CollisionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_yn00i")
+
+[node name="GhostEmoji" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82132, 0)
+billboard = 2
+text = "👻"
+font_size = 370
+
+[node name="GrowlSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+stream = ExtResource("2_xnbb5")
+panning_strength = 3.0
+bus = &"Ghosts"
+doppler_tracking = 2
+
+[node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jb8nm")
+
+[node name="AttackSound" type="AudioStreamPlayer3D" parent="."]
+
+[node name="DieSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jb8nm")
+
+[node name="GrowlTimer" type="Timer" parent="."]
+
+[node name="CaptureDelayTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
+[connection signal="finished" from="GrowlSound" to="." method="_on_growl_sound_finished"]
+[connection signal="finished" from="DieSound" to="." method="_on_die_sound_finished"]
+[connection signal="timeout" from="GrowlTimer" to="." method="_on_growl_timer_timeout"]
+[connection signal="timeout" from="CaptureDelayTimer" to="." method="_on_capture_delay_timer_timeout"]

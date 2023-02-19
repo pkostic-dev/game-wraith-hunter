@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh8n4ff1vocjo"]
+
+[ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="1_incrc"]
+[ext_resource type="PackedScene" uid="uid://b67rk41n4xrto" path="res://hunting/ambiance_object.tscn" id="2_nrwnj"]
+[ext_resource type="PackedScene" uid="uid://biclbdrxne6np" path="res://hunting/screen_cover.tscn" id="4_m63kl"]
+[ext_resource type="PackedScene" uid="uid://dh25gq4708rgf" path="res://hunting/ghost_spawner.tscn" id="5_0ywjn"]
+[ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="5_r2gql"]
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Room" parent="." instance=ExtResource("1_incrc")]
+
+[node name="AmbianceObject" parent="." instance=ExtResource("2_nrwnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70763, 2.12292, -0.921923)
+ambiance_sound = 8
+repeat_time_min = 9.5
+repeat_time_max = 22.6
+
+[node name="AmbianceObject2" parent="." instance=ExtResource("2_nrwnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.63497, 3.13058, -1.5782)
+ambiance_sound = 9
+repeat_time_min = 10.6
+repeat_time_max = 25.1
+
+[node name="AmbianceObject3" parent="." instance=ExtResource("2_nrwnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01351, 3.08297, 5.18001)
+ambiance_sound = 5
+repeat_time_min = 16.4
+repeat_time_max = 27.5
+
+[node name="AmbianceObject4" parent="." instance=ExtResource("2_nrwnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48195, 1.87325, 4.94697)
+ambiance_sound = 4
+continuous = true
+
+[node name="ScreenCover" parent="." instance=ExtResource("4_m63kl")]
+
+[node name="GhostSpawner" parent="." instance=ExtResource("5_0ywjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Player" parent="." instance=ExtResource("5_r2gql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)

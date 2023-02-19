@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c64l2eob2l7sf"]
+
+[ext_resource type="Script" path="res://tests/gyroscope/sensor_test.gd" id="1_egceb"]
+[ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="2_pbr5r"]
+[ext_resource type="PackedScene" uid="uid://cvocegn4o1ppt" path="res://tests/test_player.tscn" id="2_vkvgx"]
+
+[node name="SensorTest" type="Node3D"]
+script = ExtResource("1_egceb")
+
+[node name="Room" parent="." instance=ExtResource("2_pbr5r")]
+
+
+[node name="TestPlayer" parent="." instance=ExtResource("2_vkvgx")]
+[node name="DebugInterface" parent="." instance=ExtResource("4_365w7")]
+
+
+[editable path="TestPlayer"]
