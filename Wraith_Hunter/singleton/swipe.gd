@@ -9,7 +9,6 @@ var x_min
 var x_max = 0
 var nb_buttons
 
-
 func swipe_event(event, container, buttons):
 	current_scene = container
 	buttons_group = buttons
@@ -20,7 +19,6 @@ func swipe_event(event, container, buttons):
 			swipe_start = event.get_position()
 		else:
 			_calculate_swipe(event.get_position())
-
 
 func _calculate_swipe(swipe_end):
 	if swipe_start == null: 
@@ -34,7 +32,6 @@ func _calculate_swipe(swipe_end):
 		else:
 			_left()
 
-
 func _right():
 	print("swipe right")
 	if current_scene.position.x >= x_max:
@@ -45,7 +42,6 @@ func _right():
 		button.disabled = false
 	swipe_right.emit()
 
-
 func _left():
 	print("swipe left detected")
 	if current_scene.position.x <= x_min:
@@ -54,5 +50,4 @@ func _left():
 		current_scene.position.x -= 1150
 	for button in buttons_group:
 		button.disabled = false
-	
 	swipe_left.emit()

@@ -1,6 +1,13 @@
 extends Node3D
 var focus_button
 
+
+var EASY = load("res://audio/narration/menu/" + Config.config.language + "/MENU_DIFFICULTY_EASY.wav")
+var MEDIUM = load("res://audio/narration/menu/" + Config.config.language + "/MENU_DIFFICULTY_NORMAL.wav")
+var HARD = load("res://audio/narration/menu/" + Config.config.language + "/MENU_DIFFICULTY_HARD.wav")
+var BACK = load("res://audio/narration/menu/" + Config.config.language + "/MENU_BACK.wav")
+
+
 func _ready():
 	focus_button = %Easy
 	focus_button.grab_focus()
@@ -35,12 +42,16 @@ func _on_back_pressed():
 
 func _on_easy_focus_entered():
 	%EasySound.play()
+	$AudioStreamPlayer3D.stream = EASY
 
 func _on_medium_focus_entered():
-	%MediumSound.play()
+#	%MediumSound.play()
+	$AudioStreamPlayer3D.stream = MEDIUM
 
 func _on_hard_focus_entered():
-	%HardSound.play()
+#	%HardSound.play()
+	$AudioStreamPlayer3D.stream = HARD
 
 func _on_back_focus_entered():
-	%Back.play()
+#	%Back.play()
+	$AudioStreamPlayer3D.stream = BACK

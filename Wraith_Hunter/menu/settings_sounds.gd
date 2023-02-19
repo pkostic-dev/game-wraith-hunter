@@ -1,6 +1,13 @@
 extends Node3D
 var focus_button
 
+var ENVIRONMENT = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SOUNDS_ENVIRONMENT.wav")
+var VOICE = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SOUNDS_VOICE.wav")
+var MUSIC = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SOUNDS_MUSIC.wav")
+var WRAITH = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SOUNDS_GHOST.wav")
+var BACK = load("res://audio/narration/menu/" + Config.config.language + "/MENU_BACK.wav")
+
+
 func _ready():
 	focus_button = %Environment
 	focus_button.grab_focus()
@@ -35,16 +42,21 @@ func _on_back_pressed():
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_environment_focus_entered():
-	%EnvironmentSound.play()
+#	%EnvironmentSound.play()
+	$AudioStreamPlayer3D.stream = ENVIRONMENT
 
 func _on_voice_focus_entered():
-	%VoiceSound.play()
+#	%VoiceSound.play()
+	$AudioStreamPlayer3D.stream = VOICE
 
 func _on_music_focus_entered():
-	%MusicSound.play()
+#	%MusicSound.play()
+	$AudioStreamPlayer3D.stream = MUSIC
 
 func _on_wraith_focus_entered():
-	%WraithSound.play()
+#	%WraithSound.play()
+	$AudioStreamPlayer3D.stream = WRAITH
 
 func _on_back_focus_entered():
-	%BackToMain.play()
+#	%BackToMain.play()
+	$AudioStreamPlayer3D.stream = BACK

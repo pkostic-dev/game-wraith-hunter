@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dvqeqdxlafuo8"
-path="res://.godot/imported/MENU_DIFFICULTY.wav-2e8872655e7b8c41a5c8396f358df04e.sample"
+path="res://.godot/imported/MENU_DIFFICULTY.wav-2c37cd2ffa503f76d25179884c74e7ea.sample"
 
 [deps]
 
-source_file="res://audio/narration/menu/MENU_DIFFICULTY.wav"
-dest_files=["res://.godot/imported/MENU_DIFFICULTY.wav-2e8872655e7b8c41a5c8396f358df04e.sample"]
+source_file="res://audio/narration/menu/fr/MENU_DIFFICULTY.wav"
+dest_files=["res://.godot/imported/MENU_DIFFICULTY.wav-2c37cd2ffa503f76d25179884c74e7ea.sample"]
 
 [params]
 

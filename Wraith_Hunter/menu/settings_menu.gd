@@ -53,16 +53,21 @@ func _on_back_pressed():
 
 func _on_tutorial_focus_entered():
 #	%TutorialRedo.play() 
+	$AudioStreamPlayer3D.stream = TUTORIAL
 
 func _on_difficulty_focus_entered():
 #	%DifficultySettings.play()
+	$AudioStreamPlayer3D.stream = DIFFICULTY
 
 func _on_sounds_focus_entered():
 #	%SoundsSettings.play()
+	$AudioStreamPlayer3D.stream = SOUNDS
 
 func _on_language_focus_entered():
 #	%LanguageSettings.play()
+	$AudioStreamPlayer3D.stream = LANGUAGE
 
 func _on_back_focus_entered():
 #	%BackToMain.play()
+	$AudioStreamPlayer3D.stream = BACK
 

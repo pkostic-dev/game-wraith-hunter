@@ -1,6 +1,10 @@
 extends Node3D
 var focus_button
 
+var FRENCH = load("res://audio/narration/menu/" + Config.config.language + "/MENU_LANGUAGE_FRENCH.wav")
+var ENGLISH = load("res://audio/narration/menu/" + Config.config.language + "/MENU_LANGUAGE_ENGLISH.wav")
+var BACK = load("res://audio/narration/menu/" + Config.config.language + "/MENU_BACK.wav")
+
 func _ready():
 	focus_button = %French
 	focus_button.grab_focus()
@@ -29,10 +33,13 @@ func _on_back_pressed():
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_french_focus_entered():
-	%FrenchSound.play()
+#	%FrenchSound.play()
+	$AudioStreamPlayer3D.stream = FRENCH
 
 func _on_english_focus_entered():
-	%EnglishSound.play()
-
+#	%EnglishSound.play()
+	$AudioStreamPlayer3D.stream = ENGLISH
+	
 func _on_back_focus_entered():
-	%BackToMain.play()
+#	%BackToMain.play()
+	$AudioStreamPlayer3D.stream = BACK
