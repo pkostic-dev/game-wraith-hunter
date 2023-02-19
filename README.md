@@ -8,7 +8,7 @@ The game is currently still in development.
 
 - Enable the Vibrate permission (permissions/vibrate)
 - Everything else is kept at default including the target SDK
-  - Min SDK : 21
+  - Min SDK : 24
   - Target SDK : 32
 
 ## Documentation
