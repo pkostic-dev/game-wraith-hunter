@@ -1,5 +1,6 @@
 # Godot-specific ignores
 .import/
+android/
 export.cfg
 export_presets.cfg
 
