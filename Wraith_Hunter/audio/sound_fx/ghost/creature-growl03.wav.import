@@ -2,7 +2,9 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d4ma5lalqxpvb"
+
+uid="uid://18qk1w7ddtul"
+
 path="res://.godot/imported/creature-growl03.wav-62714350724c74526fef7fe68813c12c.sample"
 
 [deps]

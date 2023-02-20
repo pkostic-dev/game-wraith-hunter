@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ce1kn1fx2qfj8"
-path="res://.godot/imported/MENU_SETTINGS_Prise2.wav-52796e3dda3184a3b9f0fbdb746b3568.sample"
+path="res://.godot/imported/MENU_SETTINGS_Prise2.wav-679312a3343bcc355b84686ed455e365.sample"
 
 [deps]
 
-source_file="res://audio/menu/MENU_SETTINGS_Prise2.wav"
-dest_files=["res://.godot/imported/MENU_SETTINGS_Prise2.wav-52796e3dda3184a3b9f0fbdb746b3568.sample"]
+source_file="res://audio/menu/fr/MENU_SETTINGS_Prise2.wav"
+dest_files=["res://.godot/imported/MENU_SETTINGS_Prise2.wav-679312a3343bcc355b84686ed455e365.sample"]
 
 [params]
 

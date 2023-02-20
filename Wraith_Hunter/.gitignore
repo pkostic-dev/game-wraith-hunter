@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-android/
 
 # Mac ignores
 .DS_Store

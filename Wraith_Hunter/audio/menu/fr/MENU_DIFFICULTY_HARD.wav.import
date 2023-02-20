@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://blo5wq3lrhfbx"
-path="res://.godot/imported/MENU_DIFFICULTY_HARD.wav-51063af1aff12bbd31bb008377f33b92.sample"
+path="res://.godot/imported/MENU_DIFFICULTY_HARD.wav-8d9354b1e67c29aebd1178953a850c19.sample"
 
 [deps]
 
-source_file="res://audio/menu/MENU_DIFFICULTY_HARD.wav"
-dest_files=["res://.godot/imported/MENU_DIFFICULTY_HARD.wav-51063af1aff12bbd31bb008377f33b92.sample"]
+source_file="res://audio/menu/fr/MENU_DIFFICULTY_HARD.wav"
+dest_files=["res://.godot/imported/MENU_DIFFICULTY_HARD.wav-8d9354b1e67c29aebd1178953a850c19.sample"]
 
 [params]
 

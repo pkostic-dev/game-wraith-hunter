@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyd2n6wj3hxfr"]
+
+[ext_resource type="Script" path="res://menu/settings_difficulty.gd" id="1_lv70l"]
+
+[node name="settings_difficulty" type="Node3D"]
+script = ExtResource("1_lv70l")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="Easy" type="Button" parent="Container" groups=["buttons"]]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Medium")
+focus_previous = NodePath("../Back")
+text = "Niveau facile"
+
+[node name="EasySound" type="AudioStreamPlayer" parent="Container/Easy"]
+unique_name_in_owner = true
+
+[node name="Medium" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Hard")
+focus_previous = NodePath("../Easy")
+text = "Niveau moyen"
+
+[node name="MediumSound" type="AudioStreamPlayer" parent="Container/Medium"]
+unique_name_in_owner = true
+
+[node name="Hard" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../Medium")
+text = "Niveau difficile"
+
+[node name="HardSound" type="AudioStreamPlayer" parent="Container/Hard"]
+unique_name_in_owner = true
+
+[node name="Back" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Easy")
+focus_previous = NodePath("../Hard")
+text = "Retour"
+
+[node name="Back" type="AudioStreamPlayer" parent="Container/Back"]
+unique_name_in_owner = true
+
+[connection signal="focus_entered" from="Container/Easy" to="." method="_on_easy_focus_entered"]
+[connection signal="pressed" from="Container/Easy" to="." method="_on_easy_pressed"]
+[connection signal="focus_entered" from="Container/Medium" to="." method="_on_medium_focus_entered"]
+[connection signal="pressed" from="Container/Medium" to="." method="_on_medium_pressed"]
+[connection signal="focus_entered" from="Container/Hard" to="." method="_on_hard_focus_entered"]
+[connection signal="pressed" from="Container/Hard" to="." method="_on_hard_pressed"]
+[connection signal="focus_entered" from="Container/Back" to="." method="_on_back_focus_entered"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]

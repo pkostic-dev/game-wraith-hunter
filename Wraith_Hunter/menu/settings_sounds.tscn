@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct53l54pudhp2"]
+
+[ext_resource type="Script" path="res://menu/settings_sounds.gd" id="1_6as15"]
+[ext_resource type="AudioStream" uid="uid://xdkjxsqpvl4n" path="res://audio/menu/fr/MENU_SOUNDS_ENVIRONMENT.wav" id="2_343dc"]
+[ext_resource type="AudioStream" uid="uid://ss0as1ro02vo" path="res://audio/menu/fr/MENU_SOUNDS_VOICE.wav" id="3_gxcdg"]
+[ext_resource type="AudioStream" uid="uid://etqqobak5upj" path="res://audio/menu/fr/MENU_SOUNDS_MUSIC.wav" id="4_acy82"]
+[ext_resource type="AudioStream" uid="uid://dmi8knq8450xu" path="res://audio/menu/fr/MENU_SOUNDS_GHOST.wav" id="5_ypsnu"]
+
+[node name="settings_sounds" type="Node3D"]
+script = ExtResource("1_6as15")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="Environment" type="Button" parent="Container" groups=["buttons"]]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Voice")
+focus_previous = NodePath("../Back")
+text = "Volume sons
+ environnement"
+
+[node name="EnvironmentSound" type="AudioStreamPlayer" parent="Container/Environment"]
+unique_name_in_owner = true
+stream = ExtResource("2_343dc")
+
+[node name="Voice" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Music")
+focus_previous = NodePath("../Environment")
+text = "Volume voix"
+
+[node name="VoiceSound" type="AudioStreamPlayer" parent="Container/Voice"]
+unique_name_in_owner = true
+stream = ExtResource("3_gxcdg")
+
+[node name="Music" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Wraith")
+focus_previous = NodePath("../Voice")
+text = "Volume musique
+"
+
+[node name="MusicSound" type="AudioStreamPlayer" parent="Container/Music"]
+unique_name_in_owner = true
+stream = ExtResource("4_acy82")
+
+[node name="Wraith" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../Music")
+text = "Volume fantôme"
+
+[node name="WraithSound" type="AudioStreamPlayer" parent="Container/Wraith"]
+unique_name_in_owner = true
+stream = ExtResource("5_ypsnu")
+
+[node name="Back" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Environment")
+focus_previous = NodePath("../Wraith")
+text = "Retour"
+
+[node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
+unique_name_in_owner = true
+
+[connection signal="focus_entered" from="Container/Environment" to="." method="_on_environment_focus_entered"]
+[connection signal="pressed" from="Container/Environment" to="." method="_on_environment_pressed"]
+[connection signal="focus_entered" from="Container/Voice" to="." method="_on_voice_focus_entered"]
+[connection signal="pressed" from="Container/Voice" to="." method="_on_voice_pressed"]
+[connection signal="focus_entered" from="Container/Music" to="." method="_on_music_focus_entered"]
+[connection signal="pressed" from="Container/Music" to="." method="_on_music_pressed"]
+[connection signal="focus_entered" from="Container/Wraith" to="." method="_on_wraith_focus_entered"]
+[connection signal="pressed" from="Container/Wraith" to="." method="_on_wraith_pressed"]
+[connection signal="focus_entered" from="Container/Back" to="." method="_on_back_focus_entered"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]
