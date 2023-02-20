@@ -1,20 +1,24 @@
 extends Node3D
 var focus_button
 
-var STARTGAME = load("res://audio/narration/menu/" + Config.config.language + "/MENU_STARTGAME.wav")
-var ACCESS_SETTINGS = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SETTINGS_Prise2.wav")
-
 func _ready():
+	
+	var STARTGAME = load("res://audio/menu/" + Config.config.language + "/MENU_STARTGAME.wav")
+	var ACCESS_SETTINGS = load("res://audio/menu/" + Config.config.language + "/MENU_SETTINGS_Prise2.wav")
+	
+	%SettingsSound.stream = ACCESS_SETTINGS
+	%StartGameSound.stream = STARTGAME
+	
+	Swipe.swipe_left.connect(_on_swipe_left)
+	Swipe.swipe_right.connect(_on_swipe_right)
+
 	focus_button = %StartGame
 	focus_button.grab_focus()
 	print("premier focus")
 	print(focus_button)
-	Swipe.swipe_left.connect(_on_swipe_left)
-	Swipe.swipe_right.connect(_on_swipe_right)
-	$AudioStreamPlayer3D.stream = ACCESS_SETTINGS
-	$AudioStreamPlayer3D.stream = STARTGAME
-
-func _unhandled_input(event):
+	
+func _input(event):
+	print(event.as_text())
 	var buttons = get_tree().get_nodes_in_group("buttons")
 	Swipe.swipe_event(event, $Container, buttons)
 

@@ -1,22 +1,30 @@
 extends Node3D
 var focus_button
 
-var TUTORIAL = load("res://audio/narration/menu/" + Config.config.language + "/MENU_RESTART_TUTORIAL.wav")
-var DIFFICULTY = load("res://audio/narration/menu/" + Config.config.language + "/MENU_DIFFICULTY.wav")
-var SOUNDS = load("res://audio/narration/menu/" + Config.config.language + "/MENU_SOUNDS.wav")
-var LANGUAGE = load("res://audio/narration/menu/" + Config.config.language + "/MENU_LANGUAGE.wav")
-var BACK = load("res://audio/narration/menu/" + Config.config.language + "/MENU_BACK.wav")
-
 
 func _ready():
+	
+	var TUTORIAL = load("res://audio/menu/" + Config.config.language + "/MENU_RESTART_TUTORIAL.wav")
+	var DIFFICULTY = load("res://audio/menu/" + Config.config.language + "/MENU_DIFFICULTY.wav")
+	var SOUNDS = load("res://audio/menu/" + Config.config.language + "/MENU_SOUNDS.wav")
+	var LANGUAGE = load("res://audio/menu/" + Config.config.language + "/MENU_LANGUAGE.wav")
+	var BACK = load("res://audio/menu/" + Config.config.language + "/MENU_BACK.wav")
+
+	%TutorialRedo.stream = TUTORIAL
+	%DifficultySettings.stream = DIFFICULTY
+	%SoundsSettings.stream = SOUNDS
+	%LanguageSettings.stream = LANGUAGE
+	%BackToMain.stream = BACK
+
+	Swipe.swipe_left.connect(_on_swipe_left)
+	Swipe.swipe_right.connect(_on_swipe_right)
+	
 	focus_button = %Tutorial
 	focus_button.grab_focus()
 	print("premier focus")
 	print(focus_button)
-	Swipe.swipe_left.connect(_on_swipe_left)
-	Swipe.swipe_right.connect(_on_swipe_right)
 
-func _unhandled_input(event):
+func _input(event):
 	var buttons = get_tree().get_nodes_in_group("buttons")
 	Swipe.swipe_event(event, $Container, buttons)
 
@@ -52,22 +60,17 @@ func _on_back_pressed():
 	Global.goto_scene("res://menu/main_menu.tscn")
 
 func _on_tutorial_focus_entered():
-#	%TutorialRedo.play() 
-	$AudioStreamPlayer3D.stream = TUTORIAL
+	%TutorialRedo.play() 
 
 func _on_difficulty_focus_entered():
-#	%DifficultySettings.play()
-	$AudioStreamPlayer3D.stream = DIFFICULTY
+	%DifficultySettings.play()
 
 func _on_sounds_focus_entered():
-#	%SoundsSettings.play()
-	$AudioStreamPlayer3D.stream = SOUNDS
+	%SoundsSettings.play()
 
 func _on_language_focus_entered():
-#	%LanguageSettings.play()
-	$AudioStreamPlayer3D.stream = LANGUAGE
+	%LanguageSettings.play()
 
 func _on_back_focus_entered():
-#	%BackToMain.play()
-	$AudioStreamPlayer3D.stream = BACK
-
+	%BackToMain.play()
+	

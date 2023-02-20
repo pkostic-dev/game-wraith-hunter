@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ria118jphuw5"]
+[gd_scene load_steps=6 format=3 uid="uid://ct53l54pudhp2"]
 
 [ext_resource type="Script" path="res://menu/settings_sounds.gd" id="1_6as15"]
-[ext_resource type="AudioStream" uid="uid://xdkjxsqpvl4n" path="res://audio/menu/MENU_SOUNDS_ENVIRONMENT.wav" id="2_u2on3"]
-[ext_resource type="AudioStream" uid="uid://ss0as1ro02vo" path="res://audio/menu/MENU_SOUNDS_VOICE.wav" id="3_8bq85"]
-[ext_resource type="AudioStream" uid="uid://etqqobak5upj" path="res://audio/menu/MENU_SOUNDS_MUSIC.wav" id="4_ptuie"]
-[ext_resource type="AudioStream" uid="uid://dmi8knq8450xu" path="res://audio/menu/MENU_SOUNDS_GHOST.wav" id="5_ya1u7"]
+[ext_resource type="AudioStream" uid="uid://xdkjxsqpvl4n" path="res://audio/menu/fr/MENU_SOUNDS_ENVIRONMENT.wav" id="2_343dc"]
+[ext_resource type="AudioStream" uid="uid://ss0as1ro02vo" path="res://audio/menu/fr/MENU_SOUNDS_VOICE.wav" id="3_gxcdg"]
+[ext_resource type="AudioStream" uid="uid://etqqobak5upj" path="res://audio/menu/fr/MENU_SOUNDS_MUSIC.wav" id="4_acy82"]
+[ext_resource type="AudioStream" uid="uid://dmi8knq8450xu" path="res://audio/menu/fr/MENU_SOUNDS_GHOST.wav" id="5_ypsnu"]
 
 [node name="settings_sounds" type="Node3D"]
 script = ExtResource("1_6as15")
@@ -27,7 +27,7 @@ text = "Volume sons
 
 [node name="EnvironmentSound" type="AudioStreamPlayer" parent="Container/Environment"]
 unique_name_in_owner = true
-stream = ExtResource("2_u2on3")
+stream = ExtResource("2_343dc")
 
 [node name="Voice" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -39,7 +39,7 @@ text = "Volume voix"
 
 [node name="VoiceSound" type="AudioStreamPlayer" parent="Container/Voice"]
 unique_name_in_owner = true
-stream = ExtResource("3_8bq85")
+stream = ExtResource("3_gxcdg")
 
 [node name="Music" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -52,7 +52,7 @@ text = "Volume musique
 
 [node name="MusicSound" type="AudioStreamPlayer" parent="Container/Music"]
 unique_name_in_owner = true
-stream = ExtResource("4_ptuie")
+stream = ExtResource("4_acy82")
 
 [node name="Wraith" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -64,7 +64,7 @@ text = "Volume fantôme"
 
 [node name="WraithSound" type="AudioStreamPlayer" parent="Container/Wraith"]
 unique_name_in_owner = true
-stream = ExtResource("5_ya1u7")
+stream = ExtResource("5_ypsnu")
 
 [node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)

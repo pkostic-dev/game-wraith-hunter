@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c80brkck8b5rt"]
+[gd_scene load_steps=5 format=3 uid="uid://dr8drgip4irip"]
 
 [ext_resource type="Script" path="res://menu/settings_menu.gd" id="1_krp18"]
-[ext_resource type="AudioStream" uid="uid://cknpimjbu74yu" path="res://audio/menu/MENU_RESTART_TUTORIAL.wav" id="2_glb77"]
-[ext_resource type="AudioStream" uid="uid://hfb5wjv53wuj" path="res://audio/menu/MENU_DIFFICULTY.wav" id="3_yxi1i"]
-[ext_resource type="AudioStream" uid="uid://40t1ik3x82jd" path="res://audio/menu/MENU_SOUNDS.wav" id="4_852kn"]
+[ext_resource type="AudioStream" uid="uid://cknpimjbu74yu" path="res://audio/menu/fr/MENU_RESTART_TUTORIAL.wav" id="2_ibfvw"]
+[ext_resource type="AudioStream" uid="uid://hfb5wjv53wuj" path="res://audio/menu/fr/MENU_DIFFICULTY.wav" id="3_yglld"]
+[ext_resource type="AudioStream" uid="uid://40t1ik3x82jd" path="res://audio/menu/fr/MENU_SOUNDS.wav" id="4_1kqxa"]
 
 [node name="menu_settings" type="Node3D"]
 script = ExtResource("1_krp18")
@@ -25,7 +25,7 @@ text = "Commencer le tutoriel"
 
 [node name="TutorialRedo" type="AudioStreamPlayer" parent="Container/Tutorial"]
 unique_name_in_owner = true
-stream = ExtResource("2_glb77")
+stream = ExtResource("2_ibfvw")
 
 [node name="Difficulty" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -37,7 +37,7 @@ text = "Modifier la difficulté"
 
 [node name="DifficultySettings" type="AudioStreamPlayer" parent="Container/Difficulty"]
 unique_name_in_owner = true
-stream = ExtResource("3_yxi1i")
+stream = ExtResource("3_yglld")
 
 [node name="Sounds" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -49,7 +49,7 @@ text = "Modifier le son"
 
 [node name="SoundsSettings" type="AudioStreamPlayer" parent="Container/Sounds"]
 unique_name_in_owner = true
-stream = ExtResource("4_852kn")
+stream = ExtResource("4_1kqxa")
 
 [node name="Language" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
