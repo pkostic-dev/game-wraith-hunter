@@ -43,21 +43,22 @@ var is_pausing := true
 
 func _ready():
 	# Initial pause
-	$PauseTimer.start()
-	pass
+	# Wait 4 seconds at the beginning
+	# More than 7 sec = problem
+	$PauseTimer.start(4)
 
 
 func _process(_delta):
-	if not $AudioStreamPlayer3D.playing and not is_pausing:
+	if not $TutorialAudio.playing and not is_pausing:
 		_play_sound(stream_list[0])
 	pass
 
 
 func _play_sound(stream):
-	if $AudioStreamPlayer3D.playing:
-		$AudioStreamPlayer3D.stop()
-	$AudioStreamPlayer3D.stream = stream
-	$AudioStreamPlayer3D.play()
+	if $TutorialAudio.playing:
+		$TutorialAudio.stop()
+	$TutorialAudio.stream = stream
+	$TutorialAudio.play()
 
 
 func _on_audio_stream_player_3d_finished():
