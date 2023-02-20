@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc04rcusq4efg"]
+
+[ext_resource type="Script" path="res://setup/setup_sequence.gd" id="1_13g5e"]
+
+[node name="SetupSequence" type="Node3D"]
+script = ExtResource("1_13g5e")
+
+[node name="SetupAudio" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+
+[node name="PauseTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SetupAudioBis" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="finished" from="SetupAudio" to="." method="_on_setup_audio_finished"]
+[connection signal="timeout" from="PauseTimer" to="." method="_on_pause_timer_timeout"]
