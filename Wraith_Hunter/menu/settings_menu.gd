@@ -29,6 +29,7 @@ func _input(event):
 	Swipe.swipe_event(event, $Container, buttons)
 
 func _on_swipe_left():
+	Swipe.move_scene_left()
 	print("start swipe left button")
 	print(focus_button)
 	focus_button = focus_button.find_next_valid_focus()
@@ -37,6 +38,7 @@ func _on_swipe_left():
 	print(focus_button)
 
 func _on_swipe_right():
+	Swipe.move_scene_right()
 	print("start swipe right button")
 	print(focus_button)
 	focus_button = focus_button.find_prev_valid_focus()

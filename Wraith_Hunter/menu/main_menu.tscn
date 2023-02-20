@@ -24,6 +24,7 @@ text = "Lancer le jeu"
 
 [node name="StartGameSound" type="AudioStreamPlayer" parent="Container/StartGame"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [node name="Settings" type="Button" parent="Container" groups=["buttons"]]
 unique_name_in_owner = true
@@ -37,6 +38,7 @@ text = "Accéder aux paramètres"
 [node name="SettingsSound" type="AudioStreamPlayer" parent="Container/Settings"]
 unique_name_in_owner = true
 stream = ExtResource("2_spcul")
+bus = &"Narrator"
 
 [connection signal="focus_entered" from="Container/StartGame" to="." method="_on_start_game_focus_entered"]
 [connection signal="pressed" from="Container/StartGame" to="." method="_on_start_game_pressed"]

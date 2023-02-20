@@ -27,10 +27,12 @@ func _input(event):
 	Swipe.swipe_event(event, $Container, buttons)
 
 func _on_swipe_left():
+	Swipe.move_scene_left()
 	focus_button = focus_button.find_next_valid_focus()
 	focus_button.grab_focus()
 
 func _on_swipe_right():
+	Swipe.move_scene_right()
 	focus_button = focus_button.find_prev_valid_focus()
 	focus_button.grab_focus()
 
