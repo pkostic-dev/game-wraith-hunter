@@ -30,6 +30,7 @@ func _input(event):
 
 func _on_swipe_left():
 	Swipe.move_scene_left()
+	stop_all_sounds()
 	print("start swipe left button")
 	print(focus_button)
 	focus_button = focus_button.find_next_valid_focus()
@@ -39,13 +40,21 @@ func _on_swipe_left():
 
 func _on_swipe_right():
 	Swipe.move_scene_right()
+	stop_all_sounds()
 	print("start swipe right button")
 	print(focus_button)
 	focus_button = focus_button.find_prev_valid_focus()
 	focus_button.grab_focus()
 	print("end swipe right focus")
 	print(focus_button)
-
+	
+func stop_all_sounds():
+	%TutorialRedo.stop()
+	%DifficultySettings.stop()
+	%SoundsSettings.stop()
+	%LanguageSettings.stop()
+	%BackToMain.stop()
+	
 func _on_tutorial_pressed():
 	pass # Replace with function body.
 
