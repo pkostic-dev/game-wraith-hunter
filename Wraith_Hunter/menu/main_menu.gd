@@ -11,6 +11,8 @@ func _ready():
 	print(focus_button)
 	Swipe.swipe_left.connect(_on_swipe_left)
 	Swipe.swipe_right.connect(_on_swipe_right)
+	$AudioStreamPlayer3D.stream = ACCESS_SETTINGS
+	$AudioStreamPlayer3D.stream = STARTGAME
 
 func _unhandled_input(event):
 	var buttons = get_tree().get_nodes_in_group("buttons")
@@ -40,10 +42,9 @@ func _on_start_game_pressed():
 	pass # Replace with function body.
 
 func _on_start_game_focus_entered():
-	#%StartGameSound.play()
-	$AudioStreamPlayer3D.stream = STARTGAME
+	%StartGameSound.play()
+	
 
 func _on_settings_focus_entered():
-	#%SettingsSound.play()
-	$AudioStreamPlayer3D.stream = ACCESS_SETTINGS
+	%SettingsSound.play()
 
