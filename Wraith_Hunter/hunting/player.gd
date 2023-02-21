@@ -1,5 +1,6 @@
 extends Node3D
 
+var can_aim := true
 var is_capturing := false
 var new_touch := true
 var capture_rate := 3.0
@@ -20,15 +21,16 @@ func _process(delta):
 	gyroscope = Input.get_gyroscope()
 	
 	var new_basis = rotate_by_gyro(gyroscope, head.transform.basis, delta).orthonormalized()
-
-	head.transform.basis = new_basis
 	
-	# DEBUG : Simulate gyroscope for debugging on PC
-	if Input.is_action_pressed("ui_left"):
-		head.transform.basis = rotate_by_gyro(Vector3.UP, head.transform.basis, delta).orthonormalized()
+	if can_aim:
+		head.transform.basis = new_basis
 	
-	if Input.is_action_pressed("ui_right"):
-		head.transform.basis = rotate_by_gyro(Vector3.DOWN, head.transform.basis, delta).orthonormalized()
+		# DEBUG : Simulate gyroscope for debugging on PC
+		if Input.is_action_pressed("ui_left"):
+			head.transform.basis = rotate_by_gyro(Vector3.UP, head.transform.basis, delta).orthonormalized()
+		
+		if Input.is_action_pressed("ui_right"):
+			head.transform.basis = rotate_by_gyro(Vector3.DOWN, head.transform.basis, delta).orthonormalized()
 	
 	# DEBUG : Simulate screen touch for debugging on PC
 #	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
