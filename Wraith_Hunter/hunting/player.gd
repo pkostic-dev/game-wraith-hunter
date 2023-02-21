@@ -1,9 +1,12 @@
 extends Node3D
 
+var RECOVER_SEQUENCE := "res://sequences/recover/recover_sequence.tscn"
+
 var can_aim := true
 var is_capturing := false
 var new_touch := true
 var capture_rate := 3.0
+var health := 100.0
 
 var fade_out_tween:Tween
 
@@ -38,6 +41,13 @@ func _process(delta):
 
 	if is_capturing:
 		_capture()
+	
+	if health <= 50.0 and not $BreathingSound.playing:
+		$BreathingSound.volume_db = -health
+		$BreathingSound.play()
+	
+	if health <= 0.0:
+		Global.goto_scene(RECOVER_SEQUENCE)
 
 
 func _physics_process(_delta):
@@ -45,6 +55,7 @@ func _physics_process(_delta):
 	if raycast.is_colliding():
 		raycast_debug.mesh.material.albedo_color = Color.WHITE
 		emit_signal("wraith_locked_on")
+		Input.vibrate_handheld(400)
 	else:
 		raycast_debug.mesh.material.albedo_color = Color.YELLOW_GREEN
 
@@ -93,3 +104,11 @@ func rotate_by_gyro(p_gyro, p_basis, p_delta) -> Basis:
 	_rotate = _rotate.rotated(p_basis.y, p_gyro.y * p_delta) # yaw
 	
 	return _rotate * p_basis
+
+
+func _hurt():
+	health -= 10.0
+
+
+func _on_area_3d_area_entered(_area):
+	_hurt()
