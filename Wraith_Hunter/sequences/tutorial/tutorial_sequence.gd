@@ -15,7 +15,7 @@ var TUTORIAL_WRAITH_MOVE := load("res://audio/tutorial/" + Config.config.languag
 
 # SFX
 var WRAITH_GROWL := load("res://audio/sound_fx/ghost/creature-growl01.wav")
-var WRAITH_ATTACK := load("res://audio/sound_fx/ghost/creature-growl02.wav") #TODO change
+var WRAITH_ATTACK := load("res://audio/sound_fx/ghost/Monster_Roar_2.wav")
 var LOW_HEALTH := load("res://audio/sound_fx/player/human-breathingrapid01.wav") #TODO change to heartbeat
 
 # Flags
@@ -23,6 +23,7 @@ var aim_success := false
 var screen_touched := false
 var ghost_dead := false
 
+var OPENING_SEQUENCE := "res://sequences/opening/opening_sequence.tscn"
 
 # Sequence
 # 1. Play WRAITH_GROWL
@@ -118,6 +119,8 @@ func _start_sequence():
 	_play_sound(TUTORIAL_PAUSE)
 	await $OpeningAudio.finished
 	await get_tree().create_timer(1.0).timeout
+	
+	Global.goto_scene(OPENING_SEQUENCE)
 
 
 func _play_sound(stream):
