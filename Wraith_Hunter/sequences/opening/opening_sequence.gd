@@ -5,10 +5,9 @@ var OPENING_HANDLER := load("res://audio/setup/" + Config.config.language + "/OP
 var OPENING_REAPER := load("res://audio/setup/" + Config.config.language + "/OPENING_REAPER.wav")
 var OPENING_WRAITHS := load("res://audio/setup/" + Config.config.language + "/OPENING_WRAITHS.wav")
 
-var TUTORIAL_SEQUENCE_SCENE := "res://sequences/tutorial/tutorial_sequence.tscn"
-
 
 func _ready():
+	Global.first_playthrough = false
 	_start_sequence()
 
 
@@ -25,7 +24,9 @@ func _start_sequence():
 	await $OpeningAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
-	Global.goto_scene(TUTORIAL_SEQUENCE_SCENE)
+	# TODO Play door opening sound
+	
+	Global.goto_scene(Game.first_level)
 
 
 func _play_sound(stream):

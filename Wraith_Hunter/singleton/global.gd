@@ -1,6 +1,7 @@
 extends Node
 
 var current_scene = null
+var first_playthrough := true
 
 func _ready():
 	var root = get_tree().get_root()

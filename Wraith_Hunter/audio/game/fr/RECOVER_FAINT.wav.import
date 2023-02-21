@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://duohrt1bbt2n6"
-path="res://.godot/imported/FAINT.wav-e36458592f2d0a3ec54dc95fa00d7afa.sample"
+path="res://.godot/imported/RECOVER_FAINT.wav-9ee6bb7e7c7d201a91ebfd0546a91466.sample"
 
 [deps]
 
-source_file="res://audio/game/fr/FAINT.wav"
-dest_files=["res://.godot/imported/FAINT.wav-e36458592f2d0a3ec54dc95fa00d7afa.sample"]
+source_file="res://audio/game/fr/RECOVER_FAINT.wav"
+dest_files=["res://.godot/imported/RECOVER_FAINT.wav-9ee6bb7e7c7d201a91ebfd0546a91466.sample"]
 
 [params]
 

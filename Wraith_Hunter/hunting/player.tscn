@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs1gtady780iy"]
+[gd_scene load_steps=10 format=3 uid="uid://bs1gtady780iy"]
 
 [ext_resource type="Script" path="res://hunting/player.gd" id="1_l6bwx"]
 [ext_resource type="AudioStream" uid="uid://cbwshhvi8cwmc" path="res://audio/sound_fx/capture/Retro Electric Sparks 01.wav" id="2_bxxai"]
 [ext_resource type="AudioStream" uid="uid://bao44e2nvn651" path="res://audio/sound_fx/capture/Retro Electric Long 09.wav" id="3_ex058"]
+[ext_resource type="AudioStream" uid="uid://cxrp6k7g8h7g0" path="res://audio/sound_fx/player/human-breathingrapid01.wav" id="4_s1idu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihs0i"]
 albedo_color = Color(0.439216, 0.74902, 0.427451, 1)
@@ -21,6 +22,9 @@ bottom_radius = 0.05
 height = 20.0
 radial_segments = 4
 rings = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fd8vi"]
+size = Vector3(1, 2, 1)
 
 [node name="Player" type="Node3D"]
 script = ExtResource("1_l6bwx")
@@ -56,3 +60,16 @@ bus = &"Player"
 [node name="CapturingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ex058")
 bus = &"Capture"
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_fd8vi")
+
+[node name="BreathingSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_s1idu")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

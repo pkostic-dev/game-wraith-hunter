@@ -15,7 +15,7 @@ var TUTORIAL_WRAITH_MOVE := load("res://audio/tutorial/" + Config.config.languag
 
 # SFX
 var WRAITH_GROWL := load("res://audio/sound_fx/ghost/creature-growl01.wav")
-var WRAITH_ATTACK := load("res://audio/sound_fx/ghost/creature-growl02.wav") #TODO change
+var WRAITH_ATTACK := load("res://audio/sound_fx/ghost/Monster_Roar_2.wav")
 var LOW_HEALTH := load("res://audio/sound_fx/player/human-breathingrapid01.wav") #TODO change to heartbeat
 
 # Flags
@@ -23,6 +23,10 @@ var aim_success := false
 var screen_touched := false
 var ghost_dead := false
 
+var OPENING_SEQUENCE := "res://sequences/opening/opening_sequence.tscn"
+
+const GHOST = preload("res://hunting/ghost.tscn") 
+var ghost
 
 # Sequence
 # 1. Play WRAITH_GROWL
@@ -42,23 +46,32 @@ var ghost_dead := false
 
 
 func _ready():
+	# Create a ghost
+	var spawn_position = Vector3(randf_range(-9, 9), 0, 0)
+	ghost = await _spawn_ghost()
+	ghost.set_process(false)
+	ghost.behavior = ghost.Behavior.IDLE
+	ghost.default_behavior = ghost.Behavior.IDLE
+	ghost.original_position = spawn_position
+	ghost.position = spawn_position
+	
+	
 	_start_sequence()
 
 
 func _start_sequence():
 	$Player.can_aim = false
-	$Ghost.set_process(false)
 	
 	_play_sound(WRAITH_GROWL)
-	await $OpeningAudio.finished
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
+	$TutorialAudio.stop()
 	
 	_play_sound(TUTORIAL_WRAITH)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_AIM)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	$Player.can_aim = true
@@ -66,58 +79,60 @@ func _start_sequence():
 	$Player.can_aim = false
 	
 	_play_sound(TUTORIAL_CAPTURE_READY)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_CAPTURE_START)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
-	$Ghost.set_process(true)
-	await $Ghost.died
+	ghost.set_process(true)
+	await ghost.died
 	
 	_play_sound(TUTORIAL_CAPTURE_END)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_WRAITH_ATTACK_1)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(WRAITH_ATTACK)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_WRAITH_ATTACK_2)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_LOW_HEALTH_1)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(LOW_HEALTH)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_LOW_HEALTH_2)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	Input.vibrate_handheld(400)
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_LOW_HEALTH_3)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_WRAITH_MOVE)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_PAUSE)
-	await $OpeningAudio.finished
+	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
+	
+	Global.goto_scene(OPENING_SEQUENCE)
 
 
 func _play_sound(stream):
@@ -126,3 +141,7 @@ func _play_sound(stream):
 	$TutorialAudio.stream = stream
 	$TutorialAudio.play()
 
+func _spawn_ghost():
+	var _ghost = GHOST.instantiate()
+	call_deferred("add_child", _ghost)
+	return _ghost
