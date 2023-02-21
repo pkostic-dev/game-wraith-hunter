@@ -22,6 +22,7 @@ text = "Français"
 
 [node name="FrenchSound" type="AudioStreamPlayer" parent="Container/French"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [node name="English" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -33,6 +34,7 @@ text = "Anglais"
 
 [node name="EnglishSound" type="AudioStreamPlayer" parent="Container/English"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -44,6 +46,7 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [connection signal="focus_entered" from="Container/French" to="." method="_on_french_focus_entered"]
 [connection signal="pressed" from="Container/French" to="." method="_on_french_pressed"]

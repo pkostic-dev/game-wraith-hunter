@@ -31,6 +31,8 @@ func _input(event):
 
 
 func _on_swipe_left():
+	Swipe.move_scene_left()
+	stop_all_sounds()
 	print("start swipe left button")
 	print(focus_button)
 	focus_button = focus_button.find_next_valid_focus()
@@ -40,6 +42,8 @@ func _on_swipe_left():
 
 
 func _on_swipe_right():
+	Swipe.move_scene_right()
+	stop_all_sounds()
 	print("start swipe right button")
 	print(focus_button)
 	focus_button = focus_button.find_prev_valid_focus()
@@ -48,9 +52,9 @@ func _on_swipe_right():
 	print(focus_button)
 
 
-func _on_settings_pressed():
-	print("chargement scene settings_menu")
-	Global.goto_scene("res://menu/settings_menu.tscn")
+func stop_all_sounds():
+	%StartGameSound.stop()
+	%SettingsSound.stop()
 
 
 func _on_start_game_pressed():
@@ -59,12 +63,14 @@ func _on_start_game_pressed():
 	else:
 		Global.goto_scene(OPENING_SEQUENCE)
 
+func _on_settings_pressed():
+	print("chargement scene settings_menu")
+	Global.goto_scene("res://menu/settings_menu.tscn")
+
 
 func _on_start_game_focus_entered():
 	%StartGameSound.play()
-	
 
 
 func _on_settings_focus_entered():
 	%SettingsSound.play()
-

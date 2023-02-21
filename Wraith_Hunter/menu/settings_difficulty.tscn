@@ -22,6 +22,7 @@ text = "Niveau facile"
 
 [node name="EasySound" type="AudioStreamPlayer" parent="Container/Easy"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [node name="Medium" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -33,6 +34,7 @@ text = "Niveau moyen"
 
 [node name="MediumSound" type="AudioStreamPlayer" parent="Container/Medium"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [node name="Hard" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -44,6 +46,7 @@ text = "Niveau difficile"
 
 [node name="HardSound" type="AudioStreamPlayer" parent="Container/Hard"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -55,6 +58,7 @@ text = "Retour"
 
 [node name="Back" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [connection signal="focus_entered" from="Container/Easy" to="." method="_on_easy_focus_entered"]
 [connection signal="pressed" from="Container/Easy" to="." method="_on_easy_pressed"]

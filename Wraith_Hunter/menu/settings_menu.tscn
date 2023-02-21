@@ -26,6 +26,7 @@ text = "Commencer le tutoriel"
 [node name="TutorialRedo" type="AudioStreamPlayer" parent="Container/Tutorial"]
 unique_name_in_owner = true
 stream = ExtResource("2_ibfvw")
+bus = &"Narrator"
 
 [node name="Difficulty" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -38,6 +39,7 @@ text = "Modifier la difficulté"
 [node name="DifficultySettings" type="AudioStreamPlayer" parent="Container/Difficulty"]
 unique_name_in_owner = true
 stream = ExtResource("3_yglld")
+bus = &"Narrator"
 
 [node name="Sounds" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -50,6 +52,7 @@ text = "Modifier le son"
 [node name="SoundsSettings" type="AudioStreamPlayer" parent="Container/Sounds"]
 unique_name_in_owner = true
 stream = ExtResource("4_1kqxa")
+bus = &"Narrator"
 
 [node name="Language" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -61,6 +64,7 @@ text = "Changer la langue"
 
 [node name="LanguageSettings" type="AudioStreamPlayer" parent="Container/Language"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -72,6 +76,7 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [connection signal="focus_entered" from="Container/Tutorial" to="." method="_on_tutorial_focus_entered"]
 [connection signal="pressed" from="Container/Tutorial" to="." method="_on_tutorial_pressed"]

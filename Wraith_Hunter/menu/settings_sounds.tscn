@@ -28,6 +28,7 @@ text = "Volume sons
 [node name="EnvironmentSound" type="AudioStreamPlayer" parent="Container/Environment"]
 unique_name_in_owner = true
 stream = ExtResource("2_343dc")
+bus = &"Narrator"
 
 [node name="Voice" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -40,6 +41,7 @@ text = "Volume voix"
 [node name="VoiceSound" type="AudioStreamPlayer" parent="Container/Voice"]
 unique_name_in_owner = true
 stream = ExtResource("3_gxcdg")
+bus = &"Narrator"
 
 [node name="Music" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -53,6 +55,7 @@ text = "Volume musique
 [node name="MusicSound" type="AudioStreamPlayer" parent="Container/Music"]
 unique_name_in_owner = true
 stream = ExtResource("4_acy82")
+bus = &"Narrator"
 
 [node name="Wraith" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -65,6 +68,7 @@ text = "Volume fantôme"
 [node name="WraithSound" type="AudioStreamPlayer" parent="Container/Wraith"]
 unique_name_in_owner = true
 stream = ExtResource("5_ypsnu")
+bus = &"Narrator"
 
 [node name="Back" type="Button" parent="Container" groups=["buttons"]]
 custom_minimum_size = Vector2(1150, 0)
@@ -76,6 +80,7 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+bus = &"Narrator"
 
 [connection signal="focus_entered" from="Container/Environment" to="." method="_on_environment_focus_entered"]
 [connection signal="pressed" from="Container/Environment" to="." method="_on_environment_pressed"]
