@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://viupjcu6cf15"]
+
+[ext_resource type="Script" path="res://sequences/tutorial/tutorial_sequence.gd" id="1_2x1av"]
+[ext_resource type="PackedScene" uid="uid://26l86nod4xg6" path="res://hunting/ghost.tscn" id="2_dvfpi"]
+[ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="3_xgw5d"]
+
+[node name="TutorialSequence" type="Node3D"]
+script = ExtResource("1_2x1av")
+
+[node name="TutorialAudio" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Ghost" parent="." instance=ExtResource("2_dvfpi")]
+
+[node name="Player" parent="." instance=ExtResource("3_xgw5d")]
