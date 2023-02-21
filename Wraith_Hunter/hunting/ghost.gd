@@ -39,8 +39,11 @@ var growl_sounds := [growl_sound_1, growl_sound_2, growl_sound_3]
 @onready var ghost_emoji := $GhostEmoji
 
 
+signal died
+
+
 func _ready():
-	# Play the sound
+	# Play the sound if easy difficulty
 	#$GrowlSound.play()
 	
 	# Start the timer for the first time
@@ -109,6 +112,7 @@ func die():
 	$DieSound.play()
 	dying = true
 	$CollisionArea/CollisionShape3D.disabled = true
+	emit_signal("died")
 
 
 func _move_home_in(delta):
@@ -174,3 +178,15 @@ func _on_capture_delay_timer_timeout():
 	being_captured = false
 	if not dying: 
 		behavior = default_behavior
+
+
+func _reset_position():
+	$CollisionArea.monitorable = true
+	position = original_position
+
+
+func _on_collision_area_area_entered(_area):
+	$AttackSound.play()
+	$CollisionArea.set_deferred("monitorable", false)
+	await $AttackSound.finished
+	_reset_position()
