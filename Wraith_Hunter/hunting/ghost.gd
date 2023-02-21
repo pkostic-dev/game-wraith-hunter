@@ -178,3 +178,15 @@ func _on_capture_delay_timer_timeout():
 	being_captured = false
 	if not dying: 
 		behavior = default_behavior
+
+
+func _reset_position():
+	$CollisionArea.monitorable = true
+	position = original_position
+
+
+func _on_collision_area_area_entered(_area):
+	$AttackSound.play()
+	$CollisionArea.set_deferred("monitorable", false)
+	await $AttackSound.finished
+	_reset_position()
