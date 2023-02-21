@@ -1,10 +1,14 @@
 extends Node
 var swipe_start = null
-var minimum_drag = 100
-var current_scene
+var minimum_drag = (DisplayServer.window_get_size().x)/3
+var minimum_drag_up_down = (DisplayServer.window_get_size().y)/3
+
+var current_scene 
 var buttons_group
 signal swipe_right
 signal swipe_left
+signal swipe_up
+signal swipe_down
 var x_min
 var x_max = 0
 var nb_buttons
@@ -31,6 +35,13 @@ func _calculate_swipe(swipe_end):
 			_right()
 		else:
 			_left()
+	if abs(swipe.y) > minimum_drag_up_down and abs(swipe.x) < minimum_drag :
+		for button in buttons_group:
+			button.disabled = true
+		if swipe.y < 0:
+			_up()
+		else: 
+			_down()
 
 func _right():
 	print("swipe right")
@@ -39,6 +50,18 @@ func _right():
 func _left():
 	print("swipe left")
 	swipe_left.emit()
+	
+func _up():
+	print("swipe up")
+	swipe_up.emit()
+	for button in buttons_group:
+		button.disabled = false
+
+func _down():
+	print("swipe down")
+	swipe_down.emit()
+	for button in buttons_group:
+		button.disabled = false
 	
 func move_scene_right():
 	if current_scene.position.x >= x_max:

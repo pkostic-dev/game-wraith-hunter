@@ -8,7 +8,6 @@ var OPENING_SEQUENCE := "res://sequences/opening/opening_sequence.tscn"
 
 
 func _ready():
-	
 	var STARTGAME = load("res://audio/menu/" + Config.config.language + "/MENU_STARTGAME.wav")
 	var ACCESS_SETTINGS = load("res://audio/menu/" + Config.config.language + "/MENU_SETTINGS_Prise2.wav")
 	
@@ -18,6 +17,9 @@ func _ready():
 	Swipe.swipe_left.connect(_on_swipe_left)
 	Swipe.swipe_right.connect(_on_swipe_right)
 
+	Swipe.swipe_up.connect(_on_swipe_up)
+	Swipe.swipe_down.connect(_on_swipe_down)
+
 	focus_button = %StartGame
 	focus_button.grab_focus()
 	print("premier focus")
@@ -25,7 +27,7 @@ func _ready():
 
 
 func _input(event):
-	print(event.as_text())
+	#print(event.as_text())
 	var buttons = get_tree().get_nodes_in_group("buttons")
 	Swipe.swipe_event(event, $Container, buttons)
 
@@ -51,6 +53,11 @@ func _on_swipe_right():
 	print("end swipe right focus")
 	print(focus_button)
 
+func _on_swipe_up():
+	print("swipe up signal")
+	
+func _on_swipe_down():
+	print("swipe down signal")
 
 func stop_all_sounds():
 	%StartGameSound.stop()
