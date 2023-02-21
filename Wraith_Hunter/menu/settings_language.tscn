@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://beoruhdya4mes"]
+
+[ext_resource type="Script" path="res://menu/settings_language.gd" id="1_03gpv"]
+
+[node name="settings_language" type="Node3D"]
+script = ExtResource("1_03gpv")
+
+[node name="Container" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+
+[node name="French" type="Button" parent="Container" groups=["buttons"]]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../English")
+focus_previous = NodePath("../Back")
+text = "Français"
+
+[node name="FrenchSound" type="AudioStreamPlayer" parent="Container/French"]
+unique_name_in_owner = true
+
+[node name="English" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../Back")
+focus_previous = NodePath("../French")
+text = "Anglais"
+
+[node name="EnglishSound" type="AudioStreamPlayer" parent="Container/English"]
+unique_name_in_owner = true
+
+[node name="Back" type="Button" parent="Container" groups=["buttons"]]
+custom_minimum_size = Vector2(1150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_next = NodePath("../French")
+focus_previous = NodePath("../English")
+text = "Retour"
+
+[node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
+unique_name_in_owner = true
+
+[connection signal="focus_entered" from="Container/French" to="." method="_on_french_focus_entered"]
+[connection signal="pressed" from="Container/French" to="." method="_on_french_pressed"]
+[connection signal="focus_entered" from="Container/English" to="." method="_on_english_focus_entered"]
+[connection signal="pressed" from="Container/English" to="." method="_on_english_pressed"]
+[connection signal="focus_entered" from="Container/Back" to="." method="_on_back_focus_entered"]
+[connection signal="pressed" from="Container/Back" to="." method="_on_back_pressed"]
