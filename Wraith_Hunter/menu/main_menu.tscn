@@ -10,6 +10,7 @@ script = ExtResource("1_lh3hp")
 unique_name_in_owner = true
 offset_right = 1152.0
 offset_bottom = 647.0
+scale = Vector2(0.96, 1)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

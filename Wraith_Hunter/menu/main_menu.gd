@@ -2,12 +2,22 @@ extends Node3D
 
 
 var focus_button
+var buttons
 
 var TUTORIAL_SEQUENCE := "res://sequences/tutorial/tutorial_sequence.tscn"
 var OPENING_SEQUENCE := "res://sequences/opening/opening_sequence.tscn"
-
+var screen_width = DisplayServer.window_get_size().x
+var screen_height = DisplayServer.window_get_size().y
 
 func _ready():
+	
+	
+	%Container.get_child(0).custom_minimum_size().x = screen_width
+	%Container.get_child(0).custom_minimum_size().y = screen_height
+	%Container.get_child(1).custom_minimum_size().x = screen_width
+	%Container.get_child(1).custom_minimum_size().y = screen_height
+	
+		
 	var STARTGAME = load("res://audio/menu/" + Config.config.language + "/MENU_STARTGAME.wav")
 	var ACCESS_SETTINGS = load("res://audio/menu/" + Config.config.language + "/MENU_SETTINGS_Prise2.wav")
 	
@@ -28,7 +38,6 @@ func _ready():
 
 func _input(event):
 	#print(event.as_text())
-	var buttons = get_tree().get_nodes_in_group("buttons")
 	Swipe.swipe_event(event, $Container, buttons)
 
 
