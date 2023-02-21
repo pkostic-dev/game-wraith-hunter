@@ -39,8 +39,11 @@ var growl_sounds := [growl_sound_1, growl_sound_2, growl_sound_3]
 @onready var ghost_emoji := $GhostEmoji
 
 
+signal died
+
+
 func _ready():
-	# Play the sound
+	# Play the sound if easy difficulty
 	#$GrowlSound.play()
 	
 	# Start the timer for the first time
@@ -109,6 +112,7 @@ func die():
 	$DieSound.play()
 	dying = true
 	$CollisionArea/CollisionShape3D.disabled = true
+	emit_signal("died")
 
 
 func _move_home_in(delta):
