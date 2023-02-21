@@ -1,3 +1,4 @@
 extends Node
 
-var current_level := "res://levels/hallways.tscn"
+var first_level := "res:/tests/test_level.tscn"
+var current_level := "res:/tests/test_level.tscn"
