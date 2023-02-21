@@ -2,6 +2,7 @@ extends Node3D
 
 var RECOVER_SEQUENCE := "res://sequences/recover/recover_sequence.tscn"
 
+var vibrated := false
 var can_aim := true
 var is_capturing := false
 var new_touch := true
@@ -55,8 +56,11 @@ func _physics_process(_delta):
 	if raycast.is_colliding():
 		raycast_debug.mesh.material.albedo_color = Color.WHITE
 		emit_signal("wraith_locked_on")
-		Input.vibrate_handheld(400)
+		if not vibrated:
+			vibrated = true
+			Input.vibrate_handheld(400)
 	else:
+		vibrated = false
 		raycast_debug.mesh.material.albedo_color = Color.YELLOW_GREEN
 
 
@@ -70,7 +74,7 @@ func _unhandled_input(event):
 			if $CapturingSound.playing:
 				fade_out_tween = get_tree().create_tween().set_parallel(true)
 				fade_out_tween.tween_property($CapturingSound, "volume_db", -100.0, 3)
-				fade_out_tween.tween_property($CapturingSound, "pitch_scale", 0.0, 3)
+				fade_out_tween.tween_property($CapturingSound, "pitch_scale", 0.1, 3)
 
 
 func _capture():
