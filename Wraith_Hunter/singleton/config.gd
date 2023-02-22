@@ -14,6 +14,8 @@ var default_config:Dictionary = {
 
 var keys := ["difficulty", "master_volume", "music_volume", "language"]
 
+enum Difficulty {EASY, MEDIUM, HARD}
+
 func _ready():
 	var config_file := load_file(CONFIG_FILE_PATH)
 	if config_file == null:
