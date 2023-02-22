@@ -125,6 +125,7 @@ func _stop_capturing_fade_out():
 			fade_out_tween.stop()
 			$CapturingSound.stop()
 
+
 func rotate_by_gyro(p_gyro, p_basis, p_delta) -> Basis:
 	var _rotate = Basis()
 
