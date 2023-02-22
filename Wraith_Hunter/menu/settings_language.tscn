@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://beoruhdya4mes"]
+[gd_scene load_steps=4 format=3 uid="uid://beoruhdya4mes"]
 
 [ext_resource type="Script" path="res://menu/settings_language.gd" id="1_03gpv"]
+[ext_resource type="AudioStream" uid="uid://dq1q8bo8ml0w8" path="res://audio/menu/fr/BACK_PREVIOUS_MENU.wav" id="2_cgy6r"]
 [ext_resource type="PackedScene" uid="uid://cj7vd31ifh2bm" path="res://menu/menu_sounds.tscn" id="2_xd04a"]
 
 [node name="settings_language" type="Node3D"]
@@ -47,6 +48,7 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+stream = ExtResource("2_cgy6r")
 bus = &"Narrator"
 
 [node name="MenuSounds" parent="." instance=ExtResource("2_xd04a")]

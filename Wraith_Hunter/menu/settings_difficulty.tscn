@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyd2n6wj3hxfr"]
+[gd_scene load_steps=4 format=3 uid="uid://cyd2n6wj3hxfr"]
 
 [ext_resource type="Script" path="res://menu/settings_difficulty.gd" id="1_lv70l"]
+[ext_resource type="AudioStream" uid="uid://dq1q8bo8ml0w8" path="res://audio/menu/fr/BACK_PREVIOUS_MENU.wav" id="2_320ag"]
 [ext_resource type="PackedScene" uid="uid://cj7vd31ifh2bm" path="res://menu/menu_sounds.tscn" id="2_xwhtw"]
 
 [node name="settings_difficulty" type="Node3D"]
@@ -59,6 +60,7 @@ text = "Retour"
 
 [node name="Back" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+stream = ExtResource("2_320ag")
 bus = &"Narrator"
 
 [node name="MenuSounds" parent="." instance=ExtResource("2_xwhtw")]

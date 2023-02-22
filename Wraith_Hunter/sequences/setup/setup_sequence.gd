@@ -60,21 +60,25 @@ func _process(_delta):
 
 
 func _start_sequence():
-	await get_tree().create_timer(3.0).timeout
-	_play_sound(SETUP_SOUND_CHECK)
-	await $SetupAudio.finished
-	
-	await get_tree().create_timer(1.0).timeout
-	_play_sound(SETUP_CHAIR)
-	await $SetupAudio.finished
-	
-	await get_tree().create_timer(1.0).timeout
+#	await get_tree().create_timer(3.0).timeout
+#	_play_sound(SETUP_SOUND_CHECK)
+#	await $SetupAudio.finished
+#
+#	await get_tree().create_timer(1.0).timeout
+#	_play_sound(SETUP_CHAIR)
+#	await $SetupAudio.finished
+#
+#	await get_tree().create_timer(1.0).timeout
 	_play_sound(SETUP_CALIBRATION)
 	await $SetupAudio.finished
 	
-	await get_tree().create_timer(1.0).timeout
-	_play_sound(SETUP_ORIENTATION)
-	await $SetupAudio.finished
+	if OS.has_feature("pc"):
+		await get_tree().create_timer(1.0).timeout
+#		var bus_id = AudioServer.get_bus_index($SetupAudio.bus)
+#		AudioServer.set_bus_volume_db(bus_id, -40)
+		_play_sound(SETUP_ORIENTATION)
+#		AudioServer.set_bus_volume_db(bus_id, 0)
+		await $SetupAudio.finished
 	
 	# skip SETUP_POSITION, SETUP_LEFT, SETUP_RIGHT
 	
@@ -125,7 +129,7 @@ func _load_sounds():
 	SETUP_CHAIR = load("res://audio/setup/" + Config.config.language + "/SETUP_CHAIR.wav")
 	SETUP_COMPLETE = load("res://audio/setup/" + Config.config.language + "/SETUP_COMPLETE.wav")
 	SETUP_LEFT = load("res://audio/setup/" + Config.config.language + "/SETUP_LEFT.wav")
-	SETUP_ORIENTATION = load("res://audio/setup/" + Config.config.language + "/SETUP_ORIENTATION.wav")
+	SETUP_ORIENTATION = load("res://audio/setup/" + Config.config.language + "/TEL_TUTORIAL_ORIENTATION_PHONE.wav")
 	SETUP_POSITION = load("res://audio/setup/" + Config.config.language + "/SETUP_POSITION.wav")
 	SETUP_RIGHT = load("res://audio/setup/" + Config.config.language + "/SETUP_RIGHT.wav")
 	SETUP_SOUND_CHECK = load("res://audio/setup/" + Config.config.language + "/SETUP_SOUND_CHECK.wav")
