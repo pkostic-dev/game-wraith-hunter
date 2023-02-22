@@ -56,7 +56,8 @@ func stop_all_sounds():
 	%BackToMain.stop()
 	
 func _on_tutorial_pressed():
-	pass # Replace with function body.
+	Game.tutorial_from_menu = true
+	Global.goto_scene("res://sequences/tutorial/tutorial_sequence.tscn")
 
 func _on_difficulty_pressed():
 	Global.goto_scene("res://menu/settings_difficulty.tscn")
