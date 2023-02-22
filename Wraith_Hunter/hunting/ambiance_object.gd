@@ -11,11 +11,15 @@ enum AmbianceSound {
 	CAN_CRUSH_3,
 	DOOR_HANDLE_JIGGLE,
 	DOOR_KNOCKING,
+	ASSIETTE,
+	COUTEAU,
+	POMME,
+	MARCHE
 }
 
 @export_enum("DoorHandle1", "DoorHandle2", "OpenBook1", "OpenBook2",
 "Clock","CabinetShut", "CanClink4", "CanCrush3", "DoorHandleJiggle",
-"DoorKnocking") var ambiance_sound:int = 0
+"DoorKnocking", "Assiette", "Couteau", "Pomme", "Marche") var ambiance_sound:int = 0
 
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min:float = 10
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max:float = 20
@@ -50,6 +54,14 @@ func _ready():
 			audio_stream_player_3D.stream = load("res://audio/ambiance/Door_handle_jiggle_checking if locked.wav")
 		AmbianceSound.DOOR_KNOCKING:
 			audio_stream_player_3D.stream = load("res://audio/ambiance/Door_knocking_quiet.wav")
+		AmbianceSound.ASSIETTE:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/kitchen/assiette.wav")
+		AmbianceSound.COUTEAU:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/kitchen/couteau_qui_tombe.wav")
+		AmbianceSound.POMME:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/kitchen/pomme_croquee.wav")
+		AmbianceSound.MARCHE:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/bedroom/marche.wav")
 	
 	# Start the timer for the first time
 	if continuous:

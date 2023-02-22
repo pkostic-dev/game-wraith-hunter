@@ -8,6 +8,7 @@ script = ExtResource("1_yqpgj")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 unit_size = 5.0
+panning_strength = 3.0
 bus = &"Ambiance"
 
 [node name="RepeatTimer" type="Timer" parent="."]
