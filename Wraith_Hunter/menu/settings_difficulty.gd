@@ -43,13 +43,22 @@ func stop_all_sounds():
 	%Back.stop()
 	
 func _on_easy_pressed():
-	pass
+	%Back.play()
+	Config.config.difficulty = "easy"
+	await %Back.finished
+	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_medium_pressed():
-	pass # Replace with function body.
+	%Back.play()
+	Config.config.difficulty = "medium"
+	await %Back.finished
+	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_hard_pressed():
-	pass # Replace with function body.
+	%Back.play()
+	Config.config.difficulty = "hard"
+	await %Back.finished
+	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_back_pressed():
 	Global.goto_scene("res://menu/settings_menu.tscn")
