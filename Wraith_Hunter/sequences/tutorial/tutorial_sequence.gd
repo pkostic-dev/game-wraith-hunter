@@ -1,22 +1,22 @@
 extends Node3D
 
-var TUTORIAL_AIM := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_AIM.wav")
-var TUTORIAL_CAPTURE_END := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_CAPTURE_END.wav")
-var TUTORIAL_CAPTURE_READY := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_CAPTURE_READY.wav")
-var TUTORIAL_CAPTURE_START := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_CAPTURE_START.wav")
-var TUTORIAL_LOW_HEALTH_1 := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_LOW_HEALTH_1.wav")
-var TUTORIAL_LOW_HEALTH_2 := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_LOW_HEALTH_2.wav")
-var TUTORIAL_LOW_HEALTH_3 := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_LOW_HEALTH_3.wav")
-var TUTORIAL_PAUSE := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_PAUSE.wav")
-var TUTORIAL_WRAITH := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH.wav")
-var TUTORIAL_WRAITH_ATTACK_1 := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH_ATTACK_1.wav")
-var TUTORIAL_WRAITH_ATTACK_2 := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH_ATTACK_2.wav")
-var TUTORIAL_WRAITH_MOVE := load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH_MOVE.wav")
+var TUTORIAL_AIM
+var TUTORIAL_CAPTURE_END
+var TUTORIAL_CAPTURE_READY
+var TUTORIAL_CAPTURE_START
+var TUTORIAL_LOW_HEALTH_1
+var TUTORIAL_LOW_HEALTH_2
+var TUTORIAL_LOW_HEALTH_3
+var TUTORIAL_PAUSE
+var TUTORIAL_WRAITH
+var TUTORIAL_WRAITH_ATTACK_1
+var TUTORIAL_WRAITH_ATTACK_2
+var TUTORIAL_WRAITH_MOVE
 
 # SFX
-var WRAITH_GROWL := load("res://audio/sound_fx/ghost/creature-growl01.wav")
-var WRAITH_ATTACK := load("res://audio/sound_fx/ghost/Monster_Roar_2.wav")
-var LOW_HEALTH := load("res://audio/sound_fx/player/human-breathingrapid01.wav") #TODO change to heartbeat
+var WRAITH_GROWL
+var WRAITH_ATTACK
+var LOW_HEALTH
 
 # Flags
 var aim_success := false
@@ -24,6 +24,7 @@ var screen_touched := false
 var ghost_dead := false
 
 var OPENING_SEQUENCE := "res://sequences/opening/opening_sequence.tscn"
+var MAIN_MENU := "res://menu/main_menu.tscn"
 
 const GHOST = preload("res://hunting/ghost.tscn") 
 var ghost
@@ -46,6 +47,8 @@ var ghost
 
 
 func _ready():
+	_load_sounds()
+	
 	# Create a ghost
 	var spawn_position = Vector3(0, 0, randf_range(-9, 9))
 	if spawn_position.z <= 2 and spawn_position.z >= -2:
@@ -111,18 +114,18 @@ func _start_sequence():
 	
 	_play_sound(TUTORIAL_LOW_HEALTH_1)
 	await $TutorialAudio.finished
-	await get_tree().create_timer(1.0).timeout
+	#await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(LOW_HEALTH)
 	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
-	_play_sound(TUTORIAL_LOW_HEALTH_2)
-	await $TutorialAudio.finished
-	await get_tree().create_timer(1.0).timeout
-	
-	Input.vibrate_handheld(400)
-	await get_tree().create_timer(1.0).timeout
+#	_play_sound(TUTORIAL_LOW_HEALTH_2)
+#	await $TutorialAudio.finished
+#	await get_tree().create_timer(1.0).timeout
+#
+#	Input.vibrate_handheld(400)
+#	await get_tree().create_timer(1.0).timeout
 	
 	_play_sound(TUTORIAL_LOW_HEALTH_3)
 	await $TutorialAudio.finished
@@ -132,10 +135,13 @@ func _start_sequence():
 	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
-	_play_sound(TUTORIAL_PAUSE)
+	_play_sound(TUTORIAL_PAUSE) # TODO Replace this sound with appropriate controls (fr)
 	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
+	if Game.tutorial_from_menu:
+		Game.tutorial_from_menu = false
+		Global.goto_scene(MAIN_MENU)
 	Global.goto_scene(OPENING_SEQUENCE)
 
 
@@ -145,7 +151,28 @@ func _play_sound(stream):
 	$TutorialAudio.stream = stream
 	$TutorialAudio.play()
 
+
 func _spawn_ghost():
 	var _ghost = GHOST.instantiate()
 	call_deferred("add_child", _ghost)
 	return _ghost
+
+
+func _load_sounds():
+	TUTORIAL_AIM = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_AIM.wav")
+	TUTORIAL_CAPTURE_END = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_CAPTURE_END.wav")
+	TUTORIAL_CAPTURE_READY = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_CAPTURE_READY.wav")
+	TUTORIAL_CAPTURE_START = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_CAPTURE_START.wav")
+	TUTORIAL_LOW_HEALTH_1 = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_LOW_HEALTH_1.wav")
+	TUTORIAL_LOW_HEALTH_2 = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_LOW_HEALTH_2.wav")
+	TUTORIAL_LOW_HEALTH_3 = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_LOW_HEALTH_3.wav")
+	TUTORIAL_PAUSE = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_PAUSE.wav")
+	TUTORIAL_WRAITH = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH.wav")
+	TUTORIAL_WRAITH_ATTACK_1 = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH_ATTACK_1.wav")
+	TUTORIAL_WRAITH_ATTACK_2 = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH_ATTACK_2.wav")
+	TUTORIAL_WRAITH_MOVE = load("res://audio/tutorial/" + Config.config.language + "/TUTORIAL_WRAITH_MOVE.wav")
+
+	# SFX
+	WRAITH_GROWL = load("res://audio/sound_fx/ghost/creature-growl01.wav")
+	WRAITH_ATTACK = load("res://audio/sound_fx/ghost/Monster_Roar_2.wav")
+	LOW_HEALTH = load("res://audio/sound_fx/player/human-breathingrapid01.wav") #TODO change to heartbeat
