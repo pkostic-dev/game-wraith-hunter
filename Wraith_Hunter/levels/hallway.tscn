@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://lltuqcke8sej"]
+[gd_scene load_steps=5 format=3 uid="uid://lltuqcke8sej"]
 
-[node name="hallway" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="1_esn4d"]
+[ext_resource type="PackedScene" uid="uid://dh25gq4708rgf" path="res://hunting/ghost_spawner.tscn" id="2_vjufw"]
+[ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="3_1wq0k"]
+[ext_resource type="PackedScene" uid="uid://b67rk41n4xrto" path="res://hunting/ambiance_object.tscn" id="4_egchj"]
+
+[node name="Hallway" type="Node3D"]
+
+[node name="Room" parent="." instance=ExtResource("1_esn4d")]
+
+[node name="GhostSpawner" parent="." instance=ExtResource("2_vjufw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Player" parent="." instance=ExtResource("3_1wq0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="AmbianceObject" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 0)
+ambiance_sound = 8
+
+[node name="AmbianceObject2" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3, 0)
+ambiance_sound = 9
+
+[node name="AmbianceObject3" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
+ambiance_sound = 4
+continuous = true
