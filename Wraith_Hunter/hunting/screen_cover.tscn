@@ -5,6 +5,11 @@
 [node name="ScreenCover" type="CanvasLayer"]
 script = ExtResource("1_sc2y3")
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(4000, 0, 4000, 4000, 0, 4000, 0, 0)
+
 [node name="BlackRect" type="ColorRect" parent="."]
 visible = false
 anchors_preset = 15
