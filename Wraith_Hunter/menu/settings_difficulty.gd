@@ -51,7 +51,7 @@ func stop_all_sounds():
 func _on_easy_pressed():
 	$MenuSounds.play_confirm()
 	await get_tree().create_timer(0.3).timeout
-	Config.config.difficulty = "easy"
+	Config.config.difficulty = Config.Difficulty.EASY
 	Config.save_config()
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
@@ -59,7 +59,7 @@ func _on_easy_pressed():
 func _on_medium_pressed():
 	$MenuSounds.play_confirm()
 	await get_tree().create_timer(0.3).timeout
-	Config.config.difficulty = "medium"
+	Config.config.difficulty = Config.Difficulty.MEDIUM
 	Config.save_config()
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
@@ -67,7 +67,7 @@ func _on_medium_pressed():
 func _on_hard_pressed():
 	$MenuSounds.play_confirm()
 	await get_tree().create_timer(0.3).timeout
-	Config.config.difficulty = "hard"
+	Config.config.difficulty = Config.Difficulty.HARD
 	Config.save_config()
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
