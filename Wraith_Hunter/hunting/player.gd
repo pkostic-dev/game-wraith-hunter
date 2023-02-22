@@ -77,7 +77,10 @@ func _physics_process(_delta):
 		emit_signal("wraith_locked_on")
 		if not vibrated:
 			vibrated = true
-			Input.vibrate_handheld(400)
+			if OS.has_feature("mobile"):
+				Input.vibrate_handheld(400)
+			else:
+				$VibrateSound.play()
 	else:
 		vibrated = false
 		raycast_debug.mesh.material.albedo_color = Color.YELLOW_GREEN

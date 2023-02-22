@@ -72,4 +72,6 @@ shape = SubResource("BoxShape3D_fd8vi")
 [node name="BreathingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_s1idu")
 
+[node name="VibrateSound" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
