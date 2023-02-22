@@ -43,34 +43,44 @@ func stop_all_sounds():
 	%Back.stop()
 	
 func _on_easy_pressed():
-	%Back.play()
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
 	Config.config.difficulty = "easy"
-	await %Back.finished
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_medium_pressed():
-	%Back.play()
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
 	Config.config.difficulty = "medium"
-	await %Back.finished
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_hard_pressed():
-	%Back.play()
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
 	Config.config.difficulty = "hard"
-	await %Back.finished
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_back_pressed():
+	$MenuSounds.play_cancel()
+	await get_tree().create_timer(0.3).timeout
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_easy_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%EasySound.play()
 	
 func _on_medium_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%MediumSound.play()
 	
 func _on_hard_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%HardSound.play()
 
 func _on_back_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%Back.play()

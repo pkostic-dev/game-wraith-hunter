@@ -58,21 +58,33 @@ func _on_wraith_pressed():
 	pass # Replace with function body.
 
 func _on_back_pressed():
+	$MenuSounds.play_cancel()
+	await get_tree().create_timer(0.3).timeout
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_environment_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%EnvironmentSound.play()
 
 func _on_voice_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%VoiceSound.play()
 
 
 func _on_music_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%MusicSound.play()
 	
 func _on_wraith_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%WraithSound.play()
 	
 func _on_back_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%BackToMain.play()
 	

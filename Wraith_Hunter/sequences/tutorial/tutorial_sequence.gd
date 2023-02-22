@@ -53,7 +53,7 @@ func _ready():
 	var spawn_position = Vector3(0, 0, randf_range(-9, 9))
 	if spawn_position.z <= 2 and spawn_position.z >= -2:
 		spawn_position.z = -8
-	ghost = await _spawn_ghost()
+	ghost = _spawn_ghost()
 	ghost.set_process(false)
 	ghost.behavior = ghost.Behavior.IDLE
 	ghost.default_behavior = ghost.Behavior.IDLE

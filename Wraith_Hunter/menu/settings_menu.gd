@@ -56,33 +56,53 @@ func stop_all_sounds():
 	%BackToMain.stop()
 	
 func _on_tutorial_pressed():
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
 	Game.tutorial_from_menu = true
 	Global.goto_scene("res://sequences/tutorial/tutorial_sequence.tscn")
 
 func _on_difficulty_pressed():
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
 	Global.goto_scene("res://menu/settings_difficulty.tscn")
 
 func _on_sounds_pressed():
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
 	Global.goto_scene("res://menu/settings_sounds.tscn")
 
 func _on_language_pressed():
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
 	Global.goto_scene("res://menu/settings_language.tscn")
 
 func _on_back_pressed():
+	$MenuSounds.play_cancel()
+	await get_tree().create_timer(0.3).timeout
 	Global.goto_scene("res://menu/main_menu.tscn")
 
 func _on_tutorial_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%TutorialRedo.play() 
 
 func _on_difficulty_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%DifficultySettings.play()
 
 func _on_sounds_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%SoundsSettings.play()
 
 func _on_language_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%LanguageSettings.play()
 
 func _on_back_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%BackToMain.play()
 	

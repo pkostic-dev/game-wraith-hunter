@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://viupjcu6cf15"]
+[gd_scene load_steps=5 format=3 uid="uid://viupjcu6cf15"]
 
 [ext_resource type="Script" path="res://sequences/tutorial/tutorial_sequence.gd" id="1_2x1av"]
 [ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="3_xgw5d"]
+[ext_resource type="PackedScene" uid="uid://biclbdrxne6np" path="res://hunting/screen_cover.tscn" id="4_55cvc"]
 [ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="4_nngn7"]
 
 [node name="TutorialSequence" type="Node3D"]
@@ -14,3 +15,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, 0)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, 0)
 
 [node name="Room" parent="." instance=ExtResource("4_nngn7")]
+
+[node name="ScreenCover" parent="." instance=ExtResource("4_55cvc")]

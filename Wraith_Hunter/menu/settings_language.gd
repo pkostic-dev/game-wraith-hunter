@@ -41,19 +41,33 @@ func stop_all_sounds():
 
 
 func _on_french_pressed():
-	pass # Replace with function body.
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
+	Config.config.language = "fr"
+	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_english_pressed():
-	pass # Replace with function body.
+	$MenuSounds.play_confirm()
+	await get_tree().create_timer(0.3).timeout
+	Config.config.language = "en"
+	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_back_pressed():
+	$MenuSounds.play_cancel()
+	await get_tree().create_timer(0.3).timeout
 	Global.goto_scene("res://menu/settings_menu.tscn")
 
 func _on_french_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%FrenchSound.play()
 
 func _on_english_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%EnglishSound.play()
 	
 func _on_back_focus_entered():
+	$MenuSounds.play_pointer()
+	await get_tree().create_timer(0.3).timeout
 	%BackToMain.play()
