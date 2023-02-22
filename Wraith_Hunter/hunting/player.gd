@@ -37,7 +37,7 @@ func _process(delta):
 	if can_aim:
 		head.transform.basis = new_basis
 	
-		# DEBUG : Simulate gyroscope for debugging on PC
+		# PC controls
 		if Input.is_action_pressed("ui_left"):
 			head.transform.basis = rotate_by_gyro(Vector3.UP, head.transform.basis, delta).orthonormalized()
 		
@@ -47,6 +47,17 @@ func _process(delta):
 	# DEBUG : Simulate screen touch for debugging on PC
 #	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 #		_capture()
+
+	if Input.is_action_just_pressed("ui_select") and can_capture:
+		is_capturing = true
+		new_touch = true
+
+	if Input.is_action_just_released("ui_select"):
+		is_capturing = false
+		if $CapturingSound.playing:
+			fade_out_tween = get_tree().create_tween().set_parallel(true)
+			fade_out_tween.tween_property($CapturingSound, "volume_db", -100.0, 3)
+			fade_out_tween.tween_property($CapturingSound, "pitch_scale", 0.1, 3)
 
 	if is_capturing:
 		_capture()
@@ -73,6 +84,7 @@ func _physics_process(_delta):
 
 
 func _unhandled_input(event):
+	# Mobile touch/mouse controls
 	if event is InputEventMouseButton:
 		if event.pressed and can_capture:
 			is_capturing = true
