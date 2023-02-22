@@ -40,7 +40,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 doppler_tracking = 2
 current = true
-fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Head"]
 target_position = Vector3(0, 0, -20)
@@ -59,6 +58,7 @@ bus = &"Player"
 
 [node name="CapturingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_ex058")
+volume_db = -10.0
 bus = &"Capture"
 
 [node name="Area3D" type="Area3D" parent="."]

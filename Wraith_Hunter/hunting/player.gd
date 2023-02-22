@@ -15,13 +15,20 @@ var fade_out_tween:Tween
 var gravity:Vector3
 var gyroscope:Vector3
 
+var capturing_original_db:float
+
 @onready var head := $Head
 @onready var raycast := $Head/RayCast3D
 @onready var raycast_debug := $Head/RayCast3D/RayCastDebug
 
 signal wraith_locked_on
 
-func _process(delta):
+
+func _ready():
+	capturing_original_db = $CapturingSound.volume_db
+
+
+func _process(delta):	
 	gravity   = Input.get_gravity()
 	gyroscope = Input.get_gyroscope()
 	
@@ -85,7 +92,7 @@ func _capture():
 			var ghost = collider.get_parent()
 			ghost.capture(capture_rate)
 			_stop_capturing_fade_out()
-			$CapturingSound.volume_db = 0.0
+			$CapturingSound.volume_db = capturing_original_db
 			$CapturingSound.pitch_scale = 1.0
 			if not $CapturingSound.playing:
 				$CapturingSound.play()
