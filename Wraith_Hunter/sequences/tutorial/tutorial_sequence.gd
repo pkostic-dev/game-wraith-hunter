@@ -47,7 +47,9 @@ var ghost
 
 func _ready():
 	# Create a ghost
-	var spawn_position = Vector3(randf_range(-9, 9), 0, 0)
+	var spawn_position = Vector3(0, 0, randf_range(-9, 9))
+	if spawn_position.z <= 2 and spawn_position.z >= -2:
+		spawn_position.z = -8
 	ghost = await _spawn_ghost()
 	ghost.set_process(false)
 	ghost.behavior = ghost.Behavior.IDLE
@@ -61,6 +63,7 @@ func _ready():
 
 func _start_sequence():
 	$Player.can_aim = false
+	$Player.can_capture = false
 	
 	_play_sound(WRAITH_GROWL)
 	await get_tree().create_timer(2.0).timeout
@@ -86,6 +89,7 @@ func _start_sequence():
 	await $TutorialAudio.finished
 	await get_tree().create_timer(1.0).timeout
 	
+	$Player.can_capture = true
 	ghost.set_process(true)
 	await ghost.died
 	

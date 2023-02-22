@@ -4,6 +4,7 @@ var RECOVER_SEQUENCE := "res://sequences/recover/recover_sequence.tscn"
 
 var vibrated := false
 var can_aim := true
+var can_capture := true
 var is_capturing := false
 var new_touch := true
 var capture_rate := 3.0
@@ -65,8 +66,8 @@ func _physics_process(_delta):
 
 
 func _unhandled_input(event):
-	if event is InputEventScreenTouch or event is InputEventMouseButton:
-		if event.pressed:
+	if event is InputEventMouseButton:
+		if event.pressed and can_capture:
 			is_capturing = true
 			new_touch = true
 		if not event.pressed:
