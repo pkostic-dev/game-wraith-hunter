@@ -142,7 +142,7 @@ func _start_sequence():
 	if Game.tutorial_from_menu:
 		Game.tutorial_from_menu = false
 		Global.goto_scene(MAIN_MENU)
-	Global.goto_scene(OPENING_SEQUENCE)
+	Global.goto_scene(Game.current_level)
 
 
 func _play_sound(stream):

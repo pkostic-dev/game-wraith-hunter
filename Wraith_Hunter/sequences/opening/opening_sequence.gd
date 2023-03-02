@@ -5,6 +5,7 @@ var OPENING_HANDLER
 var OPENING_REAPER
 var OPENING_WRAITHS
 
+var TUTORIAL_SEQUENCE := "res://sequences/tutorial/tutorial_sequence.tscn"
 
 func _ready():
 	_load_sounds()
@@ -29,8 +30,8 @@ func _start_sequence():
 	await get_tree().create_timer(1.0).timeout
 	
 	# TODO Play door opening sound
-	
-	Global.goto_scene(Game.first_level)
+	Global.goto_scene(TUTORIAL_SEQUENCE)
+	#Global.goto_scene(Game.current_level)
 
 
 func _play_sound(stream):

@@ -60,19 +60,19 @@ func _process(_delta):
 
 
 func _start_sequence():
-#	await get_tree().create_timer(3.0).timeout
-#	_play_sound(SETUP_SOUND_CHECK)
-#	await $SetupAudio.finished
-#
-#	await get_tree().create_timer(1.0).timeout
-#	_play_sound(SETUP_CHAIR)
-#	await $SetupAudio.finished
-#
-#	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(3.0).timeout
+	_play_sound(SETUP_SOUND_CHECK)
+	await $SetupAudio.finished
+
+	await get_tree().create_timer(1.0).timeout
+	_play_sound(SETUP_CHAIR)
+	await $SetupAudio.finished
+
+	await get_tree().create_timer(1.0).timeout
 	_play_sound(SETUP_CALIBRATION)
 	await $SetupAudio.finished
 	
-	if OS.has_feature("pc"):
+	if OS.has_feature("mobile"):
 		await get_tree().create_timer(1.0).timeout
 #		var bus_id = AudioServer.get_bus_index($SetupAudio.bus)
 #		AudioServer.set_bus_volume_db(bus_id, -40)

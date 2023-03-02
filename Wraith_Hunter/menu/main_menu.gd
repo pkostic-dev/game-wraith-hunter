@@ -3,7 +3,6 @@ extends Node3D
 
 var focus_button
 
-var TUTORIAL_SEQUENCE := "res://sequences/tutorial/tutorial_sequence.tscn"
 var OPENING_SEQUENCE := "res://sequences/opening/opening_sequence.tscn"
 
 
@@ -61,10 +60,7 @@ func stop_all_sounds():
 func _on_start_game_pressed():
 	$MenuSounds.play_confirm()
 	await get_tree().create_timer(0.3).timeout
-	if Global.first_playthrough:
-		Global.goto_scene(TUTORIAL_SEQUENCE)
-	else:
-		Global.goto_scene(OPENING_SEQUENCE)
+	Global.goto_scene(OPENING_SEQUENCE)
 
 
 func _on_settings_pressed():
