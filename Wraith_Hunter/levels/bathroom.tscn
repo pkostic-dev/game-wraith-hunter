@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://ds6tuxetnu8ry"]
+[gd_scene load_steps=6 format=3 uid="uid://ds6tuxetnu8ry"]
+
+[ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="1_22rqs"]
+[ext_resource type="PackedScene" uid="uid://dh25gq4708rgf" path="res://hunting/ghost_spawner.tscn" id="2_q3nn4"]
+[ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="3_8qrbq"]
+[ext_resource type="PackedScene" uid="uid://b67rk41n4xrto" path="res://hunting/ambiance_object.tscn" id="4_yegeg"]
+[ext_resource type="PackedScene" uid="uid://biclbdrxne6np" path="res://hunting/screen_cover.tscn" id="5_hg8gd"]
 
 [node name="bathroom" type="Node3D"]
+
+[node name="Room" parent="." instance=ExtResource("1_22rqs")]
+
+[node name="GhostSpawner" parent="." instance=ExtResource("2_q3nn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Player" parent="." instance=ExtResource("3_8qrbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="AmbianceObject" parent="." instance=ExtResource("4_yegeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.90445, 2, 8.82654)
+ambiance_sound = 8
+repeat_time_min = 5.8
+repeat_time_max = 10.9
+
+[node name="AmbianceObject2" parent="." instance=ExtResource("4_yegeg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.90445, 3, 8.82654)
+ambiance_sound = 9
+repeat_time_min = 6.1
+repeat_time_max = 8.9
+
+[node name="ScreenCover" parent="." instance=ExtResource("5_hg8gd")]

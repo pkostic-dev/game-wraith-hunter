@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct53l54pudhp2"]
+[gd_scene load_steps=8 format=3 uid="uid://ct53l54pudhp2"]
 
 [ext_resource type="Script" path="res://menu/settings_sounds.gd" id="1_6as15"]
 [ext_resource type="AudioStream" uid="uid://xdkjxsqpvl4n" path="res://audio/menu/fr/MENU_SOUNDS_ENVIRONMENT.wav" id="2_343dc"]
 [ext_resource type="AudioStream" uid="uid://ss0as1ro02vo" path="res://audio/menu/fr/MENU_SOUNDS_VOICE.wav" id="3_gxcdg"]
 [ext_resource type="AudioStream" uid="uid://etqqobak5upj" path="res://audio/menu/fr/MENU_SOUNDS_MUSIC.wav" id="4_acy82"]
 [ext_resource type="AudioStream" uid="uid://dmi8knq8450xu" path="res://audio/menu/fr/MENU_SOUNDS_GHOST.wav" id="5_ypsnu"]
+[ext_resource type="PackedScene" uid="uid://cj7vd31ifh2bm" path="res://menu/menu_sounds.tscn" id="6_0isk5"]
+[ext_resource type="AudioStream" uid="uid://dq1q8bo8ml0w8" path="res://audio/menu/fr/BACK_PREVIOUS_MENU.wav" id="6_715pv"]
 
 [node name="settings_sounds" type="Node3D"]
 script = ExtResource("1_6as15")
@@ -80,7 +82,10 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+stream = ExtResource("6_715pv")
 bus = &"Narrator"
+
+[node name="MenuSounds" parent="." instance=ExtResource("6_0isk5")]
 
 [connection signal="focus_entered" from="Container/Environment" to="." method="_on_environment_focus_entered"]
 [connection signal="pressed" from="Container/Environment" to="." method="_on_environment_pressed"]

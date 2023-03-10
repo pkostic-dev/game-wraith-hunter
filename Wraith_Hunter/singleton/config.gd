@@ -12,12 +12,19 @@ var default_config:Dictionary = {
 	# TODO : Add other settings here
 }
 
+var keys := ["difficulty", "master_volume", "music_volume", "language"]
+
+enum Difficulty {EASY, MEDIUM, HARD}
+
 func _ready():
 	var config_file := load_file(CONFIG_FILE_PATH)
 	if config_file == null:
 		create_default_config()
 	else:
-		load_config()
+		if config.has_all(keys):
+			load_config()
+		else:
+			create_default_config()
 	print(config)
 
 

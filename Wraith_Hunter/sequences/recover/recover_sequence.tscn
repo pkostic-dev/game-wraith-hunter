@@ -4,3 +4,5 @@
 
 [node name="RecoverSequence" type="Node3D"]
 script = ExtResource("1_1iudu")
+
+[node name="RecoverAudio" type="AudioStreamPlayer" parent="."]

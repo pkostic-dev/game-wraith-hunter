@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://beoruhdya4mes"]
+[gd_scene load_steps=6 format=3 uid="uid://beoruhdya4mes"]
 
 [ext_resource type="Script" path="res://menu/settings_language.gd" id="1_03gpv"]
+[ext_resource type="AudioStream" uid="uid://dq1q8bo8ml0w8" path="res://audio/menu/fr/BACK_PREVIOUS_MENU.wav" id="2_cgy6r"]
+[ext_resource type="AudioStream" uid="uid://b6c5wfs8xr0hh" path="res://audio/menu/fr/FRENCH.wav" id="2_gr4is"]
+[ext_resource type="PackedScene" uid="uid://cj7vd31ifh2bm" path="res://menu/menu_sounds.tscn" id="2_xd04a"]
+[ext_resource type="AudioStream" uid="uid://dnc3vwgqbf2hh" path="res://audio/menu/fr/ENGLISH.wav" id="3_c1yrb"]
 
 [node name="settings_language" type="Node3D"]
 script = ExtResource("1_03gpv")
@@ -22,6 +26,7 @@ text = "Français"
 
 [node name="FrenchSound" type="AudioStreamPlayer" parent="Container/French"]
 unique_name_in_owner = true
+stream = ExtResource("2_gr4is")
 bus = &"Narrator"
 
 [node name="English" type="Button" parent="Container" groups=["buttons"]]
@@ -34,6 +39,7 @@ text = "Anglais"
 
 [node name="EnglishSound" type="AudioStreamPlayer" parent="Container/English"]
 unique_name_in_owner = true
+stream = ExtResource("3_c1yrb")
 bus = &"Narrator"
 
 [node name="Back" type="Button" parent="Container" groups=["buttons"]]
@@ -46,7 +52,10 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+stream = ExtResource("2_cgy6r")
 bus = &"Narrator"
+
+[node name="MenuSounds" parent="." instance=ExtResource("2_xd04a")]
 
 [connection signal="focus_entered" from="Container/French" to="." method="_on_french_focus_entered"]
 [connection signal="pressed" from="Container/French" to="." method="_on_french_pressed"]

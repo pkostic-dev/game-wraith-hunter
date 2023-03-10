@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 var SETUP_SEQUENCE := "res://sequences/setup/setup_sequence.tscn"
 

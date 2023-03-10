@@ -15,8 +15,8 @@ enum Behavior {
 @export var side_to_side_speed := 10.0
 @export var move_during_capture := false
 @export var capture_speed_multiplier := 0.2
-@export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min := 7.0
-@export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max := 9.0
+@export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min := 1.0
+@export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max := 4.0
 
 var capture_delay := 0.1
 var being_captured := false
@@ -44,7 +44,8 @@ signal died
 
 func _ready():
 	# Play the sound if easy difficulty
-	#$GrowlSound.play()
+#	if Config.config.difficulty == Config.Difficulty.EASY:
+#		$GrowlSound.play()
 	
 	# Start the timer for the first time
 	growl_timer.wait_time = randf_range(repeat_time_min, repeat_time_max)
