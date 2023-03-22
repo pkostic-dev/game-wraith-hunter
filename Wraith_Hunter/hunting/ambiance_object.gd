@@ -11,11 +11,15 @@ enum AmbianceSound {
 	CAN_CRUSH_3,
 	DOOR_HANDLE_JIGGLE,
 	DOOR_KNOCKING,
+	ASSIETTE,
+	COUTEAU,
+	POMME,
+	MARCHE
 }
 
 @export_enum("DoorHandle1", "DoorHandle2", "OpenBook1", "OpenBook2",
 "Clock","CabinetShut", "CanClink4", "CanCrush3", "DoorHandleJiggle",
-"DoorKnocking") var ambiance_sound:int = 0
+"DoorKnocking", "Assiette", "Couteau", "Pomme", "Marche") var ambiance_sound:int = 0
 
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min:float = 10
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max:float = 20
@@ -50,13 +54,23 @@ func _ready():
 			audio_stream_player_3D.stream = load("res://audio/ambiance/Door_handle_jiggle_checking if locked.wav")
 		AmbianceSound.DOOR_KNOCKING:
 			audio_stream_player_3D.stream = load("res://audio/ambiance/Door_knocking_quiet.wav")
+		AmbianceSound.ASSIETTE:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/kitchen/assiette.wav")
+		AmbianceSound.COUTEAU:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/kitchen/couteau_qui_tombe.wav")
+		AmbianceSound.POMME:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/kitchen/pomme_croquee.wav")
+		AmbianceSound.MARCHE:
+			audio_stream_player_3D.stream = load("res://audio/ambiance/bedroom/marche.wav")
 	
 	# Start the timer for the first time
 	if continuous:
-		repeat_timer.wait_time = audio_stream_player_3D.stream.get_length()
+		repeat_timer_count.visible = false
+		audio_stream_player_3D.play()
+		ambiance_sound_name.modulate = Color.GREEN
 	else:
 		repeat_timer.wait_time = randf_range(repeat_time_min, repeat_time_max)
-	repeat_timer.start()
+		repeat_timer.start()
 	
 	# Change Label3D text to the corresponding sound
 	ambiance_sound_name.text = AmbianceSound.keys()[ambiance_sound]
@@ -71,13 +85,15 @@ func _on_repeat_timer_timeout():
 		# Play the sound
 		audio_stream_player_3D.play()
 		# Change the Label3D text color to green
-		ambiance_sound_name.modulate = Color(.2, 1, .2)
-	
-	# Repeat the timer
-	repeat_timer.wait_time = randf_range(repeat_time_min, repeat_time_max)
-	repeat_timer.start()
+		ambiance_sound_name.modulate = Color.GREEN
 
 
 func _on_audio_stream_player_3d_finished():
-	# Reset the color to white
-	ambiance_sound_name.modulate = Color(1, 1, 1)
+	if continuous:
+		$AudioStreamPlayer3D.play()
+	else:
+		# Reset the color to white
+		ambiance_sound_name.modulate = Color.WHITE
+		# Repeat the timer
+		repeat_timer.wait_time = randf_range(repeat_time_min, repeat_time_max)
+		repeat_timer.start()

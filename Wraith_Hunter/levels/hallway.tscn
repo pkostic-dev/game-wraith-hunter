@@ -1,3 +1,60 @@
-[gd_scene format=3 uid="uid://lltuqcke8sej"]
+[gd_scene load_steps=6 format=3 uid="uid://lltuqcke8sej"]
 
-[node name="hallway" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://dqd0uk0bfbakh" path="res://hunting/room.tscn" id="1_esn4d"]
+[ext_resource type="PackedScene" uid="uid://dh25gq4708rgf" path="res://hunting/ghost_spawner.tscn" id="2_vjufw"]
+[ext_resource type="PackedScene" uid="uid://bs1gtady780iy" path="res://hunting/player.tscn" id="3_1wq0k"]
+[ext_resource type="PackedScene" uid="uid://b67rk41n4xrto" path="res://hunting/ambiance_object.tscn" id="4_egchj"]
+[ext_resource type="PackedScene" uid="uid://biclbdrxne6np" path="res://hunting/screen_cover.tscn" id="5_pi5px"]
+
+[node name="Hallway" type="Node3D"]
+
+[node name="Room" parent="." instance=ExtResource("1_esn4d")]
+
+[node name="GhostSpawner" parent="." instance=ExtResource("2_vjufw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Player" parent="." instance=ExtResource("3_1wq0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+
+[node name="AmbianceObject" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14504, 2, 0)
+ambiance_sound = 8
+repeat_time_min = 5.8
+repeat_time_max = 10.9
+
+[node name="AmbianceObject2" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14504, 3, 0)
+ambiance_sound = 9
+repeat_time_min = 6.1
+repeat_time_max = 8.9
+
+[node name="AmbianceObject3" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0977, 2.65128, 6.91911)
+ambiance_sound = 4
+continuous = true
+
+[node name="AmbianceObject7" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71872, 3.91424, 6.57028)
+ambiance_sound = 5
+repeat_time_min = 19.8
+repeat_time_max = 26.2
+continuous = true
+
+[node name="AmbianceObject4" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.48437, 2.65128, -6.8308)
+ambiance_sound = 13
+repeat_time_min = 14.2
+repeat_time_max = 21.0
+
+[node name="AmbianceObject5" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.246747, 2, -8.92136)
+ambiance_sound = 9
+repeat_time_min = 13.2
+repeat_time_max = 16.2
+
+[node name="AmbianceObject6" parent="." instance=ExtResource("4_egchj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.246747, 3.42444, -8.92136)
+repeat_time_min = 5.8
+repeat_time_max = 10.9
+
+[node name="ScreenCover" parent="." instance=ExtResource("5_pi5px")]

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr8drgip4irip"]
+[gd_scene load_steps=8 format=3 uid="uid://dr8drgip4irip"]
 
 [ext_resource type="Script" path="res://menu/settings_menu.gd" id="1_krp18"]
 [ext_resource type="AudioStream" uid="uid://cknpimjbu74yu" path="res://audio/menu/fr/MENU_RESTART_TUTORIAL.wav" id="2_ibfvw"]
 [ext_resource type="AudioStream" uid="uid://hfb5wjv53wuj" path="res://audio/menu/fr/MENU_DIFFICULTY.wav" id="3_yglld"]
 [ext_resource type="AudioStream" uid="uid://40t1ik3x82jd" path="res://audio/menu/fr/MENU_SOUNDS.wav" id="4_1kqxa"]
+[ext_resource type="AudioStream" uid="uid://dq1q8bo8ml0w8" path="res://audio/menu/fr/BACK_PREVIOUS_MENU.wav" id="5_027ok"]
+[ext_resource type="AudioStream" uid="uid://dfsa375jl5yw2" path="res://audio/menu/fr/LANGUAGE_MENU.wav" id="5_pih6v"]
+[ext_resource type="PackedScene" uid="uid://cj7vd31ifh2bm" path="res://menu/menu_sounds.tscn" id="5_xsk8o"]
 
 [node name="menu_settings" type="Node3D"]
 script = ExtResource("1_krp18")
@@ -64,6 +67,7 @@ text = "Changer la langue"
 
 [node name="LanguageSettings" type="AudioStreamPlayer" parent="Container/Language"]
 unique_name_in_owner = true
+stream = ExtResource("5_pih6v")
 bus = &"Narrator"
 
 [node name="Back" type="Button" parent="Container" groups=["buttons"]]
@@ -76,7 +80,10 @@ text = "Retour"
 
 [node name="BackToMain" type="AudioStreamPlayer" parent="Container/Back"]
 unique_name_in_owner = true
+stream = ExtResource("5_027ok")
 bus = &"Narrator"
+
+[node name="MenuSounds" parent="." instance=ExtResource("5_xsk8o")]
 
 [connection signal="focus_entered" from="Container/Tutorial" to="." method="_on_tutorial_focus_entered"]
 [connection signal="pressed" from="Container/Tutorial" to="." method="_on_tutorial_pressed"]

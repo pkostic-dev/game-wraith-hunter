@@ -29,7 +29,7 @@ repeat_time_min = 16.4
 repeat_time_max = 27.5
 
 [node name="AmbianceObject4" parent="." instance=ExtResource("2_nrwnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48195, 1.87325, 4.94697)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48195, 1.87325, -7.05303)
 ambiance_sound = 4
 continuous = true
 
