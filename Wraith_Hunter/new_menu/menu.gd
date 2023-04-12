@@ -10,9 +10,9 @@ const TUTORIAL_SCENE = 0 # TODO : add scene path
 var menus:Array[Array] = [
 	main_menu, 
 	settings, 
-#	language, 
-#	sounds, 
-#	difficulty
+	language, 
+	sounds, 
+	difficulty,
 ]
 
 var main_menu:Array[Dictionary] = [
@@ -83,95 +83,119 @@ var settings:Array[Dictionary] = [
 	}
 ]
 
-var language:Dictionary = {
-	"french" : {
+var language:Array[Dictionary] = [
+	{
+		"string" : "French", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : sounds,
 		},
 	},
-	"english": {
+	{
+		"string" : "English", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : difficulty,
 		},
 	},
-	"back" : {
+	{
+		"string" : "Back", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CANCEL,
 		"action" : {
 			"type" : MenuActionType.MAIN_MENU,
 		},
 	},
-}
+]
 
-var sounds:Dictionary = {
-	"environment" : {
+var sounds:Array[Dictionary] = [
+	{
+		"string" : "Environment", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.SLIDER,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : []
 		},
 	},
-	"voice" : {
+	{
+		"string" : "Voice", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.SLIDER,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : []
 		},
 	},
-	"music" : {
+	{
+		"string" : "Music", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.SLIDER,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : []
 		},
 	},
-	"enemies" : {
+	{
+		"string" : "Enemies", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.SLIDER,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : []
 		},
 	},
-	"back" : {
+	{
+		"string" : "Back", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CANCEL,
 		"action" : {
 			"type" : MenuActionType.SETTINGS,
 		},
 	},
-}
+]
 
-var difficulty:Dictionary = {
-	"easy" : {
+var difficulty:Array[Dictionary] = [
+	{
+		"string" : "Easy", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : [],
 		},
 	},
-	"medium": {
+	{
+		"string" : "Medium", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : [],
 		},
 	},
-	"hard": {
+	{
+		"string" : "Hard", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CONFIGURE,
 			"args" : [],
 		},
 	},
-	"back" : {
+	{
+		"string" : "Back", # TODO : change to function for translation
+		"audio" : null, # TODO : add audio
 		"type" : MenuItemType.CANCEL,
 		"action" : {
 			"type" : MenuActionType.MAIN_MENU,
 		},
 	},
-}
+]
 
 var current_menu = settings
 var current_selection = 0
@@ -181,17 +205,21 @@ var current_selection = 0
 @onready var right_label:Label = %RightLabel
 
 func _ready():
-	center_label.text = current_menu[current_selection].string
-	var previous_index := _previous(current_menu, current_selection)
-	left_label.text = current_menu[previous_index].string
-	var next_index := _next(current_menu, current_selection)
-	right_label.text = current_menu[next_index].string
+	_set_labels()
+
+# TODO : play audio, integrate actions (switch?)
+
+func _input(event) -> void:
+	# Keyboard controls
+	if event.is_action_pressed("ui_left"):
+		current_selection = _previous(current_menu, current_selection)
+	if event.is_action_pressed("ui_right"):
+		current_selection = _next(current_menu, current_selection)
 	
-	_fit_side_labels()
-
-
-func _process(_delta):
-	pass
+	if event.is_action_pressed("ui_select") or event.is_action_pressed("ui_accept"):
+		print(current_menu[current_selection].action)
+	
+	_set_labels()
 
 
 func _next(array:Array, index:int) -> int:
@@ -204,6 +232,16 @@ func _previous(array:Array, index:int) -> int:
 	if index > 0:
 		return index - 1
 	return (array.size() - 1)
+
+
+func _set_labels() -> void:
+	center_label.text = current_menu[current_selection].string
+	var previous_index := _previous(current_menu, current_selection)
+	left_label.text = current_menu[previous_index].string
+	var next_index := _next(current_menu, current_selection)
+	right_label.text = current_menu[next_index].string
+	
+	_fit_side_labels()
 
 
 # Side labels are secondary, thus they are fitted around the CenterLabel
