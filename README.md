@@ -12,7 +12,7 @@ uses the touchscreen for controls. Debug controls allow to test the game on a
 desktop PC by simulating touch controls and the gyroscope using the mouse and 
 keyboard.
 
-The game is currently still in development stages.
+The game is currently still in the development stage.
 
 ## Running/exporting for Android
 
