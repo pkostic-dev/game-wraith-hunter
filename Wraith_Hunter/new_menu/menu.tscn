@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://drgkybkf4y84q"]
+[gd_scene load_steps=7 format=3 uid="uid://drgkybkf4y84q"]
 
 [ext_resource type="Script" path="res://new_menu/menu.gd" id="1_vdh3b"]
+[ext_resource type="AudioStream" uid="uid://cukelkh2xujkh" path="res://audio/menu/abs-confirm-1.wav" id="2_8kwxh"]
+[ext_resource type="AudioStream" uid="uid://dbkeoe0lhscsn" path="res://audio/menu/abs-cancel-1.wav" id="3_jtbuk"]
+[ext_resource type="AudioStream" uid="uid://7a8w1navm4bc" path="res://audio/menu/abs-pointer-1.wav" id="4_wo14n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5a7mw"]
 font_size = 64
@@ -67,3 +70,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
+
+[node name="ConfirmSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8kwxh")
+
+[node name="CancelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jtbuk")
+
+[node name="PointerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wo14n")
+
+[node name="SliderSound" type="AudioStreamPlayer" parent="."]
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]

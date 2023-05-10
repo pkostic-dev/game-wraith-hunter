@@ -18,9 +18,10 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://singleton/global.gd"
-Swipe="*res://singleton/swipe.gd"
+Swipe="res://singleton/swipe.gd"
 Config="*res://singleton/config.gd"
 Game="*res://singleton/game.gd"
+SwipeListener="*res://new_menu/swipe_listener.gd"
 
 [display]
 
@@ -47,6 +48,11 @@ Swipe={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://menu_translations.en.translation", "res://menu_translations.fr.translation")
 
 [layer_names]
 

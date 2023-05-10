@@ -25,7 +25,8 @@ func _ready():
 			load_config()
 		else:
 			create_default_config()
-	print(config)
+	TranslationServer.set_locale(config.language)
+	print_debug(config)
 
 
 func create_default_config():
