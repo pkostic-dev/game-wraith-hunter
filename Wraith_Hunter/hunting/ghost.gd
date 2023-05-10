@@ -65,7 +65,13 @@ func _process(_delta):
 	if (health <= 0.0) and not dying:
 		die()
 	
+	if dying:
+		$GhostEmoji.modulate = Color.RED
+		$GhostEmoji.modulate.a = 0.5
+	
 	if not being_captured:
+		if not dying:
+			$GhostEmoji.modulate = Color.WHITE
 		if $HurtSound.playing:
 			hurt_fade_out_tween = get_tree().create_tween()
 			hurt_fade_out_tween.tween_property($HurtSound, "volume_db", -100, 4)
@@ -75,6 +81,8 @@ func _process(_delta):
 
 
 func _physics_process(delta):
+	if dying:
+		position.y -= 0.01
 	match behavior:
 		Behavior.IDLE:
 			pass
@@ -93,6 +101,8 @@ func capture(capture_rate):
 		being_captured = true
 		health -= capture_rate
 		print("health =", health)
+		
+		$GhostEmoji.modulate = Color.YELLOW
 		
 		# Behavior
 		if not move_during_capture:
