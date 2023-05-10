@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://biclbdrxne6np"]
+[gd_scene load_steps=3 format=3 uid="uid://biclbdrxne6np"]
 
 [ext_resource type="Script" path="res://hunting/screen_cover.gd" id="1_sc2y3"]
+
+[sub_resource type="SystemFont" id="SystemFont_umexe"]
 
 [node name="ScreenCover" type="CanvasLayer"]
 script = ExtResource("1_sc2y3")
@@ -12,6 +14,9 @@ polygon = PackedVector2Array(4000, 0, 4000, 4000, 0, 4000, 0, 0)
 [node name="ToggleCover" type="CheckButton" parent="."]
 offset_right = 179.0
 offset_bottom = 31.0
+focus_mode = 0
+theme_override_fonts/font = SubResource("SystemFont_umexe")
+theme_override_font_sizes/font_size = 36
 button_pressed = true
 text = "Cover the Screen"
 

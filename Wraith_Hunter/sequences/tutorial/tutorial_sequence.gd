@@ -145,7 +145,9 @@ func _start_sequence():
 	Global.goto_scene(Game.current_level)
 
 
-func _play_sound(stream):
+func _play_sound(stream, volume:float = 1.0):
+	if volume != 1.0:
+		$TutorialAudio.volume_db = volume
 	if $TutorialAudio.playing:
 		$TutorialAudio.stop()
 	$TutorialAudio.stream = stream

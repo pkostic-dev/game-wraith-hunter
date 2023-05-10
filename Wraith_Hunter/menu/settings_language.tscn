@@ -57,6 +57,14 @@ bus = &"Narrator"
 
 [node name="MenuSounds" parent="." instance=ExtResource("2_xd04a")]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="focus_entered" from="Container/French" to="." method="_on_french_focus_entered"]
 [connection signal="pressed" from="Container/French" to="." method="_on_french_pressed"]
 [connection signal="focus_entered" from="Container/English" to="." method="_on_english_focus_entered"]
