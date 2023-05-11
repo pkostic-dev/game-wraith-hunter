@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj7vd31ifh2bm"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="AudioStream" uid="uid://cukelkh2xujkh" path="res://audio/menu/abs-confirm-1.wav" id="1_kk6vs"]
-[ext_resource type="Script" path="res://menu/menu_sounds.gd" id="1_y70kc"]
+[ext_resource type="Script" path="res://old_menu/menu_sounds.gd" id="1_y70kc"]
 [ext_resource type="AudioStream" uid="uid://dbkeoe0lhscsn" path="res://audio/menu/abs-cancel-1.wav" id="2_6fywp"]
 [ext_resource type="AudioStream" uid="uid://7a8w1navm4bc" path="res://audio/menu/abs-pointer-1.wav" id="3_ygybq"]
 

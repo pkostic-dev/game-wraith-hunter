@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://pae8b1nii04k"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_lh3hp"]
+[ext_resource type="Script" path="res://old_menu/main_menu.gd" id="1_lh3hp"]
 [ext_resource type="AudioStream" uid="uid://ce1kn1fx2qfj8" path="res://audio/menu/fr/MENU_SETTINGS_Prise2.wav" id="2_spcul"]
-[ext_resource type="PackedScene" uid="uid://cj7vd31ifh2bm" path="res://menu/menu_sounds.tscn" id="3_4isfp"]
+[ext_resource type="PackedScene" uid="uid://cj7vd31ifh2bm" path="res://old_menu/menu_sounds.tscn" id="3_4isfp"]
 
 [node name="menu_main" type="Node3D"]
 script = ExtResource("1_lh3hp")
