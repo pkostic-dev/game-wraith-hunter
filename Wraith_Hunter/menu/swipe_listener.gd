@@ -7,8 +7,8 @@ extends Node
 ## [method Input.parse_input_event].
 
 
-## True if a proper dragging event is generated, and no more can be generated 
-## until it is set to [code]false[/code] again.
+## This variable is [code]true[/code] if a proper dragging event is generated,
+## and no more can be generated until it is set to [code]false[/code] again.
 var waiting_for_release:bool = false
 
 
