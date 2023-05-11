@@ -38,6 +38,7 @@ func _ready():
 	check_config()
 	change_language(config.language)
 
+
 ## Checks whether the config file exists with [method load_file], and whether 
 ## it contain all the keys from [member keys]. If it fails these checks, a new 
 ## config file is created using [method create_default_config].
