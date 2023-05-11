@@ -26,7 +26,7 @@ func _spawn_ghost(_position):
 		match Config.config.difficulty:
 			Config.Difficulty.EASY:
 				pass
-			Config.Difficulty.MEDIUM:
+			Config.Difficulty.NORMAL:
 				_ghost.homing_speed = .3
 			Config.Difficulty.HARD:
 				_ghost.homing_speed = .4
