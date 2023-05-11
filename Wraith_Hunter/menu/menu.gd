@@ -288,8 +288,7 @@ func _input(event) -> void:
 				_play_audio()
 				_set_labels()
 			MenuActionType.CHANGE_LANGUAGE:
-				Config.config.language = _current_item.action.args
-				TranslationServer.set_locale(Config.config.language)
+				Config.change_language(_current_item.action.args)
 				print_debug("Config.config.language = ", Config.config.language)
 				# TODO : play a confirmation audio (e.g. "The language has been changed to [...]")
 			MenuActionType.CHANGE_DIFFICULTY:
