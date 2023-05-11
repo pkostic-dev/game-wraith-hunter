@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=7 format=3 uid="uid://b1waqm5orhklu"]
 
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_vdh3b"]
 [ext_resource type="AudioStream" uid="uid://cukelkh2xujkh" path="res://audio/menu/abs-confirm-1.wav" id="2_8kwxh"]
