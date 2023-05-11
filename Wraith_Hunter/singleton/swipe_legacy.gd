@@ -6,8 +6,9 @@ extends Node
 var swipe_start = null
 var screen_width = DisplayServer.window_get_size().x
 var screen_height = DisplayServer.window_get_size().y
-var minimum_drag_left_right = screen_width/3
-var minimum_drag_up_down = screen_height/3
+# /3 commented out to remove annoying error.
+var minimum_drag_left_right = screen_width#/3
+var minimum_drag_up_down = screen_height#/3
 
 var current_scene 
 var buttons_group
@@ -19,6 +20,7 @@ var x_min
 var x_max = 0
 var nb_buttons
 
+
 func swipe_event(event, container, buttons):
 	current_scene = container
 	buttons_group = buttons
@@ -29,6 +31,7 @@ func swipe_event(event, container, buttons):
 			swipe_start = event.get_position()
 		else:
 			_calculate_swipe(event.get_position())
+
 
 func _calculate_swipe(swipe_end):
 	if swipe_start == null: 
@@ -49,26 +52,31 @@ func _calculate_swipe(swipe_end):
 		else: 
 			_down()
 
+
 func _right():
 	print("swipe right")
 	swipe_right.emit()
 
+
 func _left():
 	print("swipe left")
 	swipe_left.emit()
-	
+
+
 func _up():
 	print("swipe up")
 	swipe_up.emit()
 	for button in buttons_group:
 		button.disabled = false
 
+
 func _down():
 	print("swipe down")
 	swipe_down.emit()
 	for button in buttons_group:
 		button.disabled = false
-	
+
+
 func move_scene_right():
 	if current_scene.position.x >= x_max:
 		current_scene.position.x -= screen_width * nb_buttons
@@ -76,6 +84,7 @@ func move_scene_right():
 		current_scene.position.x += screen_width
 	for button in buttons_group:
 		button.disabled = false
+
 
 func move_scene_left():
 	if current_scene.position.x <= x_min:
