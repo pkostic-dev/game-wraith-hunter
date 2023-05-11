@@ -53,7 +53,7 @@ pointing/emulate_touch_from_mouse=true
 [internationalization]
 
 locale/translation_remaps={}
-locale/translations=PackedStringArray("res://menu_translations.en.translation", "res://menu_translations.fr.translation")
+locale/translations=PackedStringArray("res://locale/menu_translations.en.translation", "res://locale/menu_translations.fr.translation")
 
 [layer_names]
 
