@@ -1,4 +1,8 @@
 extends Node
+
+## Old swipe singleton (disabled).
+
+
 var swipe_start = null
 var screen_width = DisplayServer.window_get_size().x
 var screen_height = DisplayServer.window_get_size().y
