@@ -11,17 +11,17 @@ config_version=5
 [application]
 
 config/name="Wraith Hunter"
-run/main_scene="res://main.tscn"
+run/main_scene="res://levels/hallway.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://singleton/global.gd"
-Swipe="res://singleton/swipe.gd"
+Swipe="res://singleton/swipe_legacy.gd"
 Config="*res://singleton/config.gd"
 Game="*res://singleton/game.gd"
-SwipeListener="*res://new_menu/swipe_listener.gd"
+SwipeListener="*res://menu/swipe_listener.gd"
 
 [display]
 
