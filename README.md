@@ -16,7 +16,7 @@ The game is currently still in the development stage.
 
 ## Documentation
 
-[Exporting for Android](Wraith_Hunter/docs/exporting_for_android.md)
+[Exporting for Android](Wraith_Hunter/docs/exporting_for_android.md)  
 [Style guide](Wraith_Hunter/docs/style_guide.md)  
 [Project Architecture](Wraith_Hunter/docs/project_architecture.md)  
 [Credits](Wraith_Hunter/docs/credits.md)
