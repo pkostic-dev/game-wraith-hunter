@@ -16,6 +16,7 @@ The game is currently still in the development stage.
 
 ## Documentation
 
+[Installing Godot (video)](https://youtu.be/Mt1cMyVeKFI)
 [Exporting for Android](Wraith_Hunter/docs/exporting_for_android.md)  
 [Style guide](Wraith_Hunter/docs/style_guide.md)  
 [Project Architecture](Wraith_Hunter/docs/project_architecture.md)  
