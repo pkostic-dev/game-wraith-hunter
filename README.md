@@ -31,16 +31,16 @@ First and foremost, follow the steps at [Exporting for Android](https://docs.god
 9. Close the 'Export Template Manager' window
 10. You can now export the project for Android in two ways
 11. USB debugging :
-  a. Enable developer mode and USB debugging on your device
-  b. Plug the device into your computer
-  c. Allow USB debugging once prompted on the device
-  d. In Godot, at the top right, click on the icon of a monitor with the play symbol in the middle
+  - Enable developer mode and USB debugging on your device
+  - Plug the device into your computer
+  - Allow USB debugging once prompted on the device
+  - In Godot, at the top right, click on the icon of a monitor with the play symbol in the middle
 12. Exporting to an APK file :
-  a. In the File Menu Bar click on 'Project > Export...'
-  b. Click on the Android preset
-  c. Click on 'Export Project...'
-  d. Choose the location
-  e. Click on 'Save' to export
+  - In the File Menu Bar click on 'Project > Export...'
+  - Click on the Android preset
+  - Click on 'Export Project...'
+  - Choose the location
+  - Click on 'Save' to export
   
 To enable the vibration feature in the game :
 1. In the File Menu Bar click on 'Project > Export...'
