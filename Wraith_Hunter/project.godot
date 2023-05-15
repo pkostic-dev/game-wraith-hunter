@@ -11,16 +11,23 @@ config_version=5
 [application]
 
 config/name="Wraith Hunter"
-run/main_scene="res://main.tscn"
+run/main_scene="res://levels/hallway.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://singleton/global.gd"
-Swipe="*res://singleton/swipe.gd"
+Swipe="res://singleton/swipe_legacy.gd"
 Config="*res://singleton/config.gd"
 Game="*res://singleton/game.gd"
+SwipeListener="*res://menu/swipe_listener.gd"
+
+[display]
+
+window/size/viewport_width=2400
+window/size/viewport_height=1080
+window/handheld/orientation=4
 
 [input]
 
@@ -43,6 +50,11 @@ Swipe={
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://locale/menu_translations.en.translation", "res://locale/menu_translations.fr.translation")
+
 [layer_names]
 
 3d_physics/layer_1="Capture"
@@ -52,3 +64,4 @@ pointing/emulate_touch_from_mouse=true
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
