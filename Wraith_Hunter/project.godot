@@ -18,10 +18,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://singleton/global.gd"
-Swipe="res://singleton/swipe_legacy.gd"
 Config="*res://singleton/config.gd"
 Game="*res://singleton/game.gd"
-SwipeListener="*res://menu/swipe_listener.gd"
+SwipeListener="*res://singleton/swipe_listener.gd"
 
 [display]
 
