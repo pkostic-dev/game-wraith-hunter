@@ -2,17 +2,16 @@
 <img src="https://raw.githubusercontent.com/pkostic-dev/game-wraith-hunter/main/Wraith_Hunter/icon.png" style="display:block; margin:auto; width:256px">
 </p>
 <h1 align="center">Wraith Hunter</h1>
-<p align="center">An audio-only ghost hunting game targetting Android smartphones</p>
+<p align="center"><i>An audio-only ghost hunting game </i></p>
 
 ## About
 
 Made in [Godot 4](https://www.godotengine.org) using GDScript. This game uses 
 binaural audio, haptic feedback, and the gyroscope sensor for gameplay. It also 
-uses the touchscreen for controls. Debug controls allow to test the game on a 
-desktop PC by simulating touch controls and the gyroscope using the mouse and 
+uses the touchscreen for controls. Debug controls allow testing on a computer by simulating touch controls and the gyroscope using the mouse and 
 keyboard.
 
-The game is currently still in the development stage.
+:warning: The game is currently still in the development stage.
 
 ## Documentation
 
