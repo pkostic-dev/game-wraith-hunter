@@ -16,11 +16,11 @@ const CONFIG_FILE_PATH := "user://config.json"
 
 ## Default configuration dictionary. Must contain all the keys listed in the 
 ## [member keys] [Array].
-const DEFAULT_CONFIG:Dictionary = {
-	"difficulty" : "normal",
-	"master_volume" : 100,
-	"music_volume" : 50,
-	"language" : "fr",
+var DEFAULT_CONFIG:Dictionary = {
+	difficulty = "normal",
+	master_volume = 100,
+	music_volume = 50,
+	language = "fr",
 }
 
 ## The different difficulty levels of the game. Not the same as level complexity.
@@ -33,10 +33,10 @@ enum Difficulty {
 
 ## Checks whether the config file exists and whether it is correct with 
 ## [method check_config].
-## Changes the language with [method change_language].
+## Changes the language with [method TranslationServer.set_locale].
 func _ready():
 	check_config()
-	change_language(config.language)
+	TranslationServer.set_locale(config.language)
 
 
 ## Checks whether the config file exists with [method load_file], and whether 
@@ -53,13 +53,9 @@ func check_config() -> void:
 			create_default_config()
 
 
-## Changes the locale of the game given a [String].
-func change_language(locale:String) -> void:
-	TranslationServer.set_locale(locale)
-
-
 ## Creates and saves a config file based on [member DEFAULT_CONFIG].
 func create_default_config():
+	print_debug("Creating default config...")
 	config = DEFAULT_CONFIG
 	save_config()
 
@@ -67,6 +63,7 @@ func create_default_config():
 ## Saves the config data by stringifying [member config] and saving the result 
 ## as a file to [member CONFIG_FILE_PATH]
 func save_config():
+	print_debug("Saving config...")
 	var data := JSON.stringify(config)
 	save_file(data, CONFIG_FILE_PATH)
 
@@ -74,6 +71,7 @@ func save_config():
 ## Loads the config file located at [member CONFIG_FILE_PATH].
 ## The file is parsed to JSON and stored into [member config] as a [Dictionary].
 func load_config():
+	print_debug("Loading config...")
 	var loaded_file := load_file(CONFIG_FILE_PATH)
 	var parsed_file = JSON.parse_string(loaded_file.get_as_text())
 	

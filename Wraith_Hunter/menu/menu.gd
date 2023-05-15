@@ -5,7 +5,8 @@ extends Control
 ## Menus are stored in [member menus]. Each menu is an [Array] of [Dictionary] 
 ## elements describing each menu item. A menu item contains the following key 
 ## values :
-## [br]- string : The text used by the [Label]s.
+## [br]- string : The text used by the [Label]s : LeftLabel, CenterLabel, and
+## RightLabel.
 ## [br]- audio : The path to the audio used to describe the menu item.
 ## [br]- sound : See [enum MenuItemSound].
 ## [br]- action : A [Dictionary] with the following key values :
@@ -38,7 +39,7 @@ const TUTORIAL_SEQUENCE = "res://sequences/tutorial/tutorial_sequence.tscn"
 var main_menu:Array[Dictionary] = [
 	{
 		"string" : "PLAY",
-		"audio" : "res://audio/menu/fr/MENU_STARTGAME.wav",
+		"audio" : "res://audio/menu/%s/MENU_STARTGAME.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_SCENE,
@@ -47,7 +48,7 @@ var main_menu:Array[Dictionary] = [
 	},
 	{
 		"string" : "SETTINGS",
-		"audio" : "res://audio/menu/fr/MENU_SETTINGS_Prise2.wav",
+		"audio" : "res://audio/menu/%s/MENU_SETTINGS_Prise2.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -59,7 +60,7 @@ var main_menu:Array[Dictionary] = [
 var settings:Array[Dictionary] = [
 	{
 		"string" : "TUTORIAL",
-		"audio" : "res://audio/menu/fr/MENU_RESTART_TUTORIAL.wav",
+		"audio" : "res://audio/menu/%s/MENU_RESTART_TUTORIAL.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_SCENE,
@@ -68,7 +69,7 @@ var settings:Array[Dictionary] = [
 	},
 	{
 		"string" : "LANGUAGE",
-		"audio" : "res://audio/menu/fr/LANGUAGE_MENU.wav",
+		"audio" : "res://audio/menu/%s/LANGUAGE_MENU.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -77,7 +78,7 @@ var settings:Array[Dictionary] = [
 	},
 	{
 		"string" : "SOUNDS",
-		"audio" : "res://audio/menu/fr/MENU_SOUNDS.wav",
+		"audio" : "res://audio/menu/%s/MENU_SOUNDS.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -86,7 +87,7 @@ var settings:Array[Dictionary] = [
 	},
 	{
 		"string" : "DIFFICULTY",
-		"audio" : "res://audio/menu/fr/MENU_DIFFICULTY.wav",
+		"audio" : "res://audio/menu/%s/MENU_DIFFICULTY.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -95,7 +96,7 @@ var settings:Array[Dictionary] = [
 	},
 	{
 		"string" : "BACK",
-		"audio" : "res://audio/menu/fr/BACK_PREVIOUS_MENU.wav",
+		"audio" : "res://audio/menu/%s/BACK_PREVIOUS_MENU.wav",
 		"sound" : MenuItemSound.CANCEL,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -107,7 +108,7 @@ var settings:Array[Dictionary] = [
 var language:Array[Dictionary] = [
 	{
 		"string" : "FRENCH",
-		"audio" : "res://audio/menu/fr/FRENCH.wav",
+		"audio" : "res://audio/menu/%s/FRENCH.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_LANGUAGE,
@@ -116,7 +117,7 @@ var language:Array[Dictionary] = [
 	},
 	{
 		"string" : "ENGLISH",
-		"audio" : "res://audio/menu/fr/ENGLISH.wav",
+		"audio" : "res://audio/menu/%s/ENGLISH.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_LANGUAGE,
@@ -125,7 +126,7 @@ var language:Array[Dictionary] = [
 	},
 	{
 		"string" : "BACK",
-		"audio" : "res://audio/menu/fr/BACK_PREVIOUS_MENU.wav",
+		"audio" : "res://audio/menu/%s/BACK_PREVIOUS_MENU.wav",
 		"sound" : MenuItemSound.CANCEL,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -137,7 +138,7 @@ var language:Array[Dictionary] = [
 var sounds:Array[Dictionary] = [
 	{
 		"string" : "ENVIRONMENT",
-		"audio" : "res://audio/menu/fr/MENU_SOUNDS_ENVIRONMENT.wav",
+		"audio" : "res://audio/menu/%s/MENU_SOUNDS_ENVIRONMENT.wav",
 		"sound" : MenuItemSound.SLIDER,
 		"action" : {
 			"type" : MenuActionType.VOLUME_SLIDE,
@@ -146,7 +147,7 @@ var sounds:Array[Dictionary] = [
 	},
 	{
 		"string" : "VOICE",
-		"audio" : "res://audio/menu/fr/MENU_SOUNDS_VOICE.wav",
+		"audio" : "res://audio/menu/%s/MENU_SOUNDS_VOICE.wav",
 		"sound" : MenuItemSound.SLIDER,
 		"action" : {
 			"type" : MenuActionType.VOLUME_SLIDE,
@@ -155,7 +156,7 @@ var sounds:Array[Dictionary] = [
 	},
 	{
 		"string" : "MUSIC",
-		"audio" : "res://audio/menu/fr/MENU_SOUNDS_MUSIC.wav",
+		"audio" : "res://audio/menu/%s/MENU_SOUNDS_MUSIC.wav",
 		"sound" : MenuItemSound.SLIDER,
 		"action" : {
 			"type" : MenuActionType.VOLUME_SLIDE,
@@ -164,7 +165,7 @@ var sounds:Array[Dictionary] = [
 	},
 	{
 		"string" : "ENEMIES",
-		"audio" : "res://audio/menu/fr/MENU_SOUNDS_GHOST.wav",
+		"audio" : "res://audio/menu/%s/MENU_SOUNDS_GHOST.wav",
 		"sound" : MenuItemSound.SLIDER,
 		"action" : {
 			"type" : MenuActionType.VOLUME_SLIDE,
@@ -173,7 +174,7 @@ var sounds:Array[Dictionary] = [
 	},
 	{
 		"string" : "BACK",
-		"audio" : "res://audio/menu/fr/BACK_PREVIOUS_MENU.wav",
+		"audio" : "res://audio/menu/%s/BACK_PREVIOUS_MENU.wav",
 		"sound" : MenuItemSound.CANCEL,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -185,7 +186,7 @@ var sounds:Array[Dictionary] = [
 var difficulty:Array[Dictionary] = [
 	{
 		"string" : "EASY",
-		"audio" : "res://audio/menu/fr/MENU_DIFFICULTY_EASY.wav",
+		"audio" : "res://audio/menu/%s/MENU_DIFFICULTY_EASY.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_DIFFICULTY,
@@ -194,7 +195,7 @@ var difficulty:Array[Dictionary] = [
 	},
 	{
 		"string" : "NORMAL",
-		"audio" : "res://audio/menu/fr/MENU_DIFFICULTY_NORMAL.wav",
+		"audio" : "res://audio/menu/%s/MENU_DIFFICULTY_NORMAL.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_DIFFICULTY,
@@ -203,7 +204,7 @@ var difficulty:Array[Dictionary] = [
 	},
 	{
 		"string" : "HARD",
-		"audio" : "res://audio/menu/fr/MENU_DIFFICULTY_HARD.wav",
+		"audio" : "res://audio/menu/%s/MENU_DIFFICULTY_HARD.wav",
 		"sound" : MenuItemSound.CONFIRM,
 		"action" : {
 			"type" : MenuActionType.CHANGE_DIFFICULTY,
@@ -212,7 +213,7 @@ var difficulty:Array[Dictionary] = [
 	},
 	{
 		"string" : "BACK",
-		"audio" : "res://audio/menu/fr/BACK_PREVIOUS_MENU.wav",
+		"audio" : "res://audio/menu/%s/BACK_PREVIOUS_MENU.wav",
 		"sound" : MenuItemSound.CANCEL,
 		"action" : {
 			"type" : MenuActionType.CHANGE_MENU,
@@ -288,9 +289,12 @@ func _input(event) -> void:
 				_play_audio()
 				_set_labels()
 			MenuActionType.CHANGE_LANGUAGE:
-				Config.change_language(_current_item.action.args)
+				Config.config.language = _current_item.action.args
+				TranslationServer.set_locale(_current_item.action.args)
+				
 				print_debug("Config.config.language = ", Config.config.language)
-				# TODO : play a confirmation audio (e.g. "The language has been changed to [...]")
+				# TODO : play a confirmation audio (e.g. "The language has been
+				# changed to [...]")
 			MenuActionType.CHANGE_DIFFICULTY:
 				Config.config.difficulty = _current_item.action.args
 				print_debug("Config.config.difficulty = ", Config.config.difficulty)
@@ -329,8 +333,13 @@ func _set_labels() -> void:
 ## Plays the audio associated with the current selection.
 func _play_audio() -> void:
 	var _current_item = current_menu[current_selection]
-	$Audio.stream = load(_current_item.audio)
-	$Audio.play()
+	var _audio = _current_item.audio
+	if "%s" in _audio:
+		_audio = _audio % Config.config.language
+	var _audio_exists := FileAccess.file_exists(_audio)
+	if _audio_exists:
+		$Audio.stream = load(_audio)
+		$Audio.play()
 
 
 ## Fits the side labels around the central label. Side labels are secondary, 
