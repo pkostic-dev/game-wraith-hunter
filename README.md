@@ -15,11 +15,14 @@ keyboard.
 
 ## Documentation
 
+### Using
 [Installing Godot (video)](https://youtu.be/Mt1cMyVeKFI)  
 [Exporting for Android](Wraith_Hunter/docs/exporting_for_android.md)  
+
+### Contributing
 [Style guide](Wraith_Hunter/docs/style_guide.md)  
 [Project Architecture](Wraith_Hunter/docs/project_architecture.md)  
-[Credits](Wraith_Hunter/docs/credits.md)
+[Credits](Wraith_Hunter/docs/credits.md)  
 
 ## Licensing
 
