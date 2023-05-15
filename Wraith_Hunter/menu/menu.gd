@@ -2,12 +2,13 @@ extends Control
 
 ## Constructs and manages menus from dictionaries.
 ##
-## Menus are stored in [member menus]. Each menu is an [Array] of [Dictionary] 
-## elements describing each menu item. A menu item contains the following key 
-## values :
+## Menus are stored in the [member menus] [Dictionary]. Each menu is an [Array]
+## of [Dictionary] elements describing each menu item. A menu item contains the
+## following key values :
 ## [br]- string : The text used by the [Label]s : LeftLabel, CenterLabel, and
 ## RightLabel.
-## [br]- audio : The path to the audio used to describe the menu item.
+## [br]- audio : The path to the audio used to describe the menu item. The
+## [code]%s[/code] is replaced by the language setting (e.g. "en", "fr").
 ## [br]- sound : See [enum MenuItemSound].
 ## [br]- action : A [Dictionary] with the following key values :
 ## [br]    - type : See [enum MenuActionType].
