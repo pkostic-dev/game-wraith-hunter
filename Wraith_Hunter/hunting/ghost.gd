@@ -16,7 +16,7 @@ enum Behavior {
 @export var move_during_capture := false
 @export var capture_speed_multiplier := 0.2
 @export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_min := 1.0
-@export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max := 4.0
+@export_range(0, 30, 0.1, "suffix:s", "or_greater") var repeat_time_max := 2.0
 
 var capture_delay := 0.1
 var being_captured := false
