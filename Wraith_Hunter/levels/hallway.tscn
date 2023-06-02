@@ -38,7 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71872, 3.91424, 6.57028)
 ambiance_sound = 5
 repeat_time_min = 19.8
 repeat_time_max = 26.2
-continuous = true
 
 [node name="AmbianceObject4" parent="." instance=ExtResource("4_egchj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.48437, 2.65128, -6.8308)
